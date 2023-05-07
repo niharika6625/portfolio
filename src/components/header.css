@@ -1,0 +1,33 @@
+.header-wrap{
+    background-color: #fff;
+}
+
+.header-wrapper{
+    display: flex;
+    position: sticky;
+    top: 0;
+    
+    justify-content: space-between;
+    box-shadow: gray;
+}
+
+.header-wrapper .header-link {
+   font-size: 25px;
+   width: 50%;
+}
+
+.header-wrapper img { 
+    width: 100%;
+    height: 100px;
+}
+
+.header-wrapper .header-link ul.links {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul a {
+ color: black;
+}

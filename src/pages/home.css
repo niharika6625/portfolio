@@ -1,0 +1,26 @@
+.section-1 {
+    display: flex;
+    margin: 100px;
+}
+.section-1 .title {
+    padding: 2em;
+    width: 100%;
+}
+.section-1 .image-wrap {
+    padding: 2em;
+    width: 100%;
+}
+.tech-images ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+.section-3-cards .cards{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+.section-3-cards .cards img{
+    width: 100%;
+}
