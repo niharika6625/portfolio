@@ -30,7 +30,7 @@ export default function Home() {
   const projectData = [
     {
       title: "Weather App",
-      imgUrl: { background1 },
+      imgUrl: background1,
       description:
         "It is a products cart application in which you can add remove products in your cart.",
       demoLink: "project 1",
@@ -38,15 +38,15 @@ export default function Home() {
     },
     {
       title: "Number Game",
-      imgUrl: { background2 },
+      imgUrl: background2,
       description:
         "It is a quiz application in which you can signUp and attempt any quiz and can check your score.XYZxyzXYZxyz.",
-      demoLink: "project 1",
+      demoLink: "/number-arrage",
       codeLink: "project 1",
     },
     {
       title: "Quiz App",
-      imgUrl: { background3 },
+      imgUrl: background3,
       description:
         "It is a advance To-do web application in which you can edit, delete and strike your tasks.It is a advance To-do web application in which you can edit, delete and strike your tasks.",
       demoLink: "project 1",
@@ -54,7 +54,7 @@ export default function Home() {
     },
     {
       title: "Data Fetch Application",
-      imgUrl: { background4 },
+      imgUrl: background4,
       description:
         "In this the data is fetched from different APIs on request.",
       demoLink: "project 1",
@@ -62,7 +62,7 @@ export default function Home() {
     },
     {
       title: "To-do List",
-      imgUrl: { background5 },
+      imgUrl: background5,
       description:
         "It is a advance To-do web application in which you can edit, delete and strike your tasks.",
       demoLink: "project 1",
@@ -70,7 +70,7 @@ export default function Home() {
     },
     {
       title: "Checkout Page",
-      imgUrl: { background1 },
+      imgUrl: background1,
       description:
         "It is a advance To-do web application in which you can edit, delete and strike your tasks.",
       demoLink: "project 1",

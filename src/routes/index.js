@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import Weather from "../pages/Weather";
 import TodoList from "../pages/TodoList";
+import NumberGame from "../pages/NumberGame";
 
 const routes = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const routes = createBrowserRouter([
   {
     path: "/todo-list",
     element: <TodoList />,
+  },
+  {
+    path: "/number-arrage",
+    element: <NumberGame />,
   },
 ]);
 
