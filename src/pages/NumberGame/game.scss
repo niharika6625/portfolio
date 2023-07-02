@@ -1,0 +1,47 @@
+.grid-container {
+    background-color: #99c2ff;
+    padding: 20px;
+    padding: 150px;
+  }
+  .numbers{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 30px;
+    .number-item{
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+        flex-basis: calc(24% - 40px);
+        &.active{
+          background-color: #414C6B;
+          color: white;
+        }
+    }
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    flex-basis: calc(24% - 40px);
+  }
+
+  .sub-items{
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .win-stage{
+    max-width: 50%;
+    .win-stage-buttons{
+      padding-top: 20px;
+    }
+  }
+
+  
