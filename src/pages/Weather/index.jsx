@@ -12,10 +12,13 @@ import Divider from "@mui/material/Divider";
 import { useState } from "react";
 import axios from "axios";
 import "./weather.css";
-
+import { useDispatch, useSelector } from "react-redux";
+import {updateWeatherdata, selectorWeather} from '../../store/reducers/weather'
 const Weather = () => {
+  const dispatch = useDispatch();
+  const { weatherData } = useSelector(selectorWeather)
   const [searchPlace, setSearchPlace] = useState("");
-  const [weatherData, setWeatherData] = useState(null);
+ 
 
   const handleSearchInputChange = (value) => {
     setSearchPlace(value);
@@ -37,7 +40,7 @@ const Weather = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
-    setWeatherData(result.data);
+      dispatch(updateWeatherdata(result.data))
     console.log("resut", result);
   };
 
@@ -76,7 +79,7 @@ const Weather = () => {
           >
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Chandigarh {weatherData?.name}
+                {weatherData?.name}
               </Typography>
               <Typography gutterBottom variant="subtitle2" component="div">
                 29/04/2023 Sat 14:50
