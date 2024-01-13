@@ -15,8 +15,11 @@ const CONSTANTS = {
 };
 
 const URL = {
+    HOME: '/',
     NUMBER_HISTORY: '/number-arrange-history',
-    NUMBER_DASHBOARD: '/number-arrange'
+    NUMBER_DASHBOARD: '/number-arrange',
+    WEATHER: '/weather',
+    WEATHER_DETAILS: '/weather/details'
 };
 
 export {

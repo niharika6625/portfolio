@@ -1,35 +1,39 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import Weather from "../pages/Weather";
-import TodoList from "../pages/TodoList";
+import WeatherDetails from "../pages/Weather/Details";
 import NumberGame from "../pages/NumberGame";
 import History from '../pages/NumberGame/History';
 import {URL} from '../helpers/constants';
+import PublicLayout from '../layouts/PublicLayout'
 const {
+  HOME,
   NUMBER_HISTORY,
-  NUMBER_DASHBOARD
+  NUMBER_DASHBOARD,
+  WEATHER,
+  WEATHER_DETAILS
 } = URL;
 
 const routes = createBrowserRouter([
   {
-    path: "/",
-    element: <Home />,
+    path: HOME,
+    element: <PublicLayout><Home /></PublicLayout> ,
   },
   {
-    path: "/weather",
-    element: <Weather />,
+    path: WEATHER,
+    element: <PublicLayout><Weather /></PublicLayout>,
   },
   {
-    path: "/todo-list",
-    element: <TodoList />,
+    path: WEATHER_DETAILS,
+    element: <PublicLayout><WeatherDetails /></PublicLayout>,
   },
   {
     path: NUMBER_DASHBOARD,
-    element: <NumberGame />,
+    element: <PublicLayout><NumberGame /></PublicLayout>,
   },
   {
     path: NUMBER_HISTORY,
-    element: <History />,
+    element: <PublicLayout><History /></PublicLayout>,
   },
 ]);
 

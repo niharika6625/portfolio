@@ -215,3 +215,9 @@ const NumberGame = () => {
 };
 
 export default NumberGame;
+
+
+//win sound is coming twice
+//UI of History Page
+// add numbers when the complete app is built
+//Login functionality yet to be created

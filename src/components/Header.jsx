@@ -3,26 +3,36 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
-import Logonew from "../images/whitelogo.png";
+import {Link, useNavigate} from 'react-router-dom';
+import Logonew from "../assets/images/whitelogo.png";
 import "./header.css";
+import {URL} from '../helpers/constants';
+const {
+  HOME,
+} = URL;
+
 
 export default function Header() {
+  const navigate = useNavigate();
+  const handleNavigate = (path) => {
+    navigate(path)
+  }
   return (
     <div className="header-wrap">
       <div className="header-wrapper container-c">
         <div>
-          <img src={Logonew} alt="logo" />
+          <div onClick={()=> handleNavigate(HOME)}><img src={Logonew} alt="logo" /></div>
         </div>
         <div className="header-link">
           <ul className="links">
             <li>
-              <a href="">About me</a>
+              <a href="#">About me</a>
             </li>
             <li>
-              <a href="">Tech Stack</a>
+              <a href="#">Tech Stack</a>
             </li>
             <li>
-              <a href="">Projects</a>
+              <a href="#">Projects</a>
             </li>
             <li>
               <a href="">Contact</a>
