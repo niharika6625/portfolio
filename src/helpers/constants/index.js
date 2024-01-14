@@ -15,6 +15,7 @@ const CONSTANTS = {
 };
 
 const URL = {
+    
     HOME: '/',
     NUMBER_HISTORY: '/number-arrange-history',
     NUMBER_DASHBOARD: '/number-arrange',
@@ -22,7 +23,21 @@ const URL = {
     WEATHER_DETAILS: '/weather/details'
 };
 
+const BASENAME=  '/portfolio';
+
+const addBaseNameToURL = (urlObject, baseName) => {
+    const updatedURL = {};
+    for (const key in urlObject) {
+        updatedURL[key] = `${baseName}${urlObject[key]}`;
+    }
+    return updatedURL;
+};
+
+const URL_WITH_BASENAME = addBaseNameToURL(URL, BASENAME)
+
 export {
+    BASENAME,
     CONSTANTS,
-    URL
+    URL,
+    URL_WITH_BASENAME,
 }

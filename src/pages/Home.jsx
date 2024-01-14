@@ -24,6 +24,9 @@ import CodeIcon from "@mui/icons-material/Code";
 import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlined';
 import Grid from "@mui/material/Grid";
 
+import { URL_WITH_BASENAME } from "../helpers/constants";
+const { NUMBER_DASHBOARD } = URL_WITH_BASENAME
+
 export default function Home() {
   const projectData = [
     {
@@ -40,7 +43,7 @@ export default function Home() {
       imgUrl: background2,
       description:
         "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
-      demoLink: "/number-arrange",
+      demoLink: NUMBER_DASHBOARD,
       codeLink: "project 1",
       about: "key features",
     }

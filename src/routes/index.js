@@ -35,6 +35,6 @@ const routes = createBrowserRouter([
     path: NUMBER_HISTORY,
     element: <PublicLayout><History /></PublicLayout>,
   },
-]);
+], {basename: '/portfolio'});
 
 export default routes;
