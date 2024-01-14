@@ -25,7 +25,10 @@ import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlin
 import Grid from "@mui/material/Grid";
 
 import { URL_WITH_BASENAME } from "../helpers/constants";
-const { NUMBER_DASHBOARD } = URL_WITH_BASENAME
+const { 
+  WEATHER,
+  NUMBER_DASHBOARD 
+} = URL_WITH_BASENAME
 
 export default function Home() {
   const projectData = [
@@ -34,7 +37,7 @@ export default function Home() {
       imgUrl: background1,
       description:
         "WeatherReact: A responsive weather application developed in React, delivering real-time forecasts and an immersive user experience.",
-      demoLink: "project 1",
+      demoLink: WEATHER,
       codeLink: "project 1",
       about: "key features",
     },
