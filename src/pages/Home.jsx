@@ -27,6 +27,7 @@ import Grid from "@mui/material/Grid";
 import { URL_WITH_BASENAME } from "../helpers/constants";
 const { 
   WEATHER,
+  WEATHER_DETAILS,
   NUMBER_DASHBOARD 
 } = URL_WITH_BASENAME
 
@@ -39,7 +40,7 @@ export default function Home() {
         "WeatherReact: A responsive weather application developed in React, delivering real-time forecasts and an immersive user experience.",
       demoLink: WEATHER,
       codeLink: "project 1",
-      about: "key features",
+      about: WEATHER_DETAILS,
     },
     {
       title: "Number-Arrange Game",
@@ -126,7 +127,7 @@ export default function Home() {
             {projectData.map(
               ({ title, description, demoLink, codeLink, imgUrl, about }) => {
                 return (
-                  <Grid item xs={4}>
+                  <Grid style={{margin: 'auto'}} item xs={4}>
                     <div>
                       <Card sx={{ maxWidth: 345 }}>
                         <CardMedia

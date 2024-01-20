@@ -5,8 +5,8 @@ import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import {Link, useNavigate} from 'react-router-dom';
 import Logonew from "../assets/images/whitelogo.png";
-import "./header.css";
 import {URL} from '../helpers/constants';
+import StyledHeaderWrapper from './StyledHeader'
 const {
   HOME,
 } = URL;
@@ -18,8 +18,8 @@ export default function Header() {
     navigate(path)
   }
   return (
-    <div className="header-wrap">
-      <div className="header-wrapper container-c">
+    <StyledHeaderWrapper >
+      <div className="header-content container-c">
         <div>
           <div onClick={()=> handleNavigate(HOME)}><img src={Logonew} alt="logo" /></div>
         </div>
@@ -39,7 +39,7 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="right-side-link">
           <Stack spacing={2} direction="row">
             <IconButton
             //onClick={handleClick}
@@ -54,6 +54,6 @@ export default function Header() {
           </Stack>
         </div>
       </div>
-    </div>
+    </StyledHeaderWrapper>
   );
 }

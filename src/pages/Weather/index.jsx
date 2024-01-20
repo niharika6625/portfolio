@@ -11,7 +11,7 @@ import Sunset from "../../assets/images/weather-2.jpeg";
 import Divider from "@mui/material/Divider";
 import { useState } from "react";
 import axios from "axios";
-import "./weather.css";
+import StyledWeatherWrapper from './StyledWeather'
 import { useDispatch, useSelector } from "react-redux";
 import {updateWeatherdata, selectorWeather} from '../../store/reducers/weather'
 const Weather = () => {
@@ -45,11 +45,13 @@ const Weather = () => {
   };
 
   return (
-    <div className="weather-app-wrapper">
+    <StyledWeatherWrapper>
       <div className="search-field">
+        <div className="title">
         <Typography gutterBottom variant="h5" component="div">
           Welcome to the Weather App
         </Typography>
+        </div>
         <Box m={4}>
           <TextField
             label="Enter a place"
@@ -107,7 +109,7 @@ const Weather = () => {
           </Card>
         </div>
       )}
-    </div>
+    </StyledWeatherWrapper>
   );
 };
 export default Weather;

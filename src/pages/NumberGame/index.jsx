@@ -135,7 +135,7 @@ const NumberGame = () => {
           <th>Time</th>
           <th>Win Date</th>
         </tr>
-        {historyList && historyList.map((item, index) => {
+        {historyList.map((item, index) => {
           return ( <tr>
             <td>{index+1}</td>
             <td>{item.steps}</td>
