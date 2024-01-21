@@ -1,5 +1,5 @@
 import React from "react";
-import Profile from "../assets/images/profile.jpeg";
+import Profile from "../assets/images/profile1.jpg";
 import HTML from "../assets/images/HTML1.png";
 import CSS from "../assets/images/css.png";
 import Git from "../assets/images/github.png";
@@ -100,7 +100,7 @@ export default function Home() {
             spacing={{xs: 2, md: 3}} 
             columns={{xs: 4, sm:8, md:12}}>
             {projectData.map(
-              ({ title, description, demoLink, codeLink, imgUrl, about }, index) => {
+              ({ title, description, demoLink, codeLink, imgUrl, about, newPage = false }, index) => {
                 return (
                   <Grid 
                     key={index} item xs={2} sm={4} md={4}>
@@ -123,11 +123,11 @@ export default function Home() {
                           </Typography>
                         </CardContent>
                         <CardActions sx={{justifyContent: 'space-between'}}>
-                          <a href={demoLink} target="_blank" rel="noreferrer">
+                          <a href={demoLink} target={newPage ? '_blank' : '_self'} rel="noreferrer">
                             <Button size="small" startIcon={<LaptopIcon />}>
                               Live Preview
                             </Button>
-                          </a>
+                          </a> 
                           <a href={codeLink} target="_blank" rel="noreferrer">
                             <Button size="small" startIcon={<CodeIcon />}>
                               View code

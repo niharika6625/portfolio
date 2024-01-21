@@ -20,7 +20,8 @@ const URL = {
     NUMBER_HISTORY: '/number-arrange-history',
     NUMBER_DASHBOARD: '/number-arrange',
     WEATHER: '/weather',
-    WEATHER_DETAILS: '/weather/details'
+    WEATHER_DETAILS: '/weather/details',
+    LOGIN: '/login'
 };
 
 const BASENAME=  '/portfolio';

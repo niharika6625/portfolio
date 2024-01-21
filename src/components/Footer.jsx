@@ -4,11 +4,11 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
-import "./footer.css";
+import StyledFooterWrapper from './StyledFooter'
 
 export default function Footer() {
   return (
-    <div className="footer-wrap">
+    <StyledFooterWrapper>
       <div className="footer-wrapper container-c">
         <div className="footer-image">
           <img src={Logonew} alt="logo" display="flex" />
@@ -55,6 +55,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </div>
+    </StyledFooterWrapper>
   );
 }

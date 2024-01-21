@@ -4,6 +4,7 @@ import Weather from "../pages/Weather";
 import WeatherDetails from "../pages/Weather/Details";
 import NumberGame from "../pages/NumberGame";
 import History from '../pages/NumberGame/History';
+import Login from '../pages/Login';
 import {URL} from '../helpers/constants';
 import PublicLayout from '../layouts/PublicLayout'
 const {
@@ -11,7 +12,8 @@ const {
   NUMBER_HISTORY,
   NUMBER_DASHBOARD,
   WEATHER,
-  WEATHER_DETAILS
+  WEATHER_DETAILS,
+  LOGIN,
 } = URL;
 
 const routes = createBrowserRouter([
@@ -34,6 +36,10 @@ const routes = createBrowserRouter([
   {
     path: NUMBER_HISTORY,
     element: <PublicLayout><History /></PublicLayout>,
+  },
+  {
+    path: LOGIN,
+    element: <PublicLayout><Login /></PublicLayout>,
   },
 ], {basename: '/portfolio'});
 
