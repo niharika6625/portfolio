@@ -10,8 +10,6 @@ import MUI from "../assets/images/mui.png";
 import React1 from "../assets/images/react1.svg";
 import VS from "../assets/images/VS.png";
 import Sass from "../assets/images/sass.png";
-import background1 from "../assets/images/bg1.jpeg";
-import background2 from "../assets/images/bg2.jpeg";
 import "./home.scss";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -23,35 +21,10 @@ import LaptopIcon from "@mui/icons-material/Laptop";
 import CodeIcon from "@mui/icons-material/Code";
 import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlined';
 import Grid from "@mui/material/Grid";
-
-import { URL_WITH_BASENAME } from "../helpers/constants";
-const { 
-  WEATHER,
-  WEATHER_DETAILS,
-  NUMBER_DASHBOARD 
-} = URL_WITH_BASENAME
+import { projectData } from "../helpers/constants/data";
 
 export default function Home() {
-  const projectData = [
-    {
-      title: "Weather App",
-      imgUrl: background1,
-      description:
-        "WeatherReact: A responsive weather application developed in React, delivering real-time forecasts and an immersive user experience.",
-      demoLink: WEATHER,
-      codeLink: "project 1",
-      about: WEATHER_DETAILS,
-    },
-    {
-      title: "Number-Arrange Game",
-      imgUrl: background2,
-      description:
-        "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
-      demoLink: NUMBER_DASHBOARD,
-      codeLink: "project 1",
-      about: "key features",
-    }
-  ];
+  
   return (
     <div className="page-wrapper container-c">
       <div className="section-1-wrap ">
@@ -123,15 +96,18 @@ export default function Home() {
         <h5> Few applications that I have built to showcase my knowledge </h5>
 
         <div className="card">
-          <Grid container rowSpacing={1}>
+          <Grid container 
+            spacing={{xs: 2, md: 3}} 
+            columns={{xs: 4, sm:8, md:12}}>
             {projectData.map(
-              ({ title, description, demoLink, codeLink, imgUrl, about }) => {
+              ({ title, description, demoLink, codeLink, imgUrl, about }, index) => {
                 return (
-                  <Grid style={{margin: 'auto'}} item xs={4}>
+                  <Grid 
+                    key={index} item xs={2} sm={4} md={4}>
                     <div>
-                      <Card sx={{ maxWidth: 345 }}>
+                      <Card>
                         <CardMedia
-                          sx={{ height: 140 }}
+                          sx={{ height: '15rem' }}
                           image={imgUrl}
                           title="app1"
                         />
@@ -146,7 +122,7 @@ export default function Home() {
                             Tech Stack used : HTML, CSS
                           </Typography>
                         </CardContent>
-                        <CardActions>
+                        <CardActions sx={{justifyContent: 'space-between'}}>
                           <a href={demoLink} target="_blank" rel="noreferrer">
                             <Button size="small" startIcon={<LaptopIcon />}>
                               Live Preview
