@@ -5,7 +5,8 @@ const {
   WEATHER,
   WEATHER_DETAILS,
   NUMBER_DASHBOARD,
-  LOGIN
+  LOGIN, 
+  TODOLIST
 } = URL_WITH_BASENAME
 
 const projectData = [
@@ -39,11 +40,11 @@ const projectData = [
       newPage: true,
     },
     {
-      title: "Number-Arrange Game",
+      title: "To-do List",
       imgUrl: background2,
       description:
-        "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
-      demoLink: NUMBER_DASHBOARD,
+        "To-do List",
+      demoLink: TODOLIST,
       codeLink: "project 1",
       about: "key features",
       newPage: false,

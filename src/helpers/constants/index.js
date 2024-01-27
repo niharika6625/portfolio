@@ -21,7 +21,9 @@ const URL = {
     NUMBER_DASHBOARD: '/number-arrange',
     WEATHER: '/weather',
     WEATHER_DETAILS: '/weather/details',
-    LOGIN: '/login'
+    LOGIN: '/login',
+    SIGNUP: '/signup',
+    TODOLIST: '/todo'
 };
 
 const BASENAME=  '/portfolio';

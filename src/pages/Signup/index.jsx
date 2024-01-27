@@ -6,9 +6,10 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
+import {useNavigate, Link } from 'react-router-dom';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
@@ -16,31 +17,38 @@ import Container from '@mui/material/Container';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import StyledLoginWrapper from './StyledLogin';
-import { validationSignInSchema } from '../../utils/validations/authValidation';
-import {URL_WITH_BASENAME} from '../../helpers/constants';
+import StyledSignupWrapper from './StyledSignup';
+import { validationSignupSchema } from '../../utils/validations/authValidation';
+import {URL} from '../../helpers/constants';
+import {generatedToken} from '../../utils/common';
 
-const {SIGNUP} = URL_WITH_BASENAME;
+const {LOGIN} = URL;
 
-const Login= ()=> {
+const Signup = () => {
+    const navigate = useNavigate()
 
     const [ openToast, setOpenToast] = useState({status: false, message: '', type: ''});
 
   const submit = async (data) => {
 
-    const result = await axios
+    const {confirmPassword, ...remainData} = data;
+    remainData.token = generatedToken
+
+    await axios
       .post(
-        `https://dummyjson.com/auth/login`, data
+        `https://portfolio-4339f-default-rtdb.europe-west1.firebasedatabase.app/users.json`, remainData
       )
       .then((data) => {
         console.log("Success:", data);
-        setOpenToast({status: true, message: 'Login Successful', type: 'success'})
-        localStorage.setItem('auth', JSON.stringify(data.data))
+        setOpenToast({status: true, message: 'Sign Up Successful', type: 'success'})
+        formik.resetForm()
+        setTimeout(() => {
+            navigate(LOGIN)
+        }, 2000)
         return data;
       })
       .catch((error) => {
-        setOpenToast({status: true, message: error.response.data.message, type: 'error'})
-        console.error("Error:", error.response.data.message);
+        setOpenToast({status: true, message: 'Sign up failed', type: 'error'})
       });
   };
 
@@ -71,28 +79,44 @@ const Login= ()=> {
 
   const formik = useFormik({
     initialValues: {
-        username: '',
+        email: '',
         password: '',
+        confirmPassword: '',
+        name: '',
+        
     },
-    validationSchema: validationSignInSchema,
+    validationSchema: validationSignupSchema,
     onSubmit: submitHandler,
   });
 
   const {
     handleSubmit, 
-    values: {username, password} = {},
+    values: {
+        email,
+        password,
+        confirmPassword,
+        name,
+       
+    } = {},
     errors: {
-        username: errUsername,
+        email: errEmail,
         password: errPassword,
+        confirmPassword: errConfirmPassword,
+        name: errName,
+        
     },
     touched: {
-        username: tucUsername = false,
+        email: tucEmail = false,
         password: tucPassword = false,
+        confirmPassword: tucConfirmPassword = false,
+        name: tucName = false,
+       
     }
   } = formik
+
   return (
     <>
-    <StyledLoginWrapper>
+    <StyledSignupWrapper>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -107,22 +131,35 @@ const Login= ()=> {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign Up
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Full Name"
+              name="name"
+              autoFocus
+              value={name}
+              onChange={(event) => handleValueChange(event)}
+              error={tucName && Boolean(errName)}
+              helperText={errName}
+            />
             <TextField
               margin="normal"
               required
               fullWidth
-              id="username"
+              id="email"
               label="Email Address"
-              name="username"
+              name="email"
               autoComplete="email"
               autoFocus
-              value={username}
+              value={email}
               onChange={(event) => handleValueChange(event)}
-              error={tucUsername && Boolean(errUsername)}
-              helperText={errUsername}
+              error={tucEmail && Boolean(errEmail)}
+              helperText={errEmail}
             />
             <TextField
               margin="normal"
@@ -138,9 +175,19 @@ const Login= ()=> {
               error={tucPassword && Boolean(errPassword)}
               helperText={errPassword}
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="confirmPassword"
+              label="Confirm Password"
+              type="password"
+              id="confirmPassword"
+              autoComplete="current-password"
+              value={confirmPassword}
+              onChange={(event) => handleValueChange(event)}
+              error={tucConfirmPassword && Boolean(errConfirmPassword)}
+              helperText={errConfirmPassword}
             />
             <Button
               type="submit"
@@ -148,26 +195,25 @@ const Login= ()=> {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Sign Up
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link to="#" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href={SIGNUP} variant="body2">
-                  {"Don't have an account? Sign Up"}
+                
+                <Link to={LOGIN} variant="body2">
+                  Login
                 </Link>
               </Grid>
             </Grid>
-
-            <div>username: 'kminchelle', password: '0lelplR',</div>
           </Box>
         </Box>
       </Container>
-      </StyledLoginWrapper>
+      </StyledSignupWrapper>
       <Snackbar
         open={openToast.status}
         autoHideDuration={6000}
@@ -179,6 +225,6 @@ const Login= ()=> {
   );
 }
 
-export default Login;
+export default Signup;
 
 

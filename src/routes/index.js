@@ -5,6 +5,8 @@ import WeatherDetails from "../pages/Weather/Details";
 import NumberGame from "../pages/NumberGame";
 import History from '../pages/NumberGame/History';
 import Login from '../pages/Login';
+import Signup from "../pages/Signup";
+import TodoList from "../pages/TodoList"
 import {URL} from '../helpers/constants';
 import PublicLayout from '../layouts/PublicLayout'
 const {
@@ -14,6 +16,8 @@ const {
   WEATHER,
   WEATHER_DETAILS,
   LOGIN,
+  SIGNUP,
+  TODOLIST
 } = URL;
 
 const routes = createBrowserRouter([
@@ -40,6 +44,14 @@ const routes = createBrowserRouter([
   {
     path: LOGIN,
     element: <PublicLayout><Login /></PublicLayout>,
+  },
+  {
+    path: SIGNUP,
+    element: <PublicLayout><Signup /></PublicLayout>,
+  },
+  {
+    path: TODOLIST,
+    element: <PublicLayout><TodoList /></PublicLayout>,
   },
 ], {basename: '/portfolio'});
 
