@@ -1,4 +1,14 @@
 import React from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import LaptopIcon from "@mui/icons-material/Laptop";
+import CodeIcon from "@mui/icons-material/Code";
+import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlined';
+import Grid from "@mui/material/Grid";
 import Profile from "../assets/images/profile.jpeg";
 import HTML from "../assets/images/HTML1.png";
 import CSS from "../assets/images/css.png";
@@ -12,23 +22,14 @@ import VS from "../assets/images/VS.png";
 import Sass from "../assets/images/sass.png";
 import background1 from "../assets/images/bg1.jpeg";
 import background2 from "../assets/images/bg2.jpeg";
+import todoListApp from '../assets/images/todoListApp.jpg';
 import "./home.scss";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import LaptopIcon from "@mui/icons-material/Laptop";
-import CodeIcon from "@mui/icons-material/Code";
-import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlined';
-import Grid from "@mui/material/Grid";
 
 import { URL_WITH_BASENAME } from "../helpers/constants";
-const { 
+const {
   WEATHER,
   WEATHER_DETAILS,
-  NUMBER_DASHBOARD 
+  NUMBER_DASHBOARD
 } = URL_WITH_BASENAME
 
 export default function Home() {
@@ -50,6 +51,15 @@ export default function Home() {
       demoLink: NUMBER_DASHBOARD,
       codeLink: "project 1",
       about: "key features",
+    },
+    {
+      title: "Todo List App",
+      imgUrl: todoListApp,
+      description:
+        "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
+      demoLink: NUMBER_DASHBOARD,
+      codeLink: "project 1",
+      about: "key features",
     }
   ];
   return (
@@ -57,16 +67,16 @@ export default function Home() {
       <div className="section-1-wrap ">
         <div className="section-header">
           <h3 className="title">
-          Hello! I'm Niharika Gupta, a web developer with a passion for art and design. <br></br>
-          With a strong focus on user experience and interactivity, I take pleasure in crafting captivating 
-          user interfaces for web applications.What truly drives me is the ability to transform user 
-          requirements into tangible, functional products. <br></br> As a frontend developer, 
-          I thrive on problem-solving, writing and optimizing code, and embracing continuous learning to stay 
-          ahead of the ever-evolving web development landscape.By combining my artistic background 
-          with my technical expertise, I strive to create visually stunning and seamlessly functional websites 
-          that leave a lasting impression. <br></br> I am always eager to take on new challenges, collaborate 
-          with diverse teams, and contribute my skills to deliver exceptional user experiences.<br></br>
-          Let's work together to bring your ideas to life and create meaningful digital experiences!
+            Hello! I'm Niharika Gupta, a web developer with a passion for art and design. <br></br>
+            With a strong focus on user experience and interactivity, I take pleasure in crafting captivating
+            user interfaces for web applications.What truly drives me is the ability to transform user
+            requirements into tangible, functional products. <br></br> As a frontend developer,
+            I thrive on problem-solving, writing and optimizing code, and embracing continuous learning to stay
+            ahead of the ever-evolving web development landscape.By combining my artistic background
+            with my technical expertise, I strive to create visually stunning and seamlessly functional websites
+            that leave a lasting impression. <br></br> I am always eager to take on new challenges, collaborate
+            with diverse teams, and contribute my skills to deliver exceptional user experiences.<br></br>
+            Let's work together to bring your ideas to life and create meaningful digital experiences!
           </h3>
         </div>
         <div className="section-content ">
@@ -82,7 +92,7 @@ export default function Home() {
         <h3> My Tech Stack </h3>
         <h5> Technologies I have been working with recently are : </h5>
         <div className="tech-images">
-          <ul className="tech-wrap"> 
+          <ul className="tech-wrap">
             <li className="tech-item">
               <img width="100px" height="100px" src={HTML} alt="logo" />
             </li>
@@ -127,7 +137,7 @@ export default function Home() {
             {projectData.map(
               ({ title, description, demoLink, codeLink, imgUrl, about }) => {
                 return (
-                  <Grid style={{margin: 'auto'}} item xs={4}>
+                  <Grid style={{ margin: 'auto' }} item xs={4}>
                     <div>
                       <Card sx={{ maxWidth: 345 }}>
                         <CardMedia
@@ -162,7 +172,6 @@ export default function Home() {
                               Features
                             </Button>
                           </a>
-                          
                         </CardActions>
                       </Card>
                     </div>

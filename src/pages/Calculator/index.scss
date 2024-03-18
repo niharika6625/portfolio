@@ -1,0 +1,40 @@
+.calculatorWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: -2;
+    border: 2px solid grey;
+    width: 20rem;
+    margin: 4rem auto;
+    padding: 1rem;
+    background-color: grey;
+
+    .inputWrap {
+        border: 1px solid grey;
+        min-height: 2rem;
+        width: 19rem;
+        text-align: right;
+        padding-right: 1rem;
+        padding-top: 1rem;
+        margin-bottom: 1rem;
+        background-color: white;
+    }
+
+    .buttonsWrap {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); // 4 columns
+        gap: 15px; // Gap between buttons
+        border: 1px solid grey;
+        padding: 0.8rem;
+        background-color: rgb(74, 66, 66);
+
+        .zero {
+            grid-column: span 2; // Make the zero button span 2 rows
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
