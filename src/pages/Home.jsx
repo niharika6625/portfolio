@@ -29,7 +29,8 @@ import { URL_WITH_BASENAME } from "../helpers/constants";
 const {
   WEATHER,
   WEATHER_DETAILS,
-  NUMBER_DASHBOARD
+  NUMBER_DASHBOARD,
+  CALCULATOR
 } = URL_WITH_BASENAME
 
 export default function Home() {
@@ -60,7 +61,16 @@ export default function Home() {
       demoLink: NUMBER_DASHBOARD,
       codeLink: "project 1",
       about: "key features",
-    }
+    },
+    {
+      title: "Calculator",
+      imgUrl: todoListApp,
+      description:
+        "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
+      demoLink: CALCULATOR,
+      codeLink: "project 1",
+      about: "key features",
+    },
   ];
   return (
     <div className="page-wrapper container-c">
@@ -157,7 +167,7 @@ export default function Home() {
                           </Typography>
                         </CardContent>
                         <CardActions>
-                          <a href={demoLink} target="_blank" rel="noreferrer">
+                          <a href={demoLink} rel="noreferrer">
                             <Button size="small" startIcon={<LaptopIcon />}>
                               Live Preview
                             </Button>

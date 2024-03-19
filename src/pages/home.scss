@@ -1,31 +1,39 @@
 .section-1-wrap {
     display: flex;
     margin: 100px;
-    .section-header{
+
+    .section-header {
         .title {
             padding: 2em;
+        }
+    }
+
+    .section-content {
+        padding: 2em;
+        width: 100%;
+    }
+}
+
+.tech-images {
+    ul {
+        display: flex;
+        justify-content: space-evenly;
+        list-style-type: none;
+    }
+}
+
+.section-3-cards {
+    margin-top: 13rem;
+    margin-bottom: 13rem;
+
+    .cards {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+
+        img {
             width: 100%;
         }
     }
-    .section-content{
-        padding: 2em;
-        width: 100%;
-        .profile-img{
-
-        }
-    }
-}
-.tech-images ul{
-    display: flex;
-    justify-content: space-evenly;
-    list-style-type: none;
-}
-.section-3-cards .cards{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-}
-.section-3-cards .cards img{
-    width: 100%;
 }
