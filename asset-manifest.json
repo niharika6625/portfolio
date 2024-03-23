@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.107468cb.css",
-    "main.js": "/portfolio/static/js/main.1be08416.js",
+    "main.css": "/portfolio/static/css/main.e0febd38.css",
+    "main.js": "/portfolio/static/js/main.a2d551b3.js",
     "static/js/787.28cb0dcd.chunk.js": "/portfolio/static/js/787.28cb0dcd.chunk.js",
     "static/media/sass.png": "/portfolio/static/media/sass.c556a176a8b7d49fb670.png",
     "static/media/VS.png": "/portfolio/static/media/VS.e66400756ccbdbfc0b31.png",
     "static/media/github.png": "/portfolio/static/media/github.ecf329c2c06a1f41fae4.png",
+    "static/media/todoListApp.jpg": "/portfolio/static/media/todoListApp.fbe6eb36ac1cbdf79ea3.jpg",
     "static/media/weather-2.jpeg": "/portfolio/static/media/weather-2.64146384c0fb3a681147.jpeg",
     "static/media/bg-blue.jpeg": "/portfolio/static/media/bg-blue.0fc41085417bd6243042.jpeg",
     "static/media/weather-icon.png": "/portfolio/static/media/weather-icon.6dc216154b41f1f9d461.png",
@@ -19,12 +20,13 @@
     "static/media/javascript.webp": "/portfolio/static/media/javascript.bb41b35e77975f0c88b0.webp",
     "static/media/react1.svg": "/portfolio/static/media/react1.4f7abcc3a4d5c559d9eb61b5f2dd5a87.svg",
     "index.html": "/portfolio/index.html",
-    "main.107468cb.css.map": "/portfolio/static/css/main.107468cb.css.map",
-    "main.1be08416.js.map": "/portfolio/static/js/main.1be08416.js.map",
+    "static/media/upsideArrow.svg": "/portfolio/static/media/upsideArrow.83c0873b27a9dc76395c274b2508803f.svg",
+    "main.e0febd38.css.map": "/portfolio/static/css/main.e0febd38.css.map",
+    "main.a2d551b3.js.map": "/portfolio/static/js/main.a2d551b3.js.map",
     "787.28cb0dcd.chunk.js.map": "/portfolio/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.107468cb.css",
-    "static/js/main.1be08416.js"
+    "static/css/main.e0febd38.css",
+    "static/js/main.a2d551b3.js"
   ]
 }
