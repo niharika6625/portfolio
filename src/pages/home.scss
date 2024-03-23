@@ -18,6 +18,7 @@
 
             .profile-img {
                 border-radius: 100px;
+                width: 100%;
             }
         }
 
@@ -28,11 +29,12 @@
     }
 
     .section-2-tech {
-        padding: 2em;
+        padding: 3em 0;
 
         .section-heading {
             font-size: 1.7rem;
             font-weight: bold;
+            padding-bottom: 0.5em;
         }
 
         .section-subHeading {
@@ -47,17 +49,19 @@
                 display: flex;
                 justify-content: space-evenly;
                 list-style-type: none;
+                flex-wrap: wrap;
             }
         }
     }
 
     .section-3-cards {
         background: #fff;
-        padding: 2em;
+        padding: 3em 2em;
 
         .section-heading {
             font-size: 1.7rem;
             font-weight: bold;
+            padding-bottom: 0.5em;
         }
 
         .section-subHeading {

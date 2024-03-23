@@ -106,40 +106,38 @@ export default function Home() {
         <div className="section-heading"> My Tech Stack </div>
         <div className="section-subHeading"> Technologies I have been working with recently are : </div>
         <div className="tech-images">
-          <ul className="tech-wrap">
-            <li className="tech-item">
-              <img width="100px" height="100px" src={HTML} alt="logo" />
-            </li>
-            <li className="tech-item">
-              <img width="100px" height="100px" src={CSS} alt="logo" />
-            </li>
-            <li className="tech-item">
-              <img width="100px" height="100px" src={Javascript} alt="logo" />
-            </li>
-            <li className="tech-item">
-              <img width="100px" height="100px" src={MUI} alt="logo" />
-            </li>
-            <li className="tech-item">
-              <img width="100px" height="100px" src={React1} alt="logo" />
-            </li>
-          </ul>
-          <ul className="links-2">
-            <li>
-              <img width="90px" height="90px" src={Git} alt="logo" />
-            </li>
-            <li>
-              <img width="80px" height="80px" src={Bootstrap} alt="logo" />
-            </li>
-            <li>
-              <img width="80px" height="80px" src={Figma} alt="logo" />
-            </li>
-            <li>
-              <img width="80px" height="80px" src={VS} alt="logo" />
-            </li>
-            <li>
-              <img width="100px" height="80px" src={Sass} alt="logo" />
-            </li>
-          </ul>
+          <Grid container rowSpacing={{ xs: 1, sm: 2, md: 3 }} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+            <Grid item xs={6} md={4} lg={2} style={{ margin: 'auto' }}>
+              <img width="100px" height="100px" src={HTML} alt="HTML logo" />
+            </Grid>
+            <Grid item xs={6} md={4} lg={2} style={{ margin: 'auto' }}>
+              <img width="100px" height="100px" src={CSS} alt="CSS logo" />
+            </Grid>
+            <Grid item xs={6} md={4} lg={2} style={{ margin: 'auto' }}>
+              <img width="100px" height="100px" src={Javascript} alt="JavaScript logo" />
+            </Grid>
+            <Grid item xs={6} md={4} lg={2} style={{ margin: 'auto' }}>
+              <img width="100px" height="100px" src={MUI} alt="Material-UI logo" />
+            </Grid>
+            <Grid item xs={6} md={4} lg={2} style={{ margin: 'auto' }}>
+              <img width="100px" height="100px" src={React1} alt="React logo" />
+            </Grid>
+            <Grid item xs={6} md={4} lg={2} style={{ margin: 'auto' }}>
+              <img width="90px" height="90px" src={Git} alt="Git logo" />
+            </Grid>
+            <Grid item xs={6} md={4} lg={2} style={{ margin: 'auto' }}>
+              <img width="80px" height="80px" src={Bootstrap} alt="Bootstrap logo" />
+            </Grid>
+            <Grid item xs={6} md={4} lg={2} style={{ margin: 'auto' }}>
+              <img width="80px" height="80px" src={Figma} alt="Figma logo" />
+            </Grid>
+            <Grid item xs={6} md={4} lg={2} style={{ margin: 'auto' }}>
+              <img width="80px" height="80px" src={VS} alt="Visual Studio logo" />
+            </Grid>
+            <Grid item xs={6} md={4} lg={2} style={{ margin: 'auto' }}>
+              <img width="100px" height="80px" src={Sass} alt="Sass logo" />
+            </Grid>
+          </Grid>
         </div>
       </div>
       <div className="section-3-cards">
