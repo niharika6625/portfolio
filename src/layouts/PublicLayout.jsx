@@ -35,7 +35,7 @@ const PublicLayout = ({ children }) => {
             <Button
                 className={`back-to-top-button ${isVisible ? 'visible' : 'hidden'}`}
                 onClick={scrollToTop}
-                variant="contained"
+                variant="standard"
             >
                 <img src={upsideArrow} alt='upsideArrow' />
             </Button>

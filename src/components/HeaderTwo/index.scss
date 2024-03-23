@@ -1,4 +1,8 @@
 .headerTwoWrap {
+    top: 0;
+    position: sticky;
+    z-index: 11;
+
     .logoImageWrap {
         width: 6rem;
         height: 3rem;

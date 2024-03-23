@@ -66,7 +66,7 @@ const HeaderTwo = () => {
                                 <img style={{ width: '100%', height: '100%' }} src={Logonew} />
                             </div>
                         </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', justifyContent: 'right' } }}>
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"

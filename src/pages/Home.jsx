@@ -30,48 +30,52 @@ const {
   WEATHER,
   WEATHER_DETAILS,
   NUMBER_DASHBOARD,
-  CALCULATOR
+  CALCULATOR,
+  TODO_LIST
 } = URL_WITH_BASENAME
 
+const projectData = [
+  {
+    title: "Weather App",
+    imgUrl: background1,
+    description:
+      "WeatherReact: A responsive weather application developed in React, delivering real-time forecasts and an immersive user experience.",
+    demoLink: WEATHER,
+    codeLink: "project 1",
+    about: WEATHER_DETAILS,
+  },
+  {
+    title: "Number-Arrange Game",
+    imgUrl: background2,
+    description:
+      "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
+    demoLink: NUMBER_DASHBOARD,
+    codeLink: "project 1",
+    about: "key features",
+  },
+  {
+    title: "Todo List App",
+    imgUrl: todoListApp,
+    description:
+      "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
+    demoLink: TODO_LIST,
+    codeLink: "project 1",
+    about: "key features",
+  },
+  {
+    title: "Calculator",
+    imgUrl: todoListApp,
+    description:
+      "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
+    demoLink: CALCULATOR,
+    codeLink: "project 1",
+    about: "key features",
+  },
+];
+
+
 export default function Home() {
-  const projectData = [
-    {
-      title: "Weather App",
-      imgUrl: background1,
-      description:
-        "WeatherReact: A responsive weather application developed in React, delivering real-time forecasts and an immersive user experience.",
-      demoLink: WEATHER,
-      codeLink: "project 1",
-      about: WEATHER_DETAILS,
-    },
-    {
-      title: "Number-Arrange Game",
-      imgUrl: background2,
-      description:
-        "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
-      demoLink: NUMBER_DASHBOARD,
-      codeLink: "project 1",
-      about: "key features",
-    },
-    {
-      title: "Todo List App",
-      imgUrl: todoListApp,
-      description:
-        "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
-      demoLink: NUMBER_DASHBOARD,
-      codeLink: "project 1",
-      about: "key features",
-    },
-    {
-      title: "Calculator",
-      imgUrl: todoListApp,
-      description:
-        "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
-      demoLink: CALCULATOR,
-      codeLink: "project 1",
-      about: "key features",
-    },
-  ];
+
   return (
     <div className="page-wrapper container-c">
       <div className="section-1-wrap ">
@@ -99,8 +103,8 @@ export default function Home() {
         </div>
       </div>
       <div className="section-2-tech">
-        <h3> My Tech Stack </h3>
-        <h5> Technologies I have been working with recently are : </h5>
+        <div className="section-heading"> My Tech Stack </div>
+        <div className="section-subHeading"> Technologies I have been working with recently are : </div>
         <div className="tech-images">
           <ul className="tech-wrap">
             <li className="tech-item">
@@ -139,52 +143,49 @@ export default function Home() {
         </div>
       </div>
       <div className="section-3-cards">
-        <h3> Projects </h3>
-        <h5> Few applications that I have built to showcase my knowledge </h5>
-
+        <div className="section-heading"> Projects </div>
+        <div className="section-subHeading"> Few applications that I have built to showcase my knowledge </div>
         <div className="card">
-          <Grid container rowSpacing={1}>
+          <Grid container rowSpacing={4} spacing={2}>
             {projectData.map(
               ({ title, description, demoLink, codeLink, imgUrl, about }) => {
                 return (
-                  <Grid style={{ margin: 'auto' }} item xs={4}>
-                    <div>
-                      <Card sx={{ maxWidth: 345 }}>
-                        <CardMedia
-                          sx={{ height: 140 }}
-                          image={imgUrl}
-                          title="app1"
-                        />
-                        <CardContent>
-                          <Typography gutterBottom variant="h5" component="div">
-                            {title}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            {description}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            Tech Stack used : HTML, CSS
-                          </Typography>
-                        </CardContent>
-                        <CardActions>
-                          <a href={demoLink} rel="noreferrer">
-                            <Button size="small" startIcon={<LaptopIcon />}>
-                              Live Preview
-                            </Button>
-                          </a>
-                          <a href={codeLink} target="_blank" rel="noreferrer">
-                            <Button size="small" startIcon={<CodeIcon />}>
-                              View code
-                            </Button>
-                          </a>
-                          <a href={about} target="_blank" rel="noreferrer">
-                            <Button size="small" startIcon={<ImportContactsOutlinedIcon />}>
-                              Features
-                            </Button>
-                          </a>
-                        </CardActions>
-                      </Card>
-                    </div>
+                  <Grid style={{ margin: 'auto' }} item xs={12} md={6} lg={4}  >
+                    <Card sx={{ minHeight: '400px', margin: 'auto' }}>
+                      <CardMedia
+                        sx={{ height: 140 }}
+                        image={imgUrl}
+                        title="app1"
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                          {title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {description}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          Tech Stack used : HTML, CSS
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <a href={demoLink} rel="noreferrer">
+                          <Button size="small" startIcon={<LaptopIcon />}>
+                            Live Preview
+                          </Button>
+                        </a>
+                        <a href={codeLink} target="_blank" rel="noreferrer">
+                          <Button size="small" startIcon={<CodeIcon />}>
+                            View code
+                          </Button>
+                        </a>
+                        <a href={about} target="_blank" rel="noreferrer">
+                          <Button size="small" startIcon={<ImportContactsOutlinedIcon />}>
+                            Features
+                          </Button>
+                        </a>
+                      </CardActions>
+                    </Card>
                   </Grid>
                 );
               }
@@ -192,6 +193,6 @@ export default function Home() {
           </Grid>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
