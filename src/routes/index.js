@@ -8,6 +8,7 @@ import { URL } from '../helpers/constants';
 import PublicLayout from '../layouts/PublicLayout';
 import TodoList from "../pages/TodoList";
 import Calculator from "../pages/Calculator";
+import Ecommerce from "../pages/Ecommerce";
 const {
   HOME,
   NUMBER_HISTORY,
@@ -15,7 +16,8 @@ const {
   WEATHER,
   WEATHER_DETAILS,
   TODO_LIST,
-  CALCULATOR
+  CALCULATOR,
+  ECOMMERCE
 } = URL;
 
 const routes = createBrowserRouter([
@@ -46,6 +48,10 @@ const routes = createBrowserRouter([
   {
     path: CALCULATOR,
     element: <PublicLayout><Calculator /></PublicLayout>,
+  },
+  {
+    path: ECOMMERCE,
+    element: <PublicLayout><Ecommerce /></PublicLayout>,
   },
 ], { basename: '/portfolio' });
 

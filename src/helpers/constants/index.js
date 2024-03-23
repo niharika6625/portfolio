@@ -23,6 +23,7 @@ const URL = {
     WEATHER_DETAILS: '/weather/details',
     TODO_LIST: '/todolist',
     CALCULATOR: '/calculator',
+    ECOMMERCE: '/ecommerce'
 };
 
 const BASENAME = '/portfolio';

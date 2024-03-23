@@ -31,7 +31,8 @@ const {
   WEATHER_DETAILS,
   NUMBER_DASHBOARD,
   CALCULATOR,
-  TODO_LIST
+  TODO_LIST,
+  ECOMMERCE
 } = URL_WITH_BASENAME
 
 const projectData = [
@@ -68,6 +69,15 @@ const projectData = [
     description:
       "The Game of 15 Numbers: A captivating number arrangement game developed in React using Redux Toolkit, challenging players to strategically arrange numbers from 1-15 in ascending order.",
     demoLink: CALCULATOR,
+    codeLink: "project 1",
+    about: "key features",
+  },
+  {
+    title: "Ecommerce",
+    imgUrl: todoListApp,
+    description:
+      "Ecommerce website",
+    demoLink: ECOMMERCE,
     codeLink: "project 1",
     about: "key features",
   },
