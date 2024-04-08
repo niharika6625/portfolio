@@ -42,6 +42,7 @@ const PROJECT_DESCRIPTION = {
       </ul>`,
     imgUrl: '',
   },
+
   // 2. WEATHER APP
   weather: {
     id: 'weather',
@@ -119,7 +120,7 @@ const PROJECT_DESCRIPTION = {
   // 6. NUMBER GAME
   numberGame: {
     id: 'numberGame',
-    title: 'Features of Login/Register App',
+    title: 'Features of the game app',
     subTitle: '',
     description: `<ul>
     <li>The user needs to arrange numbers 1 to 15 in order, leaving the last tile empty to win.</li>
@@ -141,6 +142,7 @@ const PROJECT_DESCRIPTION = {
   </ul>`,
     imgUrl: '',
   },
+
   // 8. CSS MASTERY STUDIO
   cssMastery: {
     id: 'cssMastery',
@@ -154,6 +156,7 @@ const PROJECT_DESCRIPTION = {
   </ul>`,
     imgUrl: '',
   },
+
   // 9. API FETCH APP
 };
 

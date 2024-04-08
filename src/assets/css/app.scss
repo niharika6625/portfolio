@@ -99,7 +99,7 @@
 .page-data-wrap-seprator .page-content-wrap {
   width: 80%;
   margin: auto;
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 .page-data-wrap-seprator .page-content-wrap .block-1-wrap {
@@ -355,7 +355,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 5vw 0;
+  padding-top: 5vw;
   position: relative;
   overflow-x: visible;
   overflow-y: clip;
@@ -384,8 +384,11 @@
 
 .page-data-wrap-seprator .page-footer-wrap {
   margin: auto;
-  width: 76%;
+  width: 100%;
   text-align: center;
+  background: #e0e0f2;
+  padding-right: 100px;
+  padding-left: 100px;
 }
 
 .page-data-wrap-seprator .page-footer-wrap .footer-header {
@@ -405,9 +408,16 @@
 .page-data-wrap-seprator .page-footer-wrap .footer-header span {
   color: var(--solidHeading);
   font-weight: 400;
-  font-size: 1vw;
+  font-size: 1.2vw;
   line-height: 1.2vw;
   margin-left: 4vw;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.page-data-wrap-seprator .page-footer-wrap .footer-header span svg{
+  margin-right: 5px;
+  vertical-align: middle;
 }
 
 .page-data-wrap-seprator .page-footer-wrap .footer-header span a {

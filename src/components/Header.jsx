@@ -41,10 +41,10 @@ export default function Header() {
         </ul>
       </div>
       <div className="navbar-footer">
-        <a href="https://github.com/niharika6625">
+        <a href="https://github.com/niharika6625" target="blank">
           <i className="fa-brands fa-github"></i>
         </a>
-        <a href="https://in.linkedin.com/">
+        <a href="https://www.linkedin.com/in/niharika6625/" target="blank">
           <i className="fa-brands fa-linkedin"></i>
         </a>
         {loginUserInfo == null ? (

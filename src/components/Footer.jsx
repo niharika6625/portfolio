@@ -1,4 +1,6 @@
 import React from 'react';
+import CallIcon from '@mui/icons-material/Call';
+import EmailIcon from '@mui/icons-material/Email';
 
 export default function Footer() {
   const handleScroll = (targetId) => {
@@ -10,13 +12,17 @@ export default function Footer() {
   return (
     <>
       <div className="footer-header" id="contact">
-        <span>niharika0108@gmail.com</span>
-        <span>+46 704285348</span>
         <span>
-          <a href="https://github.com/niharika6625">
+          <EmailIcon /> niharika0108@gmail.com
+        </span>
+        <span>
+          <CallIcon /> +46 704285348
+        </span>
+        <span>
+          <a href="https://github.com/niharika6625" target="blank">
             <i className="fa-brands fa-github"></i>
           </a>
-          <a href="https://www.linkedin.com/in/niharika6625/">
+          <a href="https://www.linkedin.com/in/niharika6625/" target="blank">
             <i className="fa-brands fa-linkedin"></i>
           </a>
         </span>
