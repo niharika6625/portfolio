@@ -46,7 +46,7 @@ const ProjectModal = ({ open, onClose, handleClickOpen, color, project }) => {
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
           >
-            <DialogTitle>{title}</DialogTitle>
+            <DialogTitle className="dialogTitle">{title}</DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
                 <div

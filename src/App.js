@@ -65,9 +65,13 @@ export default function App() {
             <p>A glimpse into the technologies shaping my development journey...</p>
           </div>
           <div className="block-2-content">
-            <Grid container spacing={2} sx={{
-              justifyContent: 'center',
-            }}>
+            <Grid
+              container
+              spacing={2}
+              sx={{
+                justifyContent: 'center',
+              }}
+            >
               <Grid item xs={6} sm={3} md={2} lg={2}>
                 <div className="icon-wrapper">
                   <img src={html} alt="html-logo" />
@@ -163,7 +167,7 @@ export default function App() {
                     image={
                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5i4v_H1Gajo5yd5JDEj71dfKkxdBAIHkEIg&usqp=CAU'
                     }
-                    tech="ReactJs, Redux, HTML, CSS"
+                    tech="ReactJs, MUI, HTML, CSS, Fetch API, Javascript"
                     heading={'Browse and Buy'}
                     description={
                       'Experience online shopping: browse, add/remove items from your cart, apply discounts, and easily view your total at checkout.'
@@ -193,7 +197,7 @@ export default function App() {
                     image={
                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaMRIB9W1OZVIkFKFQveri1bC5p01NR7Y6qw&usqp=CAU'
                     }
-                    tech="ReactJs, Redux, HTML, CSS"
+                    tech="ReactJs, Redux, HTML, CSS, Javascript, Chart.js, MUI"
                     heading={'Quiz App'}
                     description={
                       'Interactive quiz app with diverse topics, user profiles, scoring, and performance tracking for engaging learning experiences.'
@@ -221,7 +225,7 @@ export default function App() {
                 >
                   <ProjectsCard
                     image={'https://miro.medium.com/max/1400/1*fm6XPKNS9l9ZAyWZqsqyVA.png'}
-                    tech="ReactJs, Redux, HTML, CSS"
+                    tech="ReactJs, Redux, MUI, HTML, Javascript, SCSS"
                     heading={'Admin Login/Register Page'}
                     description={
                       'This app shows efficient admin interface for streamlined user profile management, allowing add, edit, or delete actions.'
@@ -251,7 +255,7 @@ export default function App() {
                     image={
                       'https://imageio.forbes.com/specials-images/dam/imageserve/1092571024/0x0.jpg?format=jpg&width=360'
                     }
-                    tech="ReactJs, Redux, HTML, CSS"
+                    tech="ReactJs, Redux, React-router, MUI, HTML, SCSS, Javascript"
                     heading={'To-do Lists'}
                     description={
                       'An advanced web-based to-do app with editing, deleting, and task completion functionalities for organized task management.'
@@ -281,7 +285,7 @@ export default function App() {
                     image={
                       'https://images.unsplash.com/photo-1530563885674-66db50a1af19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VhdGhlciUyMGFwcHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
                     }
-                    tech="ReactJs, Redux, HTML, CSS"
+                    tech="ReactJs, Redux, HTML, SCSS, Fetch API, MUI, Javascript"
                     heading={'Weather App'}
                     description={
                       'City-based weather application that allows you to effortlessly find temperature and current conditions instantly for any location worldwide.'
@@ -311,7 +315,7 @@ export default function App() {
                     image={
                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsNoDI4n6eBEwev1exL4_Rg06YKmtC_p1f8A&usqp=CAU'
                     }
-                    tech="ReactJs, Redux, HTML, CSS, Javascript"
+                    tech="ReactJs, HTML, CSS, Javascript, Fetch API"
                     heading={'API Data Explorer'}
                     description={
                       'Demonstrating dynamic data fetching from various APIs upon user request, offering real-time information retrieval.'
@@ -381,7 +385,7 @@ export default function App() {
                     image={
                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5esvtT-D1LVQLGkL_laiVZHe3hnio7zhvBw&usqp=CAU'
                     }
-                    tech="ReactJs, HTML, CSS"
+                    tech="ReactJs, HTML, CSS, Javascript"
                     heading={'CSS Mastery Studio'}
                     description={
                       'Dive into detailed CSS practice, exploring templates and methods for mastering advanced styling techniques.'
@@ -409,7 +413,7 @@ export default function App() {
                 >
                   <ProjectsCard
                     image={numberGame}
-                    tech="ReactJs, Redux, HTML, CSS"
+                    tech="ReactJs, Redux, React-router, HTML, SCSS, MUI, Javascript"
                     heading={'The Number Puzzle'}
                     description={
                       'Test your skills by arranging numbers 1-15 in order, offering a fun and challenging gameplay experience.'
