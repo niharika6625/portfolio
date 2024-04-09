@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
-import {styled} from '@mui/material/styles';
-const StyledProductCartWrapper = styled('div')(() => `
+import { styled } from '@mui/material/styles';
+const StyledProductCartWrapper = styled('div')(
+  () => `
 .productsCartPageWrapper {
     display: flex;
     flex-direction: column;
@@ -19,6 +20,7 @@ const StyledProductCartWrapper = styled('div')(() => `
             font-size: 15px;
             color: white;
             border: 0;
+            margin-right: 10px;
         }
     }
 
@@ -77,11 +79,9 @@ const StyledProductCartWrapper = styled('div')(() => `
         flex-direction: column;
         justify-content: center;
         min-height: 90vh;
-        position: absolute;
+        //position: absolute;
         top: 0;
         width: 100%;
-        margin-top: 100px;
-
         .cartWrap-header {
             margin: 12px 0px;
             font-size: 22px;
@@ -139,6 +139,7 @@ const StyledProductCartWrapper = styled('div')(() => `
         }
     }
 }
-`)
+`,
+);
 
 export default StyledProductCartWrapper;

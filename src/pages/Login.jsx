@@ -4,9 +4,11 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import ProjectModal from '../components/ProjectModal';
+import { PROJECT_DESCRIPTION } from '../helpers/constants/projectDescription';
+const { login } = PROJECT_DESCRIPTION;
 import { updateUserInfo } from '../store/reducers/authentication/authentication';
 import '../assets/css/login.scss';
 
@@ -18,6 +20,15 @@ export default function Login() {
   const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isGuest, setIsGuest] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
+
+  const handleClickClose = () => {
+    setOpenDialog(false);
+  };
 
   const params = useParams();
   const dispatch = useDispatch();
@@ -93,6 +104,13 @@ export default function Login() {
 
   return (
     <div className="loginPageWrap">
+      <ProjectModal
+        open={openDialog}
+        onClose={handleClickClose}
+        project={login}
+        color={'#DA70D6'}
+        handleClickOpen={handleClickOpen}
+      />
       <section>
         <h1 className="loginFormHeading">Login</h1>
         <div className="login-form">

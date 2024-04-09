@@ -73,47 +73,47 @@ let questionArray = [
     userAnswer: '',
   },
   {
-    ques: 'What does html stands for?',
-    ans: 'D',
+    ques: 'Which of the following is a version control system?',
+    ans: 'A',
     options: [
       {
         optionId: 'A',
-        text: 'Counter Strike Source',
+        text: 'Git',
       },
       {
         optionId: 'B',
-        text: 'Corrective style sheet',
+        text: 'Java',
       },
       {
         optionId: 'C',
-        text: 'Computer Style Sheet',
+        text: 'jQuery',
       },
       {
         optionId: 'D',
-        text: 'Cascading Style Sheet',
+        text: 'Apache',
       },
     ],
     userAnswer: '',
   },
   {
-    ques: 'What does html stands for?',
+    ques: 'Which of the following is not a programming language?',
     ans: 'D',
     options: [
       {
         optionId: 'A',
-        text: 'Counter Strike Source',
+        text: 'Python',
       },
       {
         optionId: 'B',
-        text: 'Corrective style sheet',
+        text: 'CSS',
       },
       {
         optionId: 'C',
-        text: 'Computer Style Sheet',
+        text: 'Java',
       },
       {
         optionId: 'D',
-        text: 'Cascading Style Sheet',
+        text: 'MySQL',
       },
     ],
     userAnswer: '',

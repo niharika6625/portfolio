@@ -9,10 +9,22 @@ export default function Header() {
   let navigate = useNavigate();
   let loginUserInfo = useSelector((state) => state.authentication.userInfo);
 
-  function logOutUser() {
+  const logOutUser = () => {
     dispatch(updateUserInfo(null));
     navigate('/login');
-  }
+  };
+
+  const handleScroll = (targetId) => {
+    const targetElement = document.getElementById(targetId);
+    targetElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start', // Align the top of the element with the top of the viewport
+      inline: 'nearest', // Scroll to the nearest edge of the viewport
+      scrollPadding: {
+        top: 100,
+      },
+    });
+  };
   return (
     <div className="page-header-wrap">
       <div className="navbar-header">
@@ -22,25 +34,16 @@ export default function Header() {
       </div>
       <div className="navbar-content">
         <ul>
-          <li>
-            <Link to="/">About</Link>
-          </li>
-          <li>
-            <Link to="/">Tech Stack</Link>
-          </li>
-          <li>
-            <Link to="/">Projects</Link>
-          </li>
-          <li>
-            <Link to="/">Contact</Link>
-          </li>
+          <li onClick={() => handleScroll('about')}>About</li>
+          <li onClick={() => handleScroll('techStack')}>Tech Stack</li>
+          <li onClick={() => handleScroll('projects')}>Projects</li>
+          <li onClick={() => handleScroll('contact')}>Contact</li>
         </ul>
       </div>
       <div className="navbar-footer">
         <a href="https://github.com/niharika6625">
           <i className="fa-brands fa-github"></i>
         </a>
-        <i className="fa-brands fa-twitter"></i>
         <a href="https://in.linkedin.com/">
           <i className="fa-brands fa-linkedin"></i>
         </a>

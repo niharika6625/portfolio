@@ -1,19 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export default function Footer() {
+  const handleScroll = (targetId) => {
+    const targetElement = document.getElementById(targetId);
+    targetElement.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };
   return (
     <>
-      <div className="footer-header">
-        <span>+46 704285348</span>
+      <div className="footer-header" id="contact">
         <span>niharika0108@gmail.com</span>
+        <span>+46 704285348</span>
         <span>
           <a href="https://github.com/niharika6625">
             <i className="fa-brands fa-github"></i>
           </a>
-          <Link to="">
-            <i className="fa-brands fa-twitter"></i>
-          </Link>
           <a href="https://www.linkedin.com/in/niharika6625/">
             <i className="fa-brands fa-linkedin"></i>
           </a>
@@ -21,21 +23,10 @@ export default function Footer() {
       </div>
       <div className="footer-content">
         <ul>
-          <Link to="/">
-            <li>Home</li>
-          </Link>
-          <Link to="/">
-            <li>About</li>
-          </Link>
-          <Link to="/">
-            <li>Tech Stack</li>
-          </Link>
-          <Link to="/">
-            <li>Projects</li>
-          </Link>
-          <Link to="/">
-            <li>Contact</li>
-          </Link>
+          <li onClick={() => handleScroll('about')}>About</li>
+          <li onClick={() => handleScroll('techStack')}>Tech Stack</li>
+          <li onClick={() => handleScroll('projects')}>Projects</li>
+          <li onClick={() => handleScroll('contact')}>Contact</li>
         </ul>
         <p>
           Designed and built by <span>Niharika Gupta</span>

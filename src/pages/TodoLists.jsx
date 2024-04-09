@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import Addtask from '../components/Addtask.jsx';
 import DialogBox from '../components/DialogBox.jsx';
 import FilterLists from '../components/FilterLists.jsx';
+import ProjectModal from '../components/ProjectModal';
 import TaskLists from '../components/TaskLists.jsx';
+import { PROJECT_DESCRIPTION } from '../helpers/constants/projectDescription';
 import { addUsertodoListData } from '../store/reducers/todolists/todoLists';
+const { todoList } = PROJECT_DESCRIPTION;
 
 export default function TodoLists() {
   const dispatch = useDispatch();
@@ -20,6 +23,15 @@ export default function TodoLists() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [filterErrorMsg, setFilterErrorMsg] = useState(null);
   const [dialogBoxError, setDialogBoxError] = useState(null);
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
+
+  const handleClickClose = () => {
+    setOpenDialog(false);
+  };
 
   useEffect(() => {
     let usertodoObj = userstodoData.find((obj) => obj.id == userState.id);
@@ -97,6 +109,13 @@ export default function TodoLists() {
   }
   return (
     <div className="page-wrapper">
+      <ProjectModal
+        open={openDialog}
+        onClose={handleClickClose}
+        project={todoList}
+        color={'#48cae4'}
+        handleClickOpen={handleClickOpen}
+      />
       <h1 className="heading">Todo Lists</h1>
       <div className="page-content-header">
         <Addtask

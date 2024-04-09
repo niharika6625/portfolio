@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './index.css';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import App from './App';
 import QuizCategory from './components/quiz/QuizCategory.jsx';
 import QuizDashboard from './components/quiz/QuizDashboard.jsx';
@@ -26,11 +26,20 @@ import WeatherApp from './pages/WeatherApp.jsx';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store.js';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
     <BrowserRouter basename="portfolio">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />} />
         <Route

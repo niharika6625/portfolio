@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import MuiAlert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 import StyledProductCartWrapper from './StyledProductCart.js';
+import ProjectModal from '../../components/ProjectModal';
+import { PROJECT_DESCRIPTION } from '../../helpers/constants/projectDescription';
+const { products } = PROJECT_DESCRIPTION;
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -14,6 +17,16 @@ export default function productsCart() {
   const [totalValue, setTotalValue] = useState(0);
   const [disabledBtn, setDisabledBtn] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
+
+  const handleClickClose = () => {
+    console.log('close');
+    setOpenDialog(false);
+  };
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -92,6 +105,13 @@ export default function productsCart() {
 
   return (
     <StyledProductCartWrapper>
+      <ProjectModal
+        open={openDialog}
+        onClose={handleClickClose}
+        project={products}
+        color={'#08660c'}
+        handleClickOpen={handleClickOpen}
+      />
       <div className="productsCartPageWrapper">
         {viewCartModal ? (
           <div className="cartWrap" id="outsideCart" onClick={(e) => handleCartModalView(e)}>

@@ -1,7 +1,12 @@
 /* eslint-disable prettier/prettier */
-import {styled} from '@mui/material/styles';
-const StyledComponentDesignWrapper = styled('div')(() => `
+import { styled } from '@mui/material/styles';
+const StyledComponentDesignWrapper = styled('div')(
+  () => `
     margin-top: 100px;
+    .heading{
+        display:flex;
+        justify-content: center;
+    }
     .section-wrapper {
         margin: 10px;
         padding: 10px 0px;
@@ -471,6 +476,7 @@ const StyledComponentDesignWrapper = styled('div')(() => `
         overflow: auto;
         height: 400px;
     }
-`);
+`,
+);
 
-export default StyledComponentDesignWrapper
+export default StyledComponentDesignWrapper;

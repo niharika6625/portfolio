@@ -1,36 +1,71 @@
 /* eslint-disable prettier/prettier */
+import { useState } from 'react';
 import StyledCssPractice from './StyledCssPractice.js';
 import carImg from '../../assets/images/car.png';
+import ProjectModal from '../../components/ProjectModal';
+import { PROJECT_DESCRIPTION } from '../../helpers/constants/projectDescription';
+const { cssMastery } = PROJECT_DESCRIPTION;
 const CssPractice = () => {
-    return (<StyledCssPractice>
-    <div className="section-wrapper section-wrapper-1">
-      <p className="title">color property (rgb, hex, hsl, rgba, hsla)</p>
-      <div>
-        <div className="output-wrapper-1">
-          <div className="color">color property</div>
-        </div>
-        <div className="code-wrapper">
-          <textarea className="textarea" disabled="" cols="1" rows="10" value={`            <style>
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
+
+  const handleClickClose = () => {
+    setOpenDialog(false);
+  };
+  return (
+    <StyledCssPractice>
+      <ProjectModal
+        open={openDialog}
+        onClose={handleClickClose}
+        project={cssMastery}
+        color={'#36454F'}
+        handleClickOpen={handleClickOpen}
+      />
+      <div className="heading">
+        <h1>CSS Mastery Studio</h1>
+      </div>
+      <div className="section-wrapper section-wrapper-1">
+        <p className="title">color property (rgb, hex, hsl, rgba, hsla)</p>
+        <div>
+          <div className="output-wrapper-1">
+            <div className="color">color property</div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="10"
+              value={`            <style>
           .section-wrapper-1 .color{
           color: red;
           }
           </style>
-          <div className="color"&gt;color property</div>`}>
-          </textarea>
+          <div className="color"&gt;color property</div>`}
+            ></textarea>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="section-wrapper section-wrapper-2">
-      <p className="title">background property (background-color ,background-image, background-repeat, background-attachment,
-        background-position background (shorthand property))
-      </p>
-      <div>
-        <div className="output-wrapper">
-          <div className="background">background property </div>
-          <div className="background-image">backgoround image property</div>
-        </div>
-        <div className="code-wrapper">
-          <textarea className="textarea" disabled="" cols="1" rows="10" value={`          <style>
+      <div className="section-wrapper section-wrapper-2">
+        <p className="title">
+          background property (background-color ,background-image, background-repeat,
+          background-attachment, background-position background (shorthand property))
+        </p>
+        <div>
+          <div className="output-wrapper">
+            <div className="background">background property </div>
+            <div className="background-image">backgoround image property</div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="10"
+              value={`          <style>
           .section-wrapper-2 .background {
           background-color: lightblue;
           opacity: 0.3;
@@ -44,24 +79,30 @@ const CssPractice = () => {
           </style>
           <div className="background"&gt;background property </div>
           <div className="background-image"&gt;backgoround image property</div>
-          `}>
-          </textarea>
+          `}
+            ></textarea>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="section-wrapper section-wrapper-3">
-      <p className="title">border property (border-style, border-width, border-color, border-top-style, Border - Shorthand
-        Property, border-radius)
-      </p>
-      <div>
-        <div className="output-wrapper">
-          <div className="border-top">border property top</div>
-          <div className="border-right">border property right</div>
-          <div className="border-bottom">border property bottom</div>
-          <div className="border-left">border property left</div>
-        </div>
-        <div className="code-wrapper">
-          <textarea className="textarea" disabled="" cols="1" rows="20" value={`<style>
+      <div className="section-wrapper section-wrapper-3">
+        <p className="title">
+          border property (border-style, border-width, border-color, border-top-style, Border -
+          Shorthand Property, border-radius)
+        </p>
+        <div>
+          <div className="output-wrapper">
+            <div className="border-top">border property top</div>
+            <div className="border-right">border property right</div>
+            <div className="border-bottom">border property bottom</div>
+            <div className="border-left">border property left</div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="20"
+              value={`<style>
               .section-wrapper-3 .border-top{
                 border-top: 10px solid red;
                 border-radius: 40px;
@@ -80,25 +121,28 @@ const CssPractice = () => {
                 <div className="border-right"&gt;border property right</div>
                 <div className="border-bottom"&gt;border property bottom</div>
                 <div className="border-left"&gt;border property left</div>
-                `}>
-          </textarea>
-          <style>
-            
-          </style>
+                `}
+            ></textarea>
+            <style></style>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="section-wrapper section-wrapper-4">
-      <p className="title">margin property (margin - Shorthand Property)</p>
-      <div>
-        <div className="output-wrapper">
-          <div className="margin-top">margin property top</div>
-          <div className="margin-right">margin property right</div>
-          <div className="margin-bottom">margin property bottom</div>
-          <div className="margin-left">margin property left</div>
-        </div>
-        <div className="code-wrapper">
-          <textarea className="textarea" disabled="" cols="1" rows="20" value={` <style>
+      <div className="section-wrapper section-wrapper-4">
+        <p className="title">margin property (margin - Shorthand Property)</p>
+        <div>
+          <div className="output-wrapper">
+            <div className="margin-top">margin property top</div>
+            <div className="margin-right">margin property right</div>
+            <div className="margin-bottom">margin property bottom</div>
+            <div className="margin-left">margin property left</div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="20"
+              value={` <style>
             .section-wrapper-4 .margin-top{
               margin-top: 12px;
             }
@@ -116,25 +160,28 @@ const CssPractice = () => {
               <div className="margin-right"&gt;margin property right</div>
               <div className="margin-bottom"&gt;margin property bottom</div>
               <div className="margin-left"&gt;margin property left</div>
-              `}>
-        </textarea>
-          <style>
-           
-          </style>
+              `}
+            ></textarea>
+            <style></style>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="section-wrapper section-wrapper-5">
-      <p className="title">padding property (padding - Shorthand Property)</p>
-      <div>
-        <div className="output-wrapper">
-          <div className="padding-top">padding property top</div>
-          <div className="padding-right">padding property right</div>
-          <div className="padding-bottom">padding property bottom</div>
-          <div className="padding-left">padding property left</div>
-        </div>
-        <div className="code-wrapper">
-          <textarea className="textarea" disabled="" cols="1" rows="20" value={`       <style>
+      <div className="section-wrapper section-wrapper-5">
+        <p className="title">padding property (padding - Shorthand Property)</p>
+        <div>
+          <div className="output-wrapper">
+            <div className="padding-top">padding property top</div>
+            <div className="padding-right">padding property right</div>
+            <div className="padding-bottom">padding property bottom</div>
+            <div className="padding-left">padding property left</div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="20"
+              value={`       <style>
             .section-wrapper-5 .padding-top{
               padding-top: 12px;
             }
@@ -151,68 +198,78 @@ const CssPractice = () => {
               <div className="padding-top"&gt;padding property top</div>
               <div className="padding-right"&gt;padding property right</div>
               <div className="padding-bottom"&gt;padding property bottom</div>
-              <div className="padding-left"&gt;padding property left</div>`}>
-        </textarea>
-          <style>
-           
-          </style>
+              <div className="padding-left"&gt;padding property left</div>`}
+            ></textarea>
+            <style></style>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="section-wrapper section-wrapper-6">
-      <p className="title">width property (max-width , min-width)</p>
-      <div>
-        <div className="output-wrapper">
-          <div className="width">width property</div>
-        </div>
-        <div className="code-wrapper">
-          <textarea className="textarea" disabled="" cols="1" rows="10" value={`<style>
+      <div className="section-wrapper section-wrapper-6">
+        <p className="title">width property (max-width , min-width)</p>
+        <div>
+          <div className="output-wrapper">
+            <div className="width">width property</div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="10"
+              value={`<style>
           .section-wrapper-6 .width {
           width: 50%;
           background-color: aquamarine;
           }
           </style>
           <div className="width"&gt;width property</div>
-          `}>
-          </textarea>
+          `}
+            ></textarea>
+          </div>
         </div>
+        <style></style>
       </div>
-      <style>
-       
-      </style>
-    </div>
-    <div className="section-wrapper section-wrapper-7">
-      <p className="title">height property (max-height , min-height)</p>
-      <div>
-        <div className="output-wrapper">
-          <div className="height">height property</div>
-        </div>
-        <div className="code-wrapper">
-          <textarea className="textarea" disabled="" cols="1" rows="10" value={`<style>
+      <div className="section-wrapper section-wrapper-7">
+        <p className="title">height property (max-height , min-height)</p>
+        <div>
+          <div className="output-wrapper">
+            <div className="height">height property</div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="10"
+              value={`<style>
           .section-wrapper-7 .height {
           height: 50%;
           background-color: aquamarine;
           }
           </style>
           <div className="width"&gt;height property</div>
-          `}>
-          </textarea>
+          `}
+            ></textarea>
+          </div>
         </div>
+        <style></style>
       </div>
-      <style>
-        
-      </style>
-    </div>
-    <div className="section-wrapper section-wrapper-8">
-      <p className="title">Outline property (outline-style, outline-width, outline-color, outline-offset, outline - Shorthand
-        Property)
-      </p>
-      <div>
-        <div className="output-wrapper">
-          <div className="outline-top">outline property</div>
-        </div>
-        <div className="code-wrapper">
-          <textarea className="textarea" disabled="" cols="1" rows="20" value={`<style>
+      <div className="section-wrapper section-wrapper-8">
+        <p className="title">
+          Outline property (outline-style, outline-width, outline-color, outline-offset, outline -
+          Shorthand Property)
+        </p>
+        <div>
+          <div className="output-wrapper">
+            <div className="outline-top">outline property</div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="20"
+              value={`<style>
               .section-wrapper-8 .outline-top {
               outline-style: dotted;
               outline-width: 5px;
@@ -221,23 +278,33 @@ const CssPractice = () => {
               border: 2px solid red;
             }
               </style>
-            <div className="outline-top"&gt;outline property</div>`}>
-  
-          </textarea>
-          <style>
-            
-          </style>
+            <div className="outline-top"&gt;outline property</div>`}
+            ></textarea>
+            <style></style>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="section-wrapper section-wrapper-9">
-      <p className="title">Text property (text-color) <br /> text-alignment property (text-align, text-align-last, direction, unicode-bidi, vertical-align) <br /> text-decoration property (text-decoration-line, text-decoration-color, text-decoration-style, text-decoration-thickness, text-decoration) <br /> text transformation (text-transform ) <br /> Text Spacing (text-indent, letter-spacing, line-height, word-spacing, white-space) <br />Text Shadow (text-shadow)</p>
-      <div>
-        <div className="output-wrapper">
-          <div className="Text">Text property </div>
-        </div>
-        <div className="code-wrapper">
-          <textarea className="textarea" disabled="" cols="1" rows="20" value={` <style>
+      <div className="section-wrapper section-wrapper-9">
+        <p className="title">
+          Text property (text-color) <br /> text-alignment property (text-align, text-align-last,
+          direction, unicode-bidi, vertical-align) <br /> text-decoration property
+          (text-decoration-line, text-decoration-color, text-decoration-style,
+          text-decoration-thickness, text-decoration) <br /> text transformation (text-transform ){' '}
+          <br /> Text Spacing (text-indent, letter-spacing, line-height, word-spacing, white-space){' '}
+          <br />
+          Text Shadow (text-shadow)
+        </p>
+        <div>
+          <div className="output-wrapper">
+            <div className="Text">Text property </div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="20"
+              value={` <style>
           .section-wrapper-9 .Text {
           color: blue;
           text-align: center;
@@ -251,22 +318,28 @@ const CssPractice = () => {
           text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
           }
           </style>
-          <div className="Text"&gt;Text property </div>`}>
-          </textarea>
+          <div className="Text"&gt;Text property </div>`}
+            ></textarea>
+          </div>
         </div>
+        <style></style>
       </div>
-      <style>
-        
-      </style>
-    </div>
-    <div className="section-wrapper section-wrapper-10">
-      <p className="title">Fonts property :- font-family, Font Style, Font Weight, Font Variant, Font Size, font shorthand property (font-style font-variant font-weight font-size/line-height font-family)</p>
-      <div>
-        <div className="output-wrapper">
-          <div className="Fonts">Fonts property </div>
-        </div>
-        <div className="code-wrapper">
-          <textarea className="textarea" disabled="" cols="1" rows="20" value={` <style>
+      <div className="section-wrapper section-wrapper-10">
+        <p className="title">
+          Fonts property :- font-family, Font Style, Font Weight, Font Variant, Font Size, font
+          shorthand property (font-style font-variant font-weight font-size/line-height font-family)
+        </p>
+        <div>
+          <div className="output-wrapper">
+            <div className="Fonts">Fonts property </div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="20"
+              value={` <style>
           .section-wrapper-10 .Fonts {
           font-family: "Times New Roman", Times, serif;
           font-style: italic;
@@ -276,32 +349,36 @@ const CssPractice = () => {
           }
           </style>
           <div className="Fonts"&gt;Fonts property </div>
-          `}>
-          </textarea>
+          `}
+            ></textarea>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="section-wrapper section-wrapper-11">
-      <p className="title">position property :- position: static; position: relative; position: fixed; position: absolute; position: sticky;</p>
-      <div>
-        <div className="output-wrapper">
-          <div className="square">
-            <div className="circle-1"></div>
-            <div className="circle-2"></div>
-            <div className="circle-3"></div>
-            <div className="circle-4"></div>
-          </div>
-          <div className="fixedsquare">
-            this is position fixed div
-          </div>
-          <div className="stickyMainDiv">
-            <div className="stickyDiv">
-              this is sticky square
+      <div className="section-wrapper section-wrapper-11">
+        <p className="title">
+          position property :- position: static; position: relative; position: fixed; position:
+          absolute; position: sticky;
+        </p>
+        <div>
+          <div className="output-wrapper">
+            <div className="square">
+              <div className="circle-1"></div>
+              <div className="circle-2"></div>
+              <div className="circle-3"></div>
+              <div className="circle-4"></div>
+            </div>
+            <div className="fixedsquare">this is position fixed div</div>
+            <div className="stickyMainDiv">
+              <div className="stickyDiv">this is sticky square</div>
             </div>
           </div>
-        </div>
-        <div className="code-wrapper">
-          <textarea className="textarea" disabled="" cols="1" rows="40" value={` <style>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="40"
+              value={` <style>
           .section-wrapper-11 .square {
           position: relative;
           overflow: hidden;
@@ -366,22 +443,40 @@ const CssPractice = () => {
           this is sticky square
           </div>
           </div>
-          </div>`}>
-          </textarea>
+          </div>`}
+            ></textarea>
+          </div>
+          <style></style>
         </div>
-        <style>
-          
-        </style>
-      </div>
       </div>
       <div className="section-wrapper section-wrapper-12">
-        <p className="title">overflow property :- overflow: visible, overflow: hidden, overflow: scroll, overflow: auto, overflow-x and overflow-y</p>
+        <p className="title">
+          overflow property :- overflow: visible, overflow: hidden, overflow: scroll, overflow:
+          auto, overflow-x and overflow-y
+        </p>
         <div>
           <div className="output-wrapper">
-            <div className="overflow">This text is really long and the height of its container is only 100 pixels. Therefore, a scrollbar is added to help the reader to scroll the content. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</div>
+            <div className="overflow">
+              This text is really long and the height of its container is only 100 pixels.
+              Therefore, a scrollbar is added to help the reader to scroll the content. Lorem ipsum
+              dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+              ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+              nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+              molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
+              accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue
+              duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend
+              option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi
+              non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.
+            </div>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="20" value={` <style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="20"
+              value={` <style>
             .section-wrapper-12 .overflow {
             background: #4CAF50;
             padding: 15px;
@@ -395,20 +490,31 @@ const CssPractice = () => {
             }
             </style>
             <div className="overflow"&gt;This text is really long and the height of its container is only 100 pixels. Therefore, a scrollbar is added to help the reader to scroll the content. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</div>
-            </div>`}>
-            </textarea>
+            </div>`}
+            ></textarea>
           </div>
         </div>
-        </div>
-        <div className="section-wrapper section-wrapper-13">
-          <p className="title">font-family</p>
-          <div>
-            <div className="output-wrapper">
-              <div className="fontFamily">This text is really long and the height of its container is only 100 pixels. Therefore, a scrollbar is added to help the </div>
-              <div className="customFont">this is custom font Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque dolores quia, facilis eligendi necessitatibus fugiat.</div>
+      </div>
+      <div className="section-wrapper section-wrapper-13">
+        <p className="title">font-family</p>
+        <div>
+          <div className="output-wrapper">
+            <div className="fontFamily">
+              This text is really long and the height of its container is only 100 pixels.
+              Therefore, a scrollbar is added to help the{' '}
             </div>
-            <div className="code-wrapper">
-              <textarea className="textarea" disabled="" cols="1" rows="20" value={` <style>
+            <div className="customFont">
+              this is custom font Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
+              dolores quia, facilis eligendi necessitatibus fugiat.
+            </div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="20"
+              value={` <style>
               .section-wrapper-13 .fontFamily {
               font-family: 'Tangerine', serif;
               font-size: 1.5vw;
@@ -420,22 +526,28 @@ const CssPractice = () => {
               </style>
               <div className="fontFamily"&gt;This text is really long and the height of its container is only 100 pixels. Therefore, a scrollbar is added to help the </div>
               <div className="customFont"&gt;this is custom font Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque dolores quia, facilis eligendi necessitatibus fugiat.</div>
-              </div>`}>
-              </textarea>
-            </div>
-            <style>
-             
-            </style>
+              </div>`}
+            ></textarea>
           </div>
+          <style></style>
         </div>
-          <div className="section-wrapper section-wrapper-14">
-            <p className="title">Pseudo classNamees(a:link, a:visited, a:hover, a:active ) <br /> Pseudo elements(::after, ::before, ::first-letter)</p>
-            <div>
-              <div className="output-wrapper-1">
-                <div className="pseudoclassName">Pseudo classNamees on hover property</div>
-              </div>
-              <div className="code-wrapper">
-                <textarea className="textarea" disabled="" cols="1" rows="10" value={` <style>
+      </div>
+      <div className="section-wrapper section-wrapper-14">
+        <p className="title">
+          Pseudo classNamees(a:link, a:visited, a:hover, a:active ) <br /> Pseudo elements(::after,
+          ::before, ::first-letter)
+        </p>
+        <div>
+          <div className="output-wrapper-1">
+            <div className="pseudoclassName">Pseudo classNamees on hover property</div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="10"
+              value={` <style>
                 .section-wrapper-14 .pseudoclassName {
                 width: 100%;
                 height: 100px;
@@ -447,33 +559,41 @@ const CssPractice = () => {
                 }
                 </style>
                 <div className="pseudoclassName"&gt;Pseudo classNamees on hover property</div>
-                `}>
-                </textarea>
-              </div>
-            </div>
-            
+                `}
+            ></textarea>
           </div>
-          <div className="section-wrapper section-wrapper-15">
-            <p className="title">Flex property (flex-direction, flex-wrap, flex-flow, justify-content, align-items, align-content) <br /> flex itmes properties (order, flex-grow, flex-shrink, flex-basis, align-self)</p>
-            <div>
-              <div className="output-wrapper-1">
-                <div className="flex-container">
-                  <div className="div1">1</div>
-                  <div>2</div>
-                  <div>3</div>
-                  <div>4</div>
-                  <div>5</div>
-                  <div>6</div>
-                  <div>7</div>
-                  <div>8</div>
-                  <div>9</div>
-                  <div>10</div>
-                  <div>11</div>
-                  <div>12</div>
-                </div>
-              </div>
-              <div className="code-wrapper">
-                <textarea className="textarea" disabled="" cols="1" rows="40" value={` <style>
+        </div>
+      </div>
+      <div className="section-wrapper section-wrapper-15">
+        <p className="title">
+          Flex property (flex-direction, flex-wrap, flex-flow, justify-content, align-items,
+          align-content) <br /> flex itmes properties (order, flex-grow, flex-shrink, flex-basis,
+          align-self)
+        </p>
+        <div>
+          <div className="output-wrapper-1">
+            <div className="flex-container">
+              <div className="div1">1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+              <div>10</div>
+              <div>11</div>
+              <div>12</div>
+            </div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="40"
+              value={` <style>
                 .section-wrapper-15 .flex-container {
                 display: flex;
                 flex-wrap: wrap;
@@ -505,29 +625,37 @@ const CssPractice = () => {
                 <div&gt;10</div>
                 <div&gt;11</div>
                 <div&gt;12</div>  
-                </div>`}>
-                </textarea>
-              </div>
-            </div>
-            
+                </div>`}
+            ></textarea>
           </div>
-          <div className="section-wrapper section-wrapper-16">
-            <p className="title">Grid property (column-gap, row-gap, gap, grid-template-columns,  grid-template-rows) <br /> Grid item property(grid-area, grid-column-start, grid-column-end, grid-row-start, grid-row-end)</p>
-            <div>
-              <div className="output-wrapper-1">
-                <div className="grid-container">
-                  <div className="item1">1</div>
-                  <div className="item2">2</div>
-                  <div className="item3">3</div>
-                  <div className="item4">4</div>
-                  <div className="item5">5</div>
-                  <div className="item6">6</div>
-                  <div className="item7">7</div>
-                  <div className="item8">8</div>
-                </div>
-              </div>
-              <div className="code-wrapper">
-                <textarea className="textarea" disabled="" cols="1" rows="40" value={` <style>
+        </div>
+      </div>
+      <div className="section-wrapper section-wrapper-16">
+        <p className="title">
+          Grid property (column-gap, row-gap, gap, grid-template-columns, grid-template-rows) <br />{' '}
+          Grid item property(grid-area, grid-column-start, grid-column-end, grid-row-start,
+          grid-row-end)
+        </p>
+        <div>
+          <div className="output-wrapper-1">
+            <div className="grid-container">
+              <div className="item1">1</div>
+              <div className="item2">2</div>
+              <div className="item3">3</div>
+              <div className="item4">4</div>
+              <div className="item5">5</div>
+              <div className="item6">6</div>
+              <div className="item7">7</div>
+              <div className="item8">8</div>
+            </div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="40"
+              value={` <style>
                 .section-wrapper-16 .grid-container {
                 display: grid;
                 grid-template-columns: auto auto auto;
@@ -555,42 +683,55 @@ const CssPractice = () => {
                 <div className="item6"&gt;6</div>
                 <div className="item7"&gt;7</div>
                 <div className="item8"&gt;8</div>  
-                </div>`}>
-                </textarea>
-              </div>
-            </div>
-            
+                </div>`}
+            ></textarea>
           </div>
-          <div className="section-wrapper section-wrapper-17">
-            <p className="title">Gradient property (linear-gradient, radial-gradient, conic-gradient)</p>
-            <div>
-              <div className="output-wrapper-1">
-                <div className="gradient">Gradient property</div>
-              </div>
-              <div className="code-wrapper">
-                <textarea className="textarea" disabled="" cols="1" rows="10" value={`            <style>
+        </div>
+      </div>
+      <div className="section-wrapper section-wrapper-17">
+        <p className="title">
+          Gradient property (linear-gradient, radial-gradient, conic-gradient)
+        </p>
+        <div>
+          <div className="output-wrapper-1">
+            <div className="gradient">Gradient property</div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="10"
+              value={`            <style>
                 .section-wrapper-1 .color{
                 color: red;
                 }
                 </style>
-                <div className="color"&gt;color property</div>`}>
-                </textarea>
-              </div>
-            </div>
-            
+                <div className="color"&gt;color property</div>`}
+            ></textarea>
           </div>
-          <div className="section-wrapper section-wrapper-18">
-            <p className="title">Transform property (translate(), rotate(), scaleX(), scaleY(), scale(), skewX(), skewY(), skew(), matrix())</p>
-            <div>
-              <div className="output-wrapper-1">
-                <div className="translate">translate property</div>
-                <div className="rotate">rotate property</div>
-                <div className="scale">scale property</div>
-                <div className="skew">skew property</div>
-                <div className="matrix">matrix property</div>
-              </div>
-              <div className="code-wrapper">
-                <textarea className="textarea" disabled="" cols="1" rows="10" value={`          <style>
+        </div>
+      </div>
+      <div className="section-wrapper section-wrapper-18">
+        <p className="title">
+          Transform property (translate(), rotate(), scaleX(), scaleY(), scale(), skewX(), skewY(),
+          skew(), matrix())
+        </p>
+        <div>
+          <div className="output-wrapper-1">
+            <div className="translate">translate property</div>
+            <div className="rotate">rotate property</div>
+            <div className="scale">scale property</div>
+            <div className="skew">skew property</div>
+            <div className="matrix">matrix property</div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="10"
+              value={`          <style>
                 .section-wrapper-18 .translate {
                 width: 300px;
                 height: 100px;
@@ -620,29 +761,46 @@ const CssPractice = () => {
                 <div className="rotate"&gt;rotate property</div>
                 <div className="scale"&gt;scale property</div>
                 <div className="skew"&gt;skew property</div>
-                `}>
-                </textarea>
-              </div>
-            </div>
-            
+                `}
+            ></textarea>
           </div>
-          <div className="section-wrapper section-wrapper-19">
-            <p className="title">Transition property (transition, transition-delay, transition-duration, transition-property, transition-timing-function)</p>
-            <div>
-              <div className="output-wrapper-1">
-                <div className="divClass" id="div1">linear</div>
-                <br />
-                <div className="divClass" id="div2">ease</div>
-                <br />
-                <div className="divClass" id="div3">ease-in</div>
-                <br />
-                <div className="divClass" id="div4">ease-out</div>
-                <br />
-                <div className="divClass" id="div5">ease-in-out</div>
-                <br />
-              </div>
-              <div className="code-wrapper">
-                <textarea className="textarea" disabled="" cols="1" rows="40" value={` <style>
+        </div>
+      </div>
+      <div className="section-wrapper section-wrapper-19">
+        <p className="title">
+          Transition property (transition, transition-delay, transition-duration,
+          transition-property, transition-timing-function)
+        </p>
+        <div>
+          <div className="output-wrapper-1">
+            <div className="divClass" id="div1">
+              linear
+            </div>
+            <br />
+            <div className="divClass" id="div2">
+              ease
+            </div>
+            <br />
+            <div className="divClass" id="div3">
+              ease-in
+            </div>
+            <br />
+            <div className="divClass" id="div4">
+              ease-out
+            </div>
+            <br />
+            <div className="divClass" id="div5">
+              ease-in-out
+            </div>
+            <br />
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="40"
+              value={` <style>
                 .section-wrapper-19 .divClass {
                 width: 100px;
                 height: 100px;
@@ -663,56 +821,70 @@ const CssPractice = () => {
                 <div className="divClass" id="div2"&gt;ease</div><br />
                 <div className="divClass" id="div3"&gt;ease-in</div><br />
                 <div className="divClass" id="div4"&gt;ease-out</div><br />
-                <div className="divClass" id="div5"&gt;ease-in-out</div><br />`}>
-                </textarea>
-              </div>
-            </div>
-            
+                <div className="divClass" id="div5"&gt;ease-in-out</div><br />`}
+            ></textarea>
           </div>
-          <div className="section-wrapper section-wrapper-20">
-            <p className="title">animation property (@keyframes, animation-name, animation-duration, animation-delay, animation-iteration-count, animation-direction, animation-timing-function, animation-fill-mode, animation)</p>
-            <div>
-              <div className="output-wrapper-1">
-                <div className="animationdiv1"></div>
-              </div>
-              <div className="code-wrapper">
-                <textarea className="textarea" disabled="" cols="1" rows="10" value={`            <style>
+        </div>
+      </div>
+      <div className="section-wrapper section-wrapper-20">
+        <p className="title">
+          animation property (@keyframes, animation-name, animation-duration, animation-delay,
+          animation-iteration-count, animation-direction, animation-timing-function,
+          animation-fill-mode, animation)
+        </p>
+        <div>
+          <div className="output-wrapper-1">
+            <div className="animationdiv1"></div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="10"
+              value={`            <style>
                 .section-wrapper-1 .color{
                 color: red;
                 }
                 </style>
-                <div className="color"&gt;color property</div>`}>
-                </textarea>
-              </div>
-            </div>
-            <style>
-             
-            </style>
+                <div className="color"&gt;color property</div>`}
+            ></textarea>
           </div>
-          <div className="section-wrapper section-wrapper-21">
-            <p className="title">animation property (@keyframes, animation-name, animation-duration, animation-delay, animation-iteration-count, animation-direction, animation-timing-function, animation-fill-mode, animation)</p>
-            <div>
-              <div className="output-wrapper-1">
-                <div className="animationdiv1">
-                  <img id="carImg" src={carImg} alt="" />
-                  <div className="wheel1"></div>
-                  <div className="wheel2"></div>
-                </div>
-              </div>
-              <div className="code-wrapper">
-                <textarea className="textarea" disabled="" cols="1" rows="10" value={` <style>
+        </div>
+        <style></style>
+      </div>
+      <div className="section-wrapper section-wrapper-21">
+        <p className="title">
+          animation property (@keyframes, animation-name, animation-duration, animation-delay,
+          animation-iteration-count, animation-direction, animation-timing-function,
+          animation-fill-mode, animation)
+        </p>
+        <div>
+          <div className="output-wrapper-1">
+            <div className="animationdiv1">
+              <img id="carImg" src={carImg} alt="" />
+              <div className="wheel1"></div>
+              <div className="wheel2"></div>
+            </div>
+          </div>
+          <div className="code-wrapper">
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="10"
+              value={` <style>
                 .section-wrapper-1 .color{
                 color: red;
                 }
                 </style>
-                <div className="color"&gt;color property</div>`}>
-                </textarea>
-              </div>
-            </div>
-            
+                <div className="color"&gt;color property</div>`}
+            ></textarea>
           </div>
-       
-  </StyledCssPractice>);
+        </div>
+      </div>
+    </StyledCssPractice>
+  );
 };
 
 export default CssPractice;

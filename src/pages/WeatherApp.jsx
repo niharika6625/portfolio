@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import '../assets/css/weatherApp.scss';
+import ProjectModal from '../components/ProjectModal';
+import { PROJECT_DESCRIPTION } from '../helpers/constants/projectDescription';
+const { weather } = PROJECT_DESCRIPTION;
 
 export default function WeatherApp() {
   const [weatherData, setWeatherData] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
+
+  const handleClickClose = () => {
+    setOpenDialog(false);
+  };
 
   async function getData() {
     if (inputValue == '') {
@@ -29,6 +41,13 @@ export default function WeatherApp() {
 
   return (
     <div className="pageOuterWrapper">
+      <ProjectModal
+        open={openDialog}
+        onClose={handleClickClose}
+        project={weather}
+        color={'#df8e00'}
+        handleClickOpen={handleClickOpen}
+      />
       <div className="pageWrapper">
         <div className="pageContentWrap">
           <div className="searchBlock">

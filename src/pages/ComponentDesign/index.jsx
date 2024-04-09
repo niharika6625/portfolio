@@ -1,10 +1,33 @@
 /* eslint-disable prettier/prettier */
+import { useState } from 'react';
 import StyledComponentDesign from './StyledComponentDesign.js';
 import reactJpeg from '../../assets/images/react.jpeg';
 import reactjsJpg from '../../assets/images/reactjs.jpg';
+import ProjectModal from '../../components/ProjectModal';
+import { PROJECT_DESCRIPTION } from '../../helpers/constants/projectDescription';
+const { componentLib } = PROJECT_DESCRIPTION;
 const ComponentDesign = () => {
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
+
+  const handleClickClose = () => {
+    setOpenDialog(false);
+  };
   return (
     <StyledComponentDesign>
+      <ProjectModal
+        open={openDialog}
+        onClose={handleClickClose}
+        project={componentLib}
+        color={'#36454F'}
+        handleClickOpen={handleClickOpen}
+      />
+      <div className="heading">
+        <h1>Component Craft Lab</h1>
+      </div>
       <div className="section-wrapper section-wrapper-1">
         <p className="title">Button</p>
         <div>
@@ -12,8 +35,12 @@ const ComponentDesign = () => {
             <div className="buttonDiv">CONTAINED</div>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4"
-          value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-1 .buttonDiv {
             display: flex;
             align-items: center;
@@ -33,7 +60,8 @@ const ComponentDesign = () => {
             background-color: #196dc1;
             box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
             }
-            </style>`}></textarea>
+            </style>`}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -48,7 +76,12 @@ const ComponentDesign = () => {
             </div>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-2 .buttonGrp {
             display: flex;
             }
@@ -65,7 +98,8 @@ const ComponentDesign = () => {
             cursor: pointer;
             background-color: #1976d2;
             }
-            </style> `}></textarea>
+            </style> `}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -80,7 +114,12 @@ const ComponentDesign = () => {
             </select>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-3 #age {
             width: 112px;
             font-size: 16px;
@@ -90,7 +129,8 @@ const ComponentDesign = () => {
             border: 0.2px solid #b4b4b4;
             border-radius: 5px;
             }
-            </style>`}></textarea>
+            </style>`}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -105,14 +145,20 @@ const ComponentDesign = () => {
             <i className="fa-solid fa-star star"></i>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-4 .star {
             color: white;
             }
             .section-wrapper-4 .star:hover {
             color: yellow;
             }
-            </style> `}></textarea>
+            </style> `}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -125,9 +171,15 @@ const ComponentDesign = () => {
             <i className="fa-solid fa-volume-high"></i>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`&lt;i className="fa-solid fa-volume-xmark"&gt;&lt;/i&gt;
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`&lt;i className="fa-solid fa-volume-xmark"&gt;&lt;/i&gt;
             &lt;input type="range"&gt;
-            &lt;i className="fa-solid fa-volume-high"&gt;&lt;/i&gt; `}></textarea>
+            &lt;i className="fa-solid fa-volume-high"&gt;&lt;/i&gt; `}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -143,7 +195,12 @@ const ComponentDesign = () => {
             </div>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-6 .mainDiv {
             position: relative;
             }
@@ -182,12 +239,11 @@ const ComponentDesign = () => {
             .checkBox:checked~.outerDiv .innerDiv {
             left: 21px;
             }
-            </style> `}></textarea>
+            </style> `}
+            ></textarea>
           </div>
         </div>
-        <style>
-          
-        </style>
+        <style></style>
       </div>
       <div className="section-wrapper section-wrapper-7">
         <p className="title">Text-field</p>
@@ -196,12 +252,16 @@ const ComponentDesign = () => {
             <input type="text" className="textField" placeholder="Outlined" />
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`&lt;h1&gt;Heading tag&lt;/h1&gt;`}></textarea>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`&lt;h1&gt;Heading tag&lt;/h1&gt;`}
+            ></textarea>
           </div>
         </div>
-        <style>
-        
-        </style>
+        <style></style>
       </div>
       <div className="section-wrapper section-wrapper-8">
         <p className="title">Badge</p>
@@ -212,7 +272,12 @@ const ComponentDesign = () => {
             </i>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-8 .icon {
             position: relative;
             font-size: 23px;
@@ -232,7 +297,8 @@ const ComponentDesign = () => {
             text-align: center;
             border-radius: 12px;
             }
-            </style> `}></textarea>
+            </style> `}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -242,15 +308,24 @@ const ComponentDesign = () => {
           <div className="output-wrapper">
             <div className="outerDiv">
               <ul className="ulDiv">
-                <li className="listItems"><i className="fa-solid fa-inbox"></i>&nbsp; &nbsp; Inbox</li>
-                <li className="listItems"><i className="fa-solid fa-envelope-open"></i>&nbsp; &nbsp; Drafts</li>
+                <li className="listItems">
+                  <i className="fa-solid fa-inbox"></i>&nbsp; &nbsp; Inbox
+                </li>
+                <li className="listItems">
+                  <i className="fa-solid fa-envelope-open"></i>&nbsp; &nbsp; Drafts
+                </li>
                 <li className="listItems">Trash</li>
                 <li className="listItems">Spam</li>
               </ul>
             </div>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-9 .outerDiv {
             display: flex;
             padding: 0px;
@@ -273,7 +348,8 @@ const ComponentDesign = () => {
             .section-wrapper-9 .listItems:hover {
             background-color: rgba(0, 0, 0, 0.04);
             }
-            </style> `}></textarea>
+            </style> `}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -317,7 +393,12 @@ const ComponentDesign = () => {
             </table>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-10 table {
             background-color: white;
             border-collapse: collapse;
@@ -329,7 +410,8 @@ const ComponentDesign = () => {
             .section-wrapper-10 td {
             border-bottom: 1px solid #dfdfdf;
             }
-            </style> `}></textarea>
+            </style> `}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -340,7 +422,12 @@ const ComponentDesign = () => {
             <div className="tooltip">Hover over me</div>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-11 .tooltip {
             display: flex;
             justify-content: center;
@@ -364,7 +451,8 @@ const ComponentDesign = () => {
             border-radius: 5px;
             background-color: #747070;
             }
-            </style> `}></textarea>
+            </style> `}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -372,15 +460,22 @@ const ComponentDesign = () => {
         <p className="title">Alerts</p>
         <div>
           <div className="output-wrapper">
-            <div className="alertDiv"><i className="fa-solid fa-circle-exclamation"></i>&nbsp; &nbsp; &nbsp; This is an
+            <div className="alertDiv">
+              <i className="fa-solid fa-circle-exclamation"></i>&nbsp; &nbsp; &nbsp; This is an
               error alert — check it out!
             </div>
-            <div className="warningDiv"><i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; &nbsp; This is a
+            <div className="warningDiv">
+              <i className="fa-solid fa-triangle-exclamation"></i>&nbsp; &nbsp; &nbsp; This is a
               warning alert — check it out!
             </div>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-12 .alertDiv {
             display: flex;
             padding: 0px 30px;
@@ -412,7 +507,8 @@ const ComponentDesign = () => {
             font-size: 24px;
             }
             .section-wrapper-12 .buttonDiv:hover {}
-            </style> `}></textarea>
+            </style> `}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -423,7 +519,12 @@ const ComponentDesign = () => {
             <div className="spin"></div>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-13 .spin {
             box-sizing: border-box;
             position: relative;
@@ -455,7 +556,8 @@ const ComponentDesign = () => {
             transform: rotate(360deg);
             }
             }
-            </style> `}></textarea>
+            </style> `}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -465,33 +567,50 @@ const ComponentDesign = () => {
           <div className="output-wrapper">
             <div className="accordianDiv-wrap">
               <div className="accordianDiv">
-                <h4>Accordian 1<i className="fa-solid fa-angle-down"></i></h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit
-                  amet blandit leo lobortis eget.
+                <h4>
+                  Accordian 1<i className="fa-solid fa-angle-down"></i>
+                </h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
+                  lacus ex, sit amet blandit leo lobortis eget.
                 </p>
               </div>
               <div className="accordianDiv">
-                <h4>Accordian 2<i className="fa-solid fa-angle-down"></i></h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit
-                  amet blandit leo lobortis eget.
+                <h4>
+                  Accordian 2<i className="fa-solid fa-angle-down"></i>
+                </h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
+                  lacus ex, sit amet blandit leo lobortis eget.
                 </p>
               </div>
               <div className="accordianDiv">
-                <h4>Accordian 3<i className="fa-solid fa-angle-down"></i></h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit
-                  amet blandit leo lobortis eget.
+                <h4>
+                  Accordian 3<i className="fa-solid fa-angle-down"></i>
+                </h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
+                  lacus ex, sit amet blandit leo lobortis eget.
                 </p>
               </div>
               <div className="accordianDiv">
-                <h4>Accordian 4<i className="fa-solid fa-angle-down"></i></h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit
-                  amet blandit leo lobortis eget.
+                <h4>
+                  Accordian 4<i className="fa-solid fa-angle-down"></i>
+                </h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
+                  lacus ex, sit amet blandit leo lobortis eget.
                 </p>
               </div>
             </div>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-14 .accordianDiv-wrap {
             background-color: white;
             border-radius: 5px;
@@ -508,7 +627,8 @@ const ComponentDesign = () => {
             font-weight: 400;
             font-size: 16px;
             }
-            </style> `}></textarea>
+            </style> `}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -530,7 +650,12 @@ const ComponentDesign = () => {
             </div>
           </div>
           <div className="code-wrapper">
-            <textarea className="textarea" disabled="" cols="1" rows="4" value={`<style>
+            <textarea
+              className="textarea"
+              disabled=""
+              cols="1"
+              rows="4"
+              value={`<style>
             .section-wrapper-15 .outerDiv {
             width: 600px;
             padding: 0px 30px;
@@ -584,7 +709,8 @@ const ComponentDesign = () => {
             border-radius: 15px;
             height: 19px;
             }
-            </style> `}></textarea>
+            </style> `}
+            ></textarea>
           </div>
         </div>
       </div>
@@ -599,12 +725,15 @@ const ComponentDesign = () => {
                   <h4>Shrimp and Chorizo Paella</h4>
                   <p>September 14, 2016</p>
                 </div>
-                <div className="menu"><i className="fa-solid fa-ellipsis-vertical"></i></div>
+                <div className="menu">
+                  <i className="fa-solid fa-ellipsis-vertical"></i>
+                </div>
               </div>
               <div className="card-content">
                 <img src={reactjsJpg} alt="" />
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi velit vero porro nisi rem uga recusandae harum dignissimos,nihil ipsa reiciendis beatae sapiente
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi velit vero porro
+                  nisi rem uga recusandae harum dignissimos,nihil ipsa reiciendis beatae sapiente
                   officiis. Iure, alias corporis.
                 </p>
               </div>

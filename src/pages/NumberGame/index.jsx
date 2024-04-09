@@ -7,28 +7,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import clickSound from '../../assets/media/buttonclick.mp3';
 import winSound from '../../assets/media/winsound.mp3';
-import { URL, CONSTANTS } from '../../helpers/constants'
-import "./game.scss";
-
-import { selectorNumberGame, updateHistoryList } from '../../store/reducers/numberGame'
+import ProjectModal from '../../components/ProjectModal';
+import { URL, CONSTANTS } from '../../helpers/constants';
+import './game.scss';
+import { PROJECT_DESCRIPTION } from '../../helpers/constants/projectDescription';
+import { selectorNumberGame, updateHistoryList } from '../../store/reducers/numberGame';
 
 const { NUMBER_HISTORY } = URL;
-const {
-  NUMBER_GAME: {
-    GAME_TYPE: {
-      PLAY,
-      WIN,
-      START,
-    }
-  }
-} = CONSTANTS;
+const {NUMBER_GAME: {GAME_TYPE: { PLAY, WIN, START },},} = CONSTANTS;
 
 // 1 start Game -> ganme
 // 2 win Game -> win text
 // 3 restart game-> start your game
 
-const numberList = [2, 3, 4, 5, 6, 7, ' ', 1]
-const numListString = '1234567'
+const numberList = [2, 3, 4, 5, 6, 7, ' ', 1];
+const numListString = '1234567';
+const { numberGame } = PROJECT_DESCRIPTION;
 
 const NumberGame = () => {
   const dispatch = useDispatch();
@@ -43,146 +37,165 @@ const NumberGame = () => {
   const [timer, setTimer] = useState({
     min: 0,
     sec: 0,
-    isStart: false
-  })
+    isStart: false,
+  });
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
+
+  const handleClickClose = () => {
+    setOpenDialog(false);
+  };
 
   const playClickAudio = () => {
     new Audio(clickSound).play();
-  }
+  };
 
   const playWinAudio = () => {
     new Audio(winSound).play();
-  }
+  };
 
   const startTimer = () => {
     setTimeout(() => {
-      let {
-        min,
-        sec
-      } = timer;
+      let { min, sec } = timer;
       let minnute = sec === 59 ? min + 1 : min;
       let second = sec === 59 ? 0 : sec + 1;
-      setTimer(() => ({ 
-        ...timer, 
-        min: minnute, 
-        sec: second 
-      }))
-    }, 1000)
-
-  }
+      setTimer(() => ({
+        ...timer,
+        min: minnute,
+        sec: second,
+      }));
+    }, 1000);
+  };
 
   useEffect(() => {
     if (timer.isStart && restart === PLAY) {
       startTimer();
     }
-  }, [timer])
+  }, [timer]);
 
   useEffect(() => {
-    setWinCount(historyList.length)
-  }, [historyList])
+    setWinCount(historyList.length);
+  }, [historyList]);
 
   const handleItemClick = (number, index) => {
-    let tempNumbers = [...numbers]
+    let tempNumbers = [...numbers];
     setSelectedIndex(index);
-    if (number === ' ' && (selectedIndex !== '') && selectedIndex !== index) {
+    if (number === ' ' && selectedIndex !== '' && selectedIndex !== index) {
       playClickAudio();
       tempNumbers[index] = tempNumbers[selectedIndex];
       tempNumbers[selectedIndex] = ' ';
-      setNumbers(tempNumbers)
-      setSelectedIndex('')
-      setSteps(steps + 1)
+      setNumbers(tempNumbers);
+      setSelectedIndex('');
+      setSteps(steps + 1);
     }
-
-  }
+  };
 
   useEffect(() => {
     if (restart === PLAY) {
       let tempNumber = [...numbers];
-      tempNumber = tempNumber.sort(() => (Math.random() > .5) ? 1 : -1)
-      setNumbers(() => tempNumber)
+      tempNumber = tempNumber.sort(() => (Math.random() > 0.5 ? 1 : -1));
+      setNumbers(() => tempNumber);
       setSteps(0);
-      setTimer({ 
-        min: 0, 
-        sec: 0, 
-        isStart: true 
-      })
+      setTimer({
+        min: 0,
+        sec: 0,
+        isStart: true,
+      });
     }
-  }, [restart])
+  }, [restart]);
 
   useEffect(() => {
     if (numbers.join('').trim() === numListString) {
-
       const history = {
         steps: steps,
         time: timer.min + ':' + timer.sec,
-        date: new Date().toDateString()
-      }
+        date: new Date().toDateString(),
+      };
       setTimer({
-      })
-      dispatch(updateHistoryList(history))
+});
+      dispatch(updateHistoryList(history));
       // setHistoryList(() => {
       //   return [...historyList, history]
       // })
 
-      setRestart(WIN)
+      setRestart(WIN);
     }
   }, [numbers]);
 
-
   const handleRestart = (type) => {
-    setRestart(type)
-  }
+    setRestart(type);
+  };
 
   const handleNavigate = (path) => {
-    naviagte(path)
-  }
+    naviagte(path);
+  };
 
   const renderList = () => {
     if (historyList && historyList.length) {
-      return (<table>
-        <tr>
-          <th>Game no.</th>
-          <th>Steps</th>
-          <th>Time</th>
-          <th>Win Date</th>
-        </tr>
-        {historyList.map((item, index) => {
-          return (<tr key={index}>
-            <td>{index + 1}</td>
-            <td>{item.steps}</td>
-            <td>{item.time}</td>
-            <td>{item.date}</td>
-          </tr>)
-        })}
-      </table>)
+      return (
+        <table>
+          <tr>
+            <th>Game no.</th>
+            <th>Steps</th>
+            <th>Time</th>
+            <th>Win Date</th>
+          </tr>
+          {historyList.map((item, index) => {
+            return (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{item.steps}</td>
+                <td>{item.time}</td>
+                <td>{item.date}</td>
+              </tr>
+            );
+          })}
+        </table>
+      );
     }
-    return ''
-  }
+    return '';
+  };
 
   const renderStage = () => {
     switch (restart) {
       case START:
         return (
           <div>
-            <h3>To win the game you need to re-arrange the numbers starting from the top left, from 1 to 15, and leave the last tile empty.</h3>
-            <Button variant="outlined" onClick={() => handleRestart(PLAY)}>Start Game</Button>
+            <h3>
+              To win the game you need to re-arrange the numbers starting from the top left, from 1
+              to 15, and leave the last tile empty.
+            </h3>
+            <Button variant="contained" onClick={() => handleRestart(PLAY)}>
+              Start Game
+            </Button>
             {renderList()}
           </div>
-        )
+        );
       case PLAY:
       case WIN:
         return (
           <>
-            {restart !== PLAY && <div className='win-stage'>
-              {playWinAudio()}
-              <Alert variant="filled" icon={false} severity="success">You Win ! Congratulations !</Alert>
-              <div className='win-stage-buttons'>
-                <Stack spacing={2} direction="row">
-                  <Button variant="contained" onClick={() => handleRestart(START)}>Return to Home</Button>
-                  <Button variant="contained" onClick={() => handleRestart(PLAY)}>Restart Game</Button>
-                </Stack>
+            {restart !== PLAY && (
+              <div className="win-stage">
+                {playWinAudio()}
+                <Alert variant="filled" icon={false} severity="success">
+                  You Win ! Congratulations !
+                </Alert>
+                <div className="win-stage-buttons">
+                  <Stack spacing={2} direction="row">
+                    <Button variant="contained" onClick={() => handleRestart(START)}>
+                      Return to Home
+                    </Button>
+                    <Button variant="contained" onClick={() => handleRestart(PLAY)}>
+                      Restart Game
+                    </Button>
+                  </Stack>
+                </div>
               </div>
-            </div>}
+            )}
             <div className="game- header">
               <div className="sub-items">
                 <p>Time Elapsed : {`${timer.min}:${timer.sec}`}</p>
@@ -191,7 +204,9 @@ const NumberGame = () => {
                 <div>
                   <Stack spacing={2} direction="row">
                     <Button variant="contained">Menu</Button>
-                    <Button variant="contained" onClick={() => handleNavigate(NUMBER_HISTORY)}>View History</Button>
+                    <Button variant="contained" onClick={() => handleNavigate(NUMBER_HISTORY)}>
+                      View History
+                    </Button>
                   </Stack>
                 </div>
               </div>
@@ -205,29 +220,35 @@ const NumberGame = () => {
                     >
                       {item}
                     </div>
-                  )
+                  );
                 })}
-
               </div>
             </div>
           </>
-        )
+        );
       default:
         break;
     }
-  }
+  };
 
-  return <div className="grid-container">
-    <div className="game-header">
-      <h1>The Game of 15 Numbers</h1>
+  return (
+    <div className="grid-container">
+      <ProjectModal
+        open={openDialog}
+        onClose={handleClickClose}
+        project={numberGame}
+        color={'#1976d2'}
+        handleClickOpen={handleClickOpen}
+      />
+      <div className="game-header">
+        <h1>The Game of 15 Numbers</h1>
+      </div>
+      {renderStage()}
     </div>
-    {renderStage()}
-  </div>;
-
+  );
 };
 
 export default NumberGame;
-
 
 //win sound is coming twice
 //UI of History Page

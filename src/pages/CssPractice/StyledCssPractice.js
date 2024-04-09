@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
-import {styled} from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import reactBgImg from '../../assets/images/reactjs.jpg';
-const StyledCssPractice = styled('div')(() => `
+const StyledCssPractice = styled('div')(
+  () => `
 margin: 5px;
 margin-top: 100px;
 
@@ -20,6 +21,11 @@ margin-top: 100px;
     padding: 10px 0px;
     background-color: #ddebdc;
   }
+
+  .heading{
+    display:flex;
+    justify-content: center;
+}
 
   .section-wrapper .title {
     padding: 0px 10px;
@@ -527,6 +533,7 @@ margin-top: 100px;
             transform: rotate(1200deg) scale(1);
             }
             }
-`)
+`,
+);
 
-export default StyledCssPractice
+export default StyledCssPractice;

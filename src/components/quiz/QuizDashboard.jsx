@@ -10,7 +10,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -26,6 +25,9 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 import '../../assets/css/quizDashboard.scss';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { PROJECT_DESCRIPTION } from '../../helpers/constants/projectDescription';
+import ProjectModal from '../ProjectModal';
+const { quiz } = PROJECT_DESCRIPTION;
 
 export default function QuizDashboard() {
   const userInfoData = useSelector((state) => state.authentication.userInfo);
@@ -37,6 +39,15 @@ export default function QuizDashboard() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [chartLabelData, setChartLabelData] = useState([]);
   const [chartDatasetsData, setChartDatasetsData] = useState([]);
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
+
+  const handleClickClose = () => {
+    setOpenDialog(false);
+  };
 
   const handleChange = (event) => {
     setSelectedCategory(event.target.value);
@@ -134,7 +145,19 @@ export default function QuizDashboard() {
 
   return (
     <div className="quizDashboardPageWrapper">
+      <div className="quizButtonsWrapper">
+        <button className="quizDashboardBtn" onClick={() => handleDashboardBtn()}>
+          Start Quiz
+        </button>
+      </div>
       <div className="quizProfileWrap">
+        <ProjectModal
+          open={openDialog}
+          onClose={handleClickClose}
+          project={quiz}
+          color={'#004e00'}
+          handleClickOpen={handleClickOpen}
+        />
         <h1 className="contentWrapHeader">Profile</h1>
         <div className="quizProfileWrapBox">
           <div className="quizWrapperContentNames">
@@ -231,10 +254,11 @@ export default function QuizDashboard() {
           <Bar data={data} />
         </div>
       </div>
-
-      <button className="quizDashboardBtn" onClick={() => handleDashboardBtn()}>
-        Start Quiz
-      </button>
+      <div className="quizButtonsWrapper">
+        <button className="quizDashboardBtn" onClick={() => handleDashboardBtn()}>
+          Start Quiz
+        </button>
+      </div>
     </div>
   );
 }
