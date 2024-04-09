@@ -4,20 +4,26 @@ import Weather from "../pages/Weather";
 import WeatherDetails from "../pages/Weather/Details";
 import NumberGame from "../pages/NumberGame";
 import History from '../pages/NumberGame/History';
-import {URL} from '../helpers/constants';
-import PublicLayout from '../layouts/PublicLayout'
+import { URL } from '../helpers/constants';
+import PublicLayout from '../layouts/PublicLayout';
+import TodoList from "../pages/TodoList";
+import Calculator from "../pages/Calculator";
+import Ecommerce from "../pages/Ecommerce";
 const {
   HOME,
   NUMBER_HISTORY,
   NUMBER_DASHBOARD,
   WEATHER,
-  WEATHER_DETAILS
+  WEATHER_DETAILS,
+  TODO_LIST,
+  CALCULATOR,
+  ECOMMERCE
 } = URL;
 
 const routes = createBrowserRouter([
   {
     path: HOME,
-    element: <PublicLayout><Home /></PublicLayout> ,
+    element: <PublicLayout><Home /></PublicLayout>,
   },
   {
     path: WEATHER,
@@ -35,6 +41,18 @@ const routes = createBrowserRouter([
     path: NUMBER_HISTORY,
     element: <PublicLayout><History /></PublicLayout>,
   },
-], {basename: '/portfolio'});
+  {
+    path: TODO_LIST,
+    element: <PublicLayout><TodoList /></PublicLayout>,
+  },
+  {
+    path: CALCULATOR,
+    element: <PublicLayout><Calculator /></PublicLayout>,
+  },
+  {
+    path: ECOMMERCE,
+    element: <PublicLayout><Ecommerce /></PublicLayout>,
+  },
+], { basename: '/portfolio' });
 
 export default routes;
