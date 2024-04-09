@@ -1,60 +1,46 @@
-import React from "react";
-import Logonew from "../assets/images/blacklogo.png";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import IconButton from "@mui/material/IconButton";
-import Stack from "@mui/material/Stack";
-import "./footer.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <div className="footer-wrap">
-      <div className="footer-wrapper container-c">
-        <div className="footer-image">
-          <img src={Logonew} alt="logo" display="flex" />
-        </div>
-        <div className="footer-content">
-          <div className="footer-section-1">
-            <h5 className="pr-1">+46 70428 5348</h5>
-            <h5>niharika0108@gmail.com</h5>
-            <Stack spacing={2} direction="row">
-              <IconButton
-              //onClick={handleClick}
-              >
-                <GitHubIcon
-                  fontSize="large"
-                  sx={{ color: "white" }}
-                ></GitHubIcon>
-              </IconButton>
-              <IconButton
-              //onClick={handleClick}
-              >
-                <LinkedInIcon
-                  fontSize="large"
-                  sx={{ color: "white" }}
-                ></LinkedInIcon>
-              </IconButton>
-            </Stack>
-          </div>
-          <hr></hr>
-          <div className="footer-section-2">
-            <ul className="links">
-              <li>
-                <a href="">About me</a>
-              </li>
-              <li>
-                <a href="">Tech Stack</a>
-              </li>
-              <li>
-                <a href="">Projects</a>
-              </li>
-              <li>
-                <a href="">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <>
+      <div className="footer-header">
+        <span>+46 704285348</span>
+        <span>niharika0108@gmail.com</span>
+        <span>
+          <a href="https://github.com/niharika6625">
+            <i className="fa-brands fa-github"></i>
+          </a>
+          <Link to="">
+            <i className="fa-brands fa-twitter"></i>
+          </Link>
+          <a href="https://www.linkedin.com/in/niharika6625/">
+            <i className="fa-brands fa-linkedin"></i>
+          </a>
+        </span>
       </div>
-    </div>
+      <div className="footer-content">
+        <ul>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/">
+            <li>About</li>
+          </Link>
+          <Link to="/">
+            <li>Tech Stack</li>
+          </Link>
+          <Link to="/">
+            <li>Projects</li>
+          </Link>
+          <Link to="/">
+            <li>Contact</li>
+          </Link>
+        </ul>
+        <p>
+          Designed and built by <span>Niharika Gupta</span>
+        </p>
+      </div>
+    </>
   );
 }

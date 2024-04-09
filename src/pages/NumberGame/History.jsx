@@ -1,4 +1,4 @@
-
+/* eslint-disable prettier/prettier */
 import { useSelector } from 'react-redux';
 import {selectorNumberGame} from '../../store/reducers/numberGame';
 
@@ -14,7 +14,7 @@ const History = () => {
               <th>Win Date</th>
             </tr>
             {historyList && historyList.map((item, index) => {
-              return ( <tr>
+              return ( <tr key={index}>
                 <td>{index+1}</td>
                 <td>{item.steps}</td>
                 <td>{item.time}</td>
