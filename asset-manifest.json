@@ -1,30 +1,28 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.107468cb.css",
-    "main.js": "/portfolio/static/js/main.1be08416.js",
-    "static/js/787.28cb0dcd.chunk.js": "/portfolio/static/js/787.28cb0dcd.chunk.js",
-    "static/media/sass.png": "/portfolio/static/media/sass.c556a176a8b7d49fb670.png",
-    "static/media/VS.png": "/portfolio/static/media/VS.e66400756ccbdbfc0b31.png",
-    "static/media/github.png": "/portfolio/static/media/github.ecf329c2c06a1f41fae4.png",
-    "static/media/weather-2.jpeg": "/portfolio/static/media/weather-2.64146384c0fb3a681147.jpeg",
-    "static/media/bg-blue.jpeg": "/portfolio/static/media/bg-blue.0fc41085417bd6243042.jpeg",
-    "static/media/weather-icon.png": "/portfolio/static/media/weather-icon.6dc216154b41f1f9d461.png",
+    "main.css": "/portfolio/static/css/main.388adfbf.css",
+    "main.js": "/portfolio/static/js/main.6d4a6f2f.js",
+    "static/js/453.7b0d3860.chunk.js": "/portfolio/static/js/453.7b0d3860.chunk.js",
+    "static/media/car.png": "/portfolio/static/media/car.de1b7a9bc03783c76fed.png",
+    "static/media/reactjs.jpg": "/portfolio/static/media/reactjs.461c8335eb0c36e71421.jpg",
     "static/media/winsound.mp3": "/portfolio/static/media/winsound.b59f3d38c911a02e1915.mp3",
     "static/media/buttonclick.mp3": "/portfolio/static/media/buttonclick.69bed42fb949b9a2a631.mp3",
-    "static/media/HTML1.png": "/portfolio/static/media/HTML1.d50fc7a86b6f3764610b.png",
-    "static/media/mui.png": "/portfolio/static/media/mui.5b2d8a0a309d9f7d47c1.png",
-    "static/media/figma.png": "/portfolio/static/media/figma.72fbc535ebe253a5dbc4.png",
-    "static/media/bootstrap.png": "/portfolio/static/media/bootstrap.268c4375260420e8d982.png",
-    "static/media/css.png": "/portfolio/static/media/css.4a6549b8c2b4cda8bb88.png",
-    "static/media/javascript.webp": "/portfolio/static/media/javascript.bb41b35e77975f0c88b0.webp",
-    "static/media/react1.svg": "/portfolio/static/media/react1.4f7abcc3a4d5c559d9eb61b5f2dd5a87.svg",
+    "static/media/logos_sass.svg": "/portfolio/static/media/logos_sass.4f452f39442aa8395f8c11e772cec9db.svg",
+    "static/media/logos_react.svg": "/portfolio/static/media/logos_react.ea8d7c26d9ce7bc5a6882779aa8cacdc.svg",
+    "static/media/vscode-icons_file-type-vscode.svg": "/portfolio/static/media/vscode-icons_file-type-vscode.09d02691c8ec0c3b4204a4d5f2d7d8b4.svg",
+    "static/media/logos_bootstrap.svg": "/portfolio/static/media/logos_bootstrap.ab5dc32f0211db2b3cadf965e6f1da66.svg",
     "index.html": "/portfolio/index.html",
-    "main.107468cb.css.map": "/portfolio/static/css/main.107468cb.css.map",
-    "main.1be08416.js.map": "/portfolio/static/js/main.1be08416.js.map",
-    "787.28cb0dcd.chunk.js.map": "/portfolio/static/js/787.28cb0dcd.chunk.js.map"
+    "static/media/vscode-icons_file-type-js-official.svg": "/portfolio/static/media/vscode-icons_file-type-js-official.f9d6615f624fd4d0da65fbf4ae5edf5c.svg",
+    "static/media/logos_git-icon.svg": "/portfolio/static/media/logos_git-icon.fb2eda3501fb7c66c43993f361b75061.svg",
+    "static/media/akar-icons_github-fill.svg": "/portfolio/static/media/akar-icons_github-fill.36dc0fbc093986dc6624f3ad8a37ab2a.svg",
+    "static/media/vscode-icons_file-type-css.svg": "/portfolio/static/media/vscode-icons_file-type-css.1dc1ff133b346eb946ede2b781ce69f8.svg",
+    "static/media/vscode-icons_file-type-html.svg": "/portfolio/static/media/vscode-icons_file-type-html.b4f276884d6135db3f45c375dcc50b01.svg",
+    "main.388adfbf.css.map": "/portfolio/static/css/main.388adfbf.css.map",
+    "main.6d4a6f2f.js.map": "/portfolio/static/js/main.6d4a6f2f.js.map",
+    "453.7b0d3860.chunk.js.map": "/portfolio/static/js/453.7b0d3860.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.107468cb.css",
-    "static/js/main.1be08416.js"
+    "static/css/main.388adfbf.css",
+    "static/js/main.6d4a6f2f.js"
   ]
 }
