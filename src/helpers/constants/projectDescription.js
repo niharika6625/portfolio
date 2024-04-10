@@ -42,6 +42,7 @@ const PROJECT_DESCRIPTION = {
       </ul>`,
     imgUrl: '',
   },
+
   // 2. WEATHER APP
   weather: {
     id: 'weather',
@@ -119,7 +120,7 @@ const PROJECT_DESCRIPTION = {
   // 6. NUMBER GAME
   numberGame: {
     id: 'numberGame',
-    title: 'Features of Login/Register App',
+    title: 'Features of the game app',
     subTitle: '',
     description: `<ul>
     <li>The user needs to arrange numbers 1 to 15 in order, leaving the last tile empty to win.</li>
@@ -141,6 +142,7 @@ const PROJECT_DESCRIPTION = {
   </ul>`,
     imgUrl: '',
   },
+
   // 8. CSS MASTERY STUDIO
   cssMastery: {
     id: 'cssMastery',
@@ -154,7 +156,20 @@ const PROJECT_DESCRIPTION = {
   </ul>`,
     imgUrl: '',
   },
+
   // 9. API FETCH APP
+  apiFetch: {
+    id: 'apiFetch',
+    title: 'Features of this app',
+    subTitle: '',
+    description: `<ul>
+    <li>Utilizes Axios to seamlessly call APIs, facilitating smooth communication with external servers to fetch data for display within the application.</li>
+    <li>Displays fetched data in a visually appealing and comprehensible manner</li>
+    <li>Implements a user-friendly search feature that allows users to quickly and efficiently locate specific data or items within the application, enhancing usability and navigation. </li>
+    <li>The application is responsive and compatible with various devices and web browsers.</li>
+  </ul>`,
+    imgUrl: '',
+  },
 };
 
 export { PROJECT_DESCRIPTION };
