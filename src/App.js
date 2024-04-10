@@ -312,6 +312,34 @@ export default function App() {
                   }}
                 >
                   <ProjectsCard
+                    image={numberGame}
+                    tech="ReactJs, Redux, React-router, HTML, SCSS, MUI, Javascript"
+                    heading={'The Number Puzzle'}
+                    description={
+                      'Test your gaming skills by arranging numbers from 1-15 in order, offering a fun and challenging gameplay experience.'
+                    }
+                    previewLink={'/number-game'}
+                    codeLink={'https://github.com/niharika6625/portfolio/tree/master'}
+                  />
+                </Card>
+              </Grid>
+              <Grid
+                style={{
+                  margin: 'auto',
+                }}
+                item
+                xs={12}
+                md={6}
+                lg={4}
+                className="projectCard"
+              >
+                <Card
+                  sx={{
+                    minHeight: '400px',
+                    margin: 'auto',
+                  }}
+                >
+                  <ProjectsCard
                     image={
                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsNoDI4n6eBEwev1exL4_Rg06YKmtC_p1f8A&usqp=CAU'
                     }
@@ -391,34 +419,6 @@ export default function App() {
                       'Dive into detailed CSS practice, exploring templates and methods for mastering advanced styling techniques.'
                     }
                     previewLink={'/css-practice'}
-                    codeLink={'https://github.com/niharika6625/portfolio/tree/master'}
-                  />
-                </Card>
-              </Grid>
-              <Grid
-                style={{
-                  margin: 'auto',
-                }}
-                item
-                xs={12}
-                md={6}
-                lg={4}
-                className="projectCard"
-              >
-                <Card
-                  sx={{
-                    minHeight: '400px',
-                    margin: 'auto',
-                  }}
-                >
-                  <ProjectsCard
-                    image={numberGame}
-                    tech="ReactJs, Redux, React-router, HTML, SCSS, MUI, Javascript"
-                    heading={'The Number Puzzle'}
-                    description={
-                      'Test your skills by arranging numbers 1-15 in order, offering a fun and challenging gameplay experience.'
-                    }
-                    previewLink={'/number-game'}
                     codeLink={'https://github.com/niharika6625/portfolio/tree/master'}
                   />
                 </Card>
