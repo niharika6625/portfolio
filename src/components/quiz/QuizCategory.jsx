@@ -38,6 +38,8 @@ export default function QuizCategory() {
         <h3 className="quizCategoryHeading">Select Category</h3>
         <nav aria-label="secondary mailbox folders">
           <List>
+            {/* TODO remove console */}
+            {console.log('categoryList', categoryList)}
             {categoryList.categories.map((obj, key) => {
               return (
                 <ListItem

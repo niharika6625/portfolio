@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -92,6 +90,8 @@ export default function QuizLevel() {
         <h3 className="quizCategoryHeading">Select Level</h3>
         <nav aria-label="secondary mailbox folders">
           <List>
+            {/* TODO remove console */}
+            {console.log('chartData', chartData)}
             {chartData.map((obj, key) => {
               return (
                 <ListItem
