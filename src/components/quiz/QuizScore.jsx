@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import QuizButton from './QuizButton.jsx';
 import { addUsersQuizScore } from '../../store/reducers/quiz/quiz';
 import '../../assets/css/quizScore.scss';
 
@@ -109,13 +110,54 @@ export default function QuizScore({ questionsList }) {
           }}
           aria-label="simple table"
         >
-          <TableHead>
+          <TableHead
+            sx={{
+              background: '#e0e0f2',
+              fontSize: '2rem',
+              fontWeight: 'bold',
+            }}
+          >
             <TableRow>
-              <TableCell>Ques No.</TableCell>
-              <TableCell>Question</TableCell>
-              <TableCell>Your Answer</TableCell>
-              <TableCell>Correct Answer</TableCell>
-              <TableCell>Score</TableCell>
+              <TableCell
+                sx={{
+                  fontSize: '0.8rem',
+                  fontWeight: 'bold',
+                }}
+              >
+                Ques No.
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: '0.8rem',
+                  fontWeight: 'bold',
+                }}
+              >
+                Question
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: '0.8rem',
+                  fontWeight: 'bold',
+                }}
+              >
+                Your Answer
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: '0.8rem',
+                  fontWeight: 'bold',
+                }}
+              >
+                Correct Answer
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontSize: '0.8rem',
+                  fontWeight: 'bold',
+                }}
+              >
+                Score
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -138,9 +180,7 @@ export default function QuizScore({ questionsList }) {
           </TableBody>
         </Table>
       </TableContainer>
-      <button className="scorePageHomeBtn" onClick={() => handleHomeNavigation()}>
-        Back To Home
-      </button>
+      <QuizButton onClick={handleHomeNavigation} text="Back to Home" backgroundColor="yellow" />
     </div>
   );
 }

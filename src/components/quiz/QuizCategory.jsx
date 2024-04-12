@@ -6,6 +6,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import QuizButton from './QuizButton.jsx';
 
 export default function QuizCategory() {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -58,14 +59,7 @@ export default function QuizCategory() {
         </nav>
       </div>
       <p className="error">{categoryError}</p>
-      <button
-        className="quizCategorybtn"
-        onClick={() => {
-          nextPage();
-        }}
-      >
-        Next
-      </button>
+      <QuizButton onClick={nextPage} text="Next" backgroundColor="yellow" />
     </div>
   );
 }
