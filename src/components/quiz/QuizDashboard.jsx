@@ -25,8 +25,8 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 import '../../assets/css/quizDashboard.scss';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import QuizButton from './QuizButton.jsx';
 import { PROJECT_DESCRIPTION } from '../../helpers/constants/projectDescription';
+import CustomButton from '../CustomButton.jsx';
 import ProjectModal from '../ProjectModal';
 const { quiz } = PROJECT_DESCRIPTION;
 
@@ -147,7 +147,7 @@ export default function QuizDashboard() {
   return (
     <div className="quizDashboardPageWrapper">
       <div className="quizButtonsWrapper">
-        <QuizButton onClick={handleDashboardBtn} text="Start Quiz" backgroundColor="yellow" />
+        <CustomButton onClick={handleDashboardBtn} text="Start Quiz" backgroundColor="yellow" />
       </div>
       <div className="quizProfileWrap">
         <ProjectModal
@@ -254,7 +254,7 @@ export default function QuizDashboard() {
         </div>
       </div>
       <div className="quizButtonsWrapper">
-        <QuizButton onClick={handleDashboardBtn} text="Start Quiz" backgroundColor="yellow" />
+        <CustomButton onClick={handleDashboardBtn} text="Start Quiz" backgroundColor="yellow" />
       </div>
     </div>
   );

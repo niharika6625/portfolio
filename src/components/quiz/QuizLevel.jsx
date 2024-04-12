@@ -5,7 +5,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import QuizButton from './QuizButton.jsx';
+import CustomButton from '../CustomButton.jsx';
 
 export default function QuizLevel() {
   const userInfoData = useSelector((state) => state.authentication.userInfo);
@@ -114,7 +114,7 @@ export default function QuizLevel() {
         </nav>
       </div>
       <p className="error">{levelError}</p>
-      <QuizButton onClick={nextPage} text="Next" backgroundColor="yellow" />
+      <CustomButton onClick={nextPage} text="Next" backgroundColor="yellow" />
     </div>
   );
 }

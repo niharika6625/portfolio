@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/css/quizHome.scss';
-import QuizButton from '../components/quiz/QuizButton.jsx';
+import CustomButton from '../components/CustomButton.jsx';
 import questionArray from '../components/quiz/QuizQuestions.jsx';
 import QuizScore from '../components/quiz/QuizScore.jsx';
 
@@ -68,7 +68,7 @@ export default function QuizHome() {
       ) : (
         <>
           <div className="leftAlign">
-            <QuizButton onClick={subimtAns} text="End Quiz" backgroundColor="yellow" />
+            <CustomButton onClick={subimtAns} text="End Quiz" backgroundColor="yellow" />
             <h3 className="quizTimer">
               {timer.min}:{timer.sec}
             </h3>
@@ -93,16 +93,16 @@ export default function QuizHome() {
             })}
           </div>
           <div className="buttonDiv">
-            <QuizButton
+            <CustomButton
               disabled={count == 0}
               onClick={prevQues}
               text="Prev"
               backgroundColor="purple"
             />
             {count + 1 == questionsList.length ? (
-              <QuizButton onClick={subimtAns} text="Submit" backgroundColor="yellow" />
+              <CustomButton onClick={subimtAns} text="Submit" backgroundColor="yellow" />
             ) : (
-              <QuizButton onClick={nextQues} text="Next" backgroundColor="purple" />
+              <CustomButton onClick={nextQues} text="Next" backgroundColor="purple" />
             )}
           </div>
         </>

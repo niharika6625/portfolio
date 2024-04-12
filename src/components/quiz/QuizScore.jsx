@@ -9,8 +9,8 @@ import TableRow from '@mui/material/TableRow';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import QuizButton from './QuizButton.jsx';
 import { addUsersQuizScore } from '../../store/reducers/quiz/quiz';
+import CustomButton from '../CustomButton.jsx';
 import '../../assets/css/quizScore.scss';
 
 export default function QuizScore({ questionsList }) {
@@ -180,7 +180,7 @@ export default function QuizScore({ questionsList }) {
           </TableBody>
         </Table>
       </TableContainer>
-      <QuizButton onClick={handleHomeNavigation} text="Back to Home" backgroundColor="yellow" />
+      <CustomButton onClick={handleHomeNavigation} text="Back to Home" backgroundColor="yellow" />
     </div>
   );
 }

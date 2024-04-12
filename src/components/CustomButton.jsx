@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 
-export default function QuizButton({ onClick, disabled, text, backgroundColor }) {
+export default function CustomButton({ onClick, disabled, text, backgroundColor, textTransform }) {
   let color, hoverColor;
 
   if (backgroundColor === 'purple') {
@@ -24,7 +24,7 @@ export default function QuizButton({ onClick, disabled, text, backgroundColor })
         color: color,
         backgroundColor: backgroundColor,
         mt: 2,
-        textTransform: 'none',
+        textTransform: textTransform ? 'uppercase' : 'none',
         '&:hover': {
           backgroundColor: hoverColor,
         },
@@ -35,9 +35,10 @@ export default function QuizButton({ onClick, disabled, text, backgroundColor })
   );
 }
 
-QuizButton.propTypes = {
+CustomButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
+  textTransform: PropTypes.oneOf(['uppercase', 'none']),
   text: PropTypes.string.isRequired,
   backgroundColor: PropTypes.oneOf(['purple', 'yellow']).isRequired,
 };

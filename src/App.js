@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import React, { useRef } from 'react';
-import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import './assets/css/app.scss';
@@ -16,6 +15,7 @@ import js from './assets/images/app/techStack/vscode-icons_file-type-js-official
 import vsCode from './assets/images/app/techStack/vscode-icons_file-type-vscode.svg';
 import numberGame from './assets/images/bg2.jpeg';
 import profileImg from './assets/images/profile.niharika.jpg';
+import CustomButton from './components/CustomButton.jsx';
 import Footer from './components/Footer.jsx';
 import Header from './components/Header.jsx';
 import ProjectsCard from './components/ProjectsCard.jsx';
@@ -42,20 +42,12 @@ export default function App() {
               I am Niharika Gupta, <br />I use ReactJS to create amazing websites. <br /> Welcome to
               my Portfolio!
             </h1>
-            <Button
+            <CustomButton
               onClick={scrollToInsight}
-              variant="contained"
-              sx={{
-                color: 'black',
-                backgroundColor: '#ecc600',
-                mt: 2,
-                '&:hover': {
-                  backgroundColor: '#c7a317',
-                },
-              }}
-            >
-              Discover more
-            </Button>
+              text="Discover More"
+              backgroundColor="yellow"
+              textTransform
+            />
           </div>
           <div className="block-1-content">
             <img src={profileImg} alt="" />
