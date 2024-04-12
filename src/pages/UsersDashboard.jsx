@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import '../assets/css/usersDashboard.scss';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -11,8 +10,8 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 import { useDispatch, useSelector } from 'react-redux';
-
 import { useNavigate } from 'react-router-dom';
+import CustomButton from '../components/CustomButton.jsx';
 import { addUserData } from '../store/reducers/authentication/authentication';
 
 export default function UsersDashboard() {
@@ -131,7 +130,7 @@ export default function UsersDashboard() {
       </Dialog>
       <table className="usersList">
         <caption>
-          <button onClick={() => createUser()}>Add User</button>
+          <CustomButton onClick={createUser} text="Add User" backgroundColor="yellow" />
         </caption>
         <thead>
           <tr className="headRow">

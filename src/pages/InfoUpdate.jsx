@@ -4,7 +4,6 @@ import '../assets/css/infoUpdate.scss';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import MuiAlert from '@mui/material/Alert';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -16,6 +15,7 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as Yup from 'yup';
+import CustomButton from '../components/CustomButton.jsx';
 import { addUserData } from '../store/reducers/authentication/authentication';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -108,7 +108,7 @@ export default function InfoUpdate() {
   });
   return (
     <div className="infoUpdatePageWrapper">
-      <h2>{params.id ? 'Update' : 'Create'} User</h2>
+      <h2 className="user-header">{params.id ? 'Update' : 'Create'} User</h2>
       <form onSubmit={formik.handleSubmit}>
         <div className="wrapperContent">
           <label>Username</label>
@@ -253,19 +253,17 @@ export default function InfoUpdate() {
           </Select>
         </div>
         <div className="wrapperFooter">
-          <Button
+          <CustomButton
             onClick={() => navigate('/dashboard')}
-            variant="outlined"
-            color="error"
-            sx={{
-              mr: 2,
-            }}
-          >
-            Cancel
-          </Button>
-          <Button variant="contained" color="success" type="submit">
-            Save
-          </Button>
+            text="Cancel"
+            backgroundColor="purple"
+          />
+          <div className="buttonSpacer"></div>
+          <CustomButton
+            // onClick={loginUser}
+            text="Save"
+            backgroundColor="yellow"
+          />
         </div>
       </form>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

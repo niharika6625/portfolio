@@ -6,6 +6,7 @@ import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import CustomButton from '../components/CustomButton.jsx';
 import ProjectModal from '../components/ProjectModal';
 import { PROJECT_DESCRIPTION } from '../helpers/constants/projectDescription';
 const { login } = PROJECT_DESCRIPTION;
@@ -108,7 +109,7 @@ export default function Login() {
         open={openDialog}
         onClose={handleClickClose}
         project={login}
-        color={'#DA70D6'}
+        color={'#42446e'}
         handleClickOpen={handleClickOpen}
       />
       <section>
@@ -165,9 +166,7 @@ export default function Login() {
             <p className="error">{passwordErrorMessage}</p>
           </div>
         </div>
-        <button className="login-btn" onClick={() => loginUser()}>
-          LOGIN
-        </button>
+        <CustomButton onClick={loginUser} text="Login" backgroundColor="yellow" textTransform />
         <p className="error">{errorMessage}</p>
         <div className="alternative-signup">
           <p>
@@ -179,7 +178,7 @@ export default function Login() {
         </div>
         <div>or</div>
         <div className="guest-btn-wrap">
-          Login as
+          <p>Login as</p>
           <button className="guestbtn" onClick={() => handleGuestLogin()}>
             Guest User
           </button>

@@ -4,10 +4,10 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
-
 import '../assets/css/login.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import CustomButton from '../components/CustomButton.jsx';
 import { addUserData } from '../store/reducers/authentication/authentication';
 
 const date = new Date();
@@ -87,7 +87,7 @@ export default function Register() {
   return (
     <div className="loginPageWrap">
       <section>
-        <h1 className="loginFormHeading">Register</h1>
+        <h1 className="registerFormHeading">Register</h1>
         <div className="login-form">
           <h4 className="inputHeading">Username</h4>
           <div className="username-input">
@@ -153,15 +153,13 @@ export default function Register() {
             <p className="error">{passwordErrorMessage}</p>
           </div>
         </div>
-        <button
-          className="login-btn"
-          onClick={() => {
-            registerUser();
-          }}
-        >
-          Sign Up
-        </button>
-        <div className="alternative-signup">
+        <CustomButton
+          onClick={registerUser}
+          text="Sign Up"
+          backgroundColor="yellow"
+          textTransform
+        />
+        <div className="alternative-signup-register">
           <p>
             Already a member?{' '}
             <Link to={`/login/${params.page}`}>

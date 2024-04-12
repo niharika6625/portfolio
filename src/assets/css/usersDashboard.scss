@@ -15,21 +15,8 @@
       font-size: 0px;
       margin: 15px 4px;
       margin-top: 100px;
-      /* font-weight: bolder; */
       text-align: right;
-
-      button {
-        padding: 8px;
-        font-size: 16px;
-        color: white;
-        background-color: #6ca329;
-        border-color: #96c361;
-        border-radius: 5px;
-        cursor: pointer;
-      }
     }
-
-    .headRow {}
 
     .bodyRow {
       background-color: white;
@@ -41,16 +28,13 @@
   th,
   td {
     padding: 10px 25px;
-    /* text-align: left; */
-    /* border: 1px solid;*/
   }
 
   .dashboardEditBtn {
     padding: 3px 15px;
     font-size: 16px;
     margin: auto 13px;
-    background: #357bfd;
-    border-color: #80adff;
+    background: #42446e;
     color: white;
     border-radius: 3px;
     cursor: pointer;
@@ -63,7 +47,6 @@
     background-color: white;
   }
 }
-
 
 .userInfoDiv {
   display: flex;
