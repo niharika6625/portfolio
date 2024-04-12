@@ -49,6 +49,9 @@ export default function App() {
                 color: 'black',
                 backgroundColor: '#ecc600',
                 mt: 2,
+                '&:hover': {
+                  backgroundColor: '#c7a317',
+                },
               }}
             >
               Discover more
