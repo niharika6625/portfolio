@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import '../assets/css/quizHome.scss';
 import CustomButton from '../components/CustomButton.jsx';
 import questionArray from '../components/quiz/QuizQuestions.jsx';
 import QuizScore from '../components/quiz/QuizScore.jsx';
 
 export default function QuizHome() {
-  const [questionsList, setQuestionsList] = useState(JSON.parse(JSON.stringify(questionArray))); //stores the questionArray
-  const [count, setCount] = useState(0); //current question index
-  const [displayScore, setDisplayScore] = useState(false); //whether to display the quiz score
+  const params = useParams();
+  let { catId = '', levelId = '' } = params;
+  let filteredQuestion = questionArray.find(
+    (item) => item.catId == catId && item.levelId == levelId,
+  );
+  const [questionsList, setQuestionsList] = useState(filteredQuestion.questions);
+  const [count, setCount] = useState(0);
+  const [displayScore, setDisplayScore] = useState(false);
   const [timer, setTimer] = useState({
     min: 10,
     sec: 50,
   });
-
-  useEffect(() => {
-    setQuestionsList(JSON.parse(JSON.stringify(questionArray)));
-  }, []);
 
   useEffect(() => {
     if (timer.min == 0 && timer.sec == 0) {
@@ -73,6 +75,7 @@ export default function QuizHome() {
               {timer.min}:{timer.sec}
             </h3>
           </div>
+          {console.log('questionsList', questionsList)}
           <h3 className="question">{questionsList[count].ques}</h3>
           <div className="choicesList">
             {questionsList[count].options.map((obj, key) => {

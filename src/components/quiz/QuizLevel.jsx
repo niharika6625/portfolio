@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -91,8 +92,6 @@ export default function QuizLevel() {
         <h3 className="quizCategoryHeading">Select Level</h3>
         <nav aria-label="secondary mailbox folders">
           <List>
-            {/* TODO remove console */}
-            {console.log('chartData', chartData)}
             {chartData.map((obj, key) => {
               return (
                 <ListItem
@@ -104,7 +103,15 @@ export default function QuizLevel() {
                   <ListItemButton>
                     <ListItemText
                       primary={obj.levelValue}
-                      secondary={'Your Score ' + obj.levelScore + '%'}
+                      secondary={
+                        <span
+                          style={{
+                            color: obj.levelId === selectedLevel.levelId ? 'white' : 'inherit',
+                          }}
+                        >
+                          Your Score {obj.levelScore}%
+                        </span>
+                      }
                     />
                   </ListItemButton>
                 </ListItem>
@@ -114,7 +121,12 @@ export default function QuizLevel() {
         </nav>
       </div>
       <p className="error">{levelError}</p>
-      <CustomButton onClick={nextPage} text="Next" backgroundColor="yellow" />
+      <Button //TODO back button is not visible
+        //onClick={nextPage}
+        text="Back"
+        variant="default"
+      />
+      <CustomButton onClick={nextPage} text="Next" backgroundColor="purple" />
     </div>
   );
 }

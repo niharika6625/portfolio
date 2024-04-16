@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import './index.css';
+import { StyledEngineProvider } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
@@ -25,6 +27,7 @@ import UsersDashboard from './pages/UsersDashboard.jsx';
 import WeatherApp from './pages/WeatherApp.jsx';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store.js';
+import { theme } from './theme.js';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,146 +40,148 @@ function ScrollToTop() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-  <Provider store={store}>
-    <BrowserRouter basename="portfolio">
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route
-          path="/weatherApp"
-          element={
-            <Layout>
-              <WeatherApp />
-            </Layout>
-          }
-        />
-        <Route
-          path="/todolists"
-          element={
-            <Layout>
-              <PrivateRoute>
-                <TodoLists />
-              </PrivateRoute>
-            </Layout>
-          }
-        />
-        <Route
-          path="/login/:page?"
-          element={
-            <Layout>
-              <Login />
-            </Layout>
-          }
-        />
-        <Route
-          path="/register/:page?"
-          element={
-            <Layout>
-              <Register />
-            </Layout>
-          }
-        />
-        <Route
-          path="/dashboard"
-          element={
-            <Layout>
-              <PrivateRoute>
-                <UsersDashboard />
-              </PrivateRoute>
-            </Layout>
-          }
-        />
-        <Route
-          path="/infoUpdate/:id?"
-          element={
-            <Layout>
-              <PrivateRoute>
-                <InfoUpdate />
-              </PrivateRoute>
-            </Layout>
-          }
-        />
-        <Route
-          path="/quizDashboard"
-          element={
-            <Layout>
-              <PrivateRoute>
-                <QuizDashboard />
-              </PrivateRoute>
-            </Layout>
-          }
-        />
-        <Route
-          path="/quizCategory"
-          element={
-            <Layout>
-              <PrivateRoute>
-                <QuizCategory />
-              </PrivateRoute>
-            </Layout>
-          }
-        />
-        <Route
-          path="/quizlevel/:id?"
-          element={
-            <Layout>
-              <PrivateRoute>
-                <QuizLevel />
-              </PrivateRoute>
-            </Layout>
-          }
-        />
-        <Route
-          path="/quizHome/:catId?/:levelId?"
-          element={
-            <Layout>
-              <PrivateRoute>
-                <QuizHome />
-              </PrivateRoute>
-            </Layout>
-          }
-        />
-        <Route
-          path="/component-design"
-          element={
-            <Layout>
-              <ComponentDesign />
-            </Layout>
-          }
-        />
-        <Route
-          path="/fetch-data"
-          element={
-            <Layout>
-              <FetchData />
-            </Layout>
-          }
-        />
-        <Route
-          path="/number-game"
-          element={
-            <Layout>
-              <NumberGame />
-            </Layout>
-          }
-        />
-        <Route
-          path="/number-arrange-history"
-          element={
-            <Layout>
-              <History />
-            </Layout>
-          }
-        />
-        <Route
-          path="/css-practice"
-          element={
-            <Layout>
-              <CssPractice />
-            </Layout>
-          }
-        />
-        {/* <Route
+  <StyledEngineProvider injectFirst>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <BrowserRouter basename="portfolio">
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route
+              path="/weatherApp"
+              element={
+                <Layout>
+                  <WeatherApp />
+                </Layout>
+              }
+            />
+            <Route
+              path="/todolists"
+              element={
+                <Layout>
+                  <PrivateRoute>
+                    <TodoLists />
+                  </PrivateRoute>
+                </Layout>
+              }
+            />
+            <Route
+              path="/login/:page?"
+              element={
+                <Layout>
+                  <Login />
+                </Layout>
+              }
+            />
+            <Route
+              path="/register/:page?"
+              element={
+                <Layout>
+                  <Register />
+                </Layout>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <Layout>
+                  <PrivateRoute>
+                    <UsersDashboard />
+                  </PrivateRoute>
+                </Layout>
+              }
+            />
+            <Route
+              path="/infoUpdate/:id?"
+              element={
+                <Layout>
+                  <PrivateRoute>
+                    <InfoUpdate />
+                  </PrivateRoute>
+                </Layout>
+              }
+            />
+            <Route
+              path="/quizDashboard"
+              element={
+                <Layout>
+                  <PrivateRoute>
+                    <QuizDashboard />
+                  </PrivateRoute>
+                </Layout>
+              }
+            />
+            <Route
+              path="/quizCategory"
+              element={
+                <Layout>
+                  <PrivateRoute>
+                    <QuizCategory />
+                  </PrivateRoute>
+                </Layout>
+              }
+            />
+            <Route
+              path="/quizlevel/:id?"
+              element={
+                <Layout>
+                  <PrivateRoute>
+                    <QuizLevel />
+                  </PrivateRoute>
+                </Layout>
+              }
+            />
+            <Route
+              path="/quizHome/:catId?/:levelId?"
+              element={
+                <Layout>
+                  <PrivateRoute>
+                    <QuizHome />
+                  </PrivateRoute>
+                </Layout>
+              }
+            />
+            <Route
+              path="/component-design"
+              element={
+                <Layout>
+                  <ComponentDesign />
+                </Layout>
+              }
+            />
+            <Route
+              path="/fetch-data"
+              element={
+                <Layout>
+                  <FetchData />
+                </Layout>
+              }
+            />
+            <Route
+              path="/number-game"
+              element={
+                <Layout>
+                  <NumberGame />
+                </Layout>
+              }
+            />
+            <Route
+              path="/number-arrange-history"
+              element={
+                <Layout>
+                  <History />
+                </Layout>
+              }
+            />
+            <Route
+              path="/css-practice"
+              element={
+                <Layout>
+                  <CssPractice />
+                </Layout>
+              }
+            />
+            {/* <Route
           path="/js-practice"
           element={
             <Layout>
@@ -184,17 +189,20 @@ root.render(
             </Layout>
           }
         /> */}
-        <Route
-          path="/productsCart"
-          element={
-            <Layout>
-              <ProductsCart />
-            </Layout>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
-  </Provider>,
+            <Route
+              path="/productsCart"
+              element={
+                <Layout>
+                  <ProductsCart />
+                </Layout>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+      ,
+    </ThemeProvider>
+  </StyledEngineProvider>,
 
   // </React.StrictMode>,
 );

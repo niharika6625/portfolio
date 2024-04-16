@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../assets/css/quizCategory.scss';
+import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -59,7 +60,12 @@ export default function QuizCategory() {
         </nav>
       </div>
       <p className="error">{categoryError}</p>
-      <CustomButton onClick={nextPage} text="Next" backgroundColor="yellow" />
+      <Button //TODO back button is not visible
+        // onClick={nextPage}
+        text="Back"
+        variant="default"
+      />
+      <CustomButton onClick={nextPage} text="Next" backgroundColor="purple" />
     </div>
   );
 }

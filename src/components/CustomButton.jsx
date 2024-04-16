@@ -10,7 +10,7 @@ export default function CustomButton({ onClick, disabled, text, backgroundColor,
     color = 'white';
     hoverColor = '#856088';
   } else if (backgroundColor === 'yellow') {
-    backgroundColor = '#ecc600';
+    backgroundColor = '#e2ba5a';
     color = 'black';
     hoverColor = '#c7a317';
   }
