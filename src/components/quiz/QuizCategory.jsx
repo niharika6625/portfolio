@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import '../../assets/css/quizCategory.scss';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -26,6 +25,9 @@ export default function QuizCategory() {
     } else {
       navigate(`/quizlevel/${selectedCategory.catId}`);
     }
+  }
+  function backPage() {
+    navigate(`/quizDashboard`);
   }
   function handleCategory(obj) {
     setSelectedCategory({
@@ -60,12 +62,17 @@ export default function QuizCategory() {
         </nav>
       </div>
       <p className="error">{categoryError}</p>
-      <Button //TODO back button is not visible
-        // onClick={nextPage}
-        text="Back"
-        variant="default"
-      />
-      <CustomButton onClick={nextPage} text="Next" backgroundColor="purple" />
+      <div>
+        <CustomButton
+          onClick={backPage}
+          text="Back"
+          backgroundColor="purple"
+          sx={{
+            marginRight: '10px',
+          }}
+        />
+        <CustomButton onClick={nextPage} text="Next" backgroundColor="purple" />
+      </div>
     </div>
   );
 }

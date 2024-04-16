@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -67,6 +66,9 @@ export default function QuizLevel() {
       navigate(`/quizHome/${params.id}/${selectedLevel.levelId}`);
     }
   }
+  function backPage() {
+    navigate(`/quizCategory`);
+  }
   function handleCategory(obj) {
     if (quizScore && obj.levelId != 0) {
       let previosLevelScore = quizScore.levelScoreData.find(
@@ -121,12 +123,17 @@ export default function QuizLevel() {
         </nav>
       </div>
       <p className="error">{levelError}</p>
-      <Button //TODO back button is not visible
-        //onClick={nextPage}
-        text="Back"
-        variant="default"
-      />
-      <CustomButton onClick={nextPage} text="Next" backgroundColor="purple" />
+      <div>
+        <CustomButton
+          onClick={backPage}
+          text="Back"
+          backgroundColor="purple"
+          sx={{
+            marginRight: '10px',
+          }}
+        />
+        <CustomButton onClick={nextPage} text="Next" backgroundColor="purple" />
+      </div>
     </div>
   );
 }
