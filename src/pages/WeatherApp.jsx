@@ -45,7 +45,7 @@ export default function WeatherApp() {
         open={openDialog}
         onClose={handleClickClose}
         project={weather}
-        color={'#df8e00'}
+        color={'#42446e'}
         handleClickOpen={handleClickOpen}
       />
       <div className="pageWrapper">

@@ -5,7 +5,7 @@
 }
 
 .pageOuterWrapper {
-  background-image: url(https://images.unsplash.com/photo-1592210454359-9043f067919b?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzE0NjIwMjg&ixlib=rb-4.0.3&q=80);
+  background-image: url(https://res.cloudinary.com/devlam0a6/image/upload/v1713355746/weather-light_ycn6rq.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -35,7 +35,7 @@
 }
 
 .searchBlock #searchBar {
-  width: 18%;
+  width: 25%;
   margin: 0px 30px;
   font-size: 18px;
   padding: 5px 10px;
@@ -43,7 +43,7 @@
   outline: none;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 16px 0px 16px 0px;
-  border-bottom: 3px solid #df8e00;
+  border-bottom: 3px solid #42446e;
   color: #313131;
   font-weight: 300;
 }
@@ -54,7 +54,7 @@
 
 .searchBlock #searchBtn {
   width: 100px;
-  border: 2px solid orange;
+  border: 2px solid #42446e;
   color: #787676;
   height: 33px;
   font-weight: bolder;
