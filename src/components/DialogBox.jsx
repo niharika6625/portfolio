@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 
 export default function DialogBox(props) {
@@ -26,8 +27,18 @@ export default function DialogBox(props) {
               }
             />
             <p className="error">{props.dialogBoxError}</p>
-            <button onClick={() => props.updateValue()}>Confirm</button>
-            <button onClick={() => props.cancelUpdate()}>Cancel</button>
+            <Button
+              onClick={() => props.updateValue()}
+              variant="contained"
+              sx={{
+                marginRight: '15px',
+              }}
+            >
+              Confirm
+            </Button>
+            <Button onClick={() => props.cancelUpdate()} variant="contained">
+              Cancel
+            </Button>
           </div>
         </div>
       ) : (

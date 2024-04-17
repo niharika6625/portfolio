@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import PropTypes from 'prop-types';
 
 function Addtask({
@@ -33,20 +35,19 @@ function Addtask({
   return (
     <>
       <div className="addTaskDiv">
-        <input
-          type="text"
+        <TextField
           id="toDoInput"
           value={inputValue}
-          placeholder="Enter a Task"
+          label="Enter a Task"
           onChange={(e) => {
             setErrorMessage(null);
             setFilterErrorMsg(null);
             setInputValue(e.target.value);
           }}
         />
-        <button id="addBtn" onClick={addValue}>
+        <Button id="addBtn" onClick={addValue} variant="contained">
           Add
-        </button>
+        </Button>
       </div>
       <p className="todoError">{errorMessage}</p>
     </>

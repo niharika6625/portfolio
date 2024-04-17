@@ -66,8 +66,8 @@ export default function TodoLists() {
   function checkValue(value) {
     let present = false;
     if (value == '') {
-      setDialogBoxError('Sorry, This task cannot be added!');
-      setErrorMessage('Sorry, This task cannot be added!');
+      setDialogBoxError('You have removed the existing task!');
+      setErrorMessage('You have not entered any task!');
       present = true;
     }
     array.forEach((obj) => {
@@ -113,7 +113,7 @@ export default function TodoLists() {
         open={openDialog}
         onClose={handleClickClose}
         project={todoList}
-        color={'#48cae4'}
+        color={'#42446e'}
         handleClickOpen={handleClickOpen}
       />
       <h1 className="heading">Todo Lists</h1>

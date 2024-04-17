@@ -1,4 +1,7 @@
 import React from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import IconButton from '@mui/material/IconButton';
 import PropTypes from 'prop-types';
 
 export default function TaskLists(props) {
@@ -43,12 +46,12 @@ export default function TaskLists(props) {
             >
               {obj.value}
             </p>
-            <button className="btnStyle" onClick={() => editTask(obj)}>
-              Edit
-            </button>
-            <button className="btnStyle" onClick={() => deleteTask(obj.id)}>
-              Delete
-            </button>
+            <IconButton onClick={() => editTask(obj)} aria-label="edit">
+              <EditIcon />
+            </IconButton>
+            <IconButton onClick={() => deleteTask(obj.id)} aria-label="delete">
+              <DeleteIcon />
+            </IconButton>
           </div>
         );
       })}

@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Button from '@mui/material/Button';
+import Select from '@mui/material/Select';
+import TextField from '@mui/material/TextField';
 import PropTypes from 'prop-types';
 
 export default function FilterLists(props) {
@@ -40,40 +43,39 @@ export default function FilterLists(props) {
     }
   }
   return (
-    <div id="filterDivBgColor">
-      <div id="filterDiv">
-        <select
-          onChange={(e) => {
-            props.setErrorMessage(null);
-            props.setFilterErrorMsg(null);
-            setSearchValue((previousState) => {
-              return {
-                optionSelected: e.target.value,
-                value: previousState.value,
-              };
-            });
-          }}
-        >
-          <option value={'all'}>All</option>
-          <option value={'completed'}>Completed</option>
-          <option value={'pending'}>Pending</option>
-        </select>
-        <input
+    <div className="filterDivBgColor">
+      <div classname="filterDiv">
+        <TextField
           type="search"
           placeholder="Search task"
           value={searchValue.value}
           onChange={(e) => {
             props.setErrorMessage(null);
             props.setFilterErrorMsg(null);
-            setSearchValue((previousState) => {
-              return {
-                optionSelected: previousState.optionSelected,
-                value: e.target.value,
-              };
-            });
+            setSearchValue((previousState) => ({
+              ...previousState,
+              value: e.target.value,
+            }));
           }}
         />
-        <button onClick={() => searchTask()}>Filter</button>
+        <Select
+          value={searchValue.optionSelected}
+          onChange={(e) => {
+            props.setErrorMessage(null);
+            props.setFilterErrorMsg(null);
+            setSearchValue((previousState) => ({
+              ...previousState,
+              optionSelected: e.target.value,
+            }));
+          }}
+        >
+          <option value={'all'}>All</option>
+          <option value={'completed'}>Completed</option>
+          <option value={'pending'}>Pending</option>
+        </Select>
+        <Button onClick={() => searchTask()} variant="contained">
+          Filter
+        </Button>
       </div>
       <p className="todoError">{props.filterErrorMsg}</p>
     </div>
