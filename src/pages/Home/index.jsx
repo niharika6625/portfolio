@@ -2,23 +2,24 @@
 import React, { useRef } from 'react';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
-import './assets/css/app.scss';
-import github from './assets/images/app/techStack/akar-icons_github-fill.svg';
-import bootstrap from './assets/images/app/techStack/logos_bootstrap.svg';
-import git from './assets/images/app/techStack/logos_git-icon.svg';
-import react from './assets/images/app/techStack/logos_react.svg';
-import sass from './assets/images/app/techStack/logos_sass.svg';
-import mui from './assets/images/app/techStack/material-ui.svg';
-import css from './assets/images/app/techStack/vscode-icons_file-type-css.svg';
-import html from './assets/images/app/techStack/vscode-icons_file-type-html.svg';
-import js from './assets/images/app/techStack/vscode-icons_file-type-js-official.svg';
-import vsCode from './assets/images/app/techStack/vscode-icons_file-type-vscode.svg';
-import numberGame from './assets/images/bg2.jpeg';
-import profileImg from './assets/images/profile.niharika.jpg';
-import CustomButton from './components/CustomButton.jsx';
-import Footer from './components/Footer.jsx';
-import Header from './components/Header.jsx';
-import ProjectsCard from './components/ProjectsCard.jsx';
+// import '../../assets/css/app.scss';
+import StyledHome from './StyledHome.js';
+import github from '../../assets/images/app/techStack/akar-icons_github-fill.svg';
+import bootstrap from '../../assets/images/app/techStack/logos_bootstrap.svg';
+import git from '../../assets/images/app/techStack/logos_git-icon.svg';
+import react from '../../assets/images/app/techStack/logos_react.svg';
+import sass from '../../assets/images/app/techStack/logos_sass.svg';
+import mui from '../../assets/images/app/techStack/material-ui.svg';
+import css from '../../assets/images/app/techStack/vscode-icons_file-type-css.svg';
+import html from '../../assets/images/app/techStack/vscode-icons_file-type-html.svg';
+import js from '../../assets/images/app/techStack/vscode-icons_file-type-js-official.svg';
+import vsCode from '../../assets/images/app/techStack/vscode-icons_file-type-vscode.svg';
+import numberGame from '../../assets/images/bg2.jpeg';
+import profileImg from '../../assets/images/profile.niharika.jpg';
+import CustomButton from '../../components/CustomButton.jsx';
+// import Footer from '../../components/Footer.jsx';
+// import Header from '../../components/Header.jsx';
+import ProjectsCard from '../../components/ProjectsCard.jsx';
 
 export default function App() {
   const insightRef = useRef(null);
@@ -31,8 +32,7 @@ export default function App() {
     }
   };
   return (
-    <div className="page-data-wrap-seprator">
-      <Header />
+    <StyledHome className="">
       <div className="page-content-wrap">
         <div className="block-1-wrap" id="about">
           <div className="block-1-header">
@@ -437,9 +437,6 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div className="page-footer-wrap">
-        <Footer />
-      </div>
-    </div>
+    </StyledHome>
   );
 }

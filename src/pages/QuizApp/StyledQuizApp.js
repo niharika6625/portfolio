@@ -1,4 +1,8 @@
-.quizPageWrapper {
+import { styled } from '@mui/material/styles';
+
+const StyledQuizApp = styled('div')(
+  () => `
+  .quizPageWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,3 +105,7 @@
     //     // font-weight: 600;
     // }
 }
+  `,
+);
+
+export default StyledQuizApp;

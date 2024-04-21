@@ -1,6 +1,5 @@
 import React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import { Grid, TextField, Button, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 
 function Addtask({
@@ -13,7 +12,7 @@ function Addtask({
   setFilterErrorMsg,
   errorMessage,
 }) {
-  function addValue() {
+  const addValue = () => {
     const date = new Date();
     let nextId = date.getTime();
     if (!checkValue(inputValue)) {
@@ -31,25 +30,33 @@ function Addtask({
       setInputValue('');
     }
     setDialogBoxError(null);
-  }
+  };
+
   return (
     <>
-      <div className="addTaskDiv">
-        <TextField
-          id="toDoInput"
-          value={inputValue}
-          label="Enter a Task"
-          onChange={(e) => {
-            setErrorMessage(null);
-            setFilterErrorMsg(null);
-            setInputValue(e.target.value);
-          }}
-        />
-        <Button id="addBtn" onClick={addValue} variant="contained">
-          Add
-        </Button>
-      </div>
-      <p className="todoError">{errorMessage}</p>
+      <Grid container spacing={2} className="addTaskDiv">
+        <Grid item xs={12} sm={8}>
+          <TextField
+            id="toDoInput"
+            value={inputValue}
+            label="Enter a Task"
+            onChange={(e) => {
+              setErrorMessage(null);
+              setFilterErrorMsg(null);
+              setInputValue(e.target.value);
+            }}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <Button id="addBtn" onClick={() => addValue()} variant="contained" fullWidth>
+            Add
+          </Button>
+        </Grid>
+      </Grid>
+      <Typography variant="body2" className="todoError">
+        {errorMessage}
+      </Typography>
     </>
   );
 }

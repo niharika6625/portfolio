@@ -62,7 +62,7 @@ export default function QuizCategory() {
         </nav>
       </div>
       <p className="error">{categoryError}</p>
-      <div>
+      <div className="nav-buttons-wrap">
         <CustomButton
           onClick={backPage}
           text="Back"

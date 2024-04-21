@@ -1,38 +1,8 @@
-.error {
-  margin-bottom: 20px;
-  color: red;
-}
+import { styled } from '@mui/material/styles';
 
-#logoutIcon:hover::after {
-  content: "logout";
-  position: absolute;
-  font-size: 14px;
-  padding: 6px;
-  margin: 0px 10px;
-  bottom: 37px;
-  background-color: #7c7c7c;
-  color: white;
-  border-radius: 4px;
-  font-family: sans-serif;
-}
-
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-family: sans-serif;
-  --solidHeading: #42446e;
-  --gradientHeading: linear-gradient(90deg, #13b0f5 -2.06%, #e70faa 100%);
-  --darkContent: #666666;
-  --solidHeadingDarkMode: #cccccc;
-  --lightContent: #a7a7a7;
-  --darkMode: #191919;
-  --buttonText: #018c0f;
-  --buttonSuccess: #d7ffe0;
-}
-
-
-
+const StyledLayout = styled('div')(
+  () => `
+    
 .page-data-wrap-seprator .page-header-wrap {
   position: fixed;
   background-color: white;
@@ -713,3 +683,6 @@
     line-height: 26px;
   }
 }
+  `,
+);
+export default StyledLayout;

@@ -1,8 +1,7 @@
-* {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-}
+import { styled } from '@mui/material/styles';
+
+const StyledTodoList = styled('div')(
+  () => `
 
 .page-wrapper {
   background-image: radial-gradient(at 0% 50%, #aaaadb 0px, transparent 50%),
@@ -29,6 +28,7 @@
   border-radius: 6px;
   background-color: #e0e0f2;
   width: 40%;
+  padding: 1em;
 }
 
 .page-wrapper .page-content-header #toDoInput {
@@ -154,4 +154,9 @@
 
 .addTaskDiv {
   display: flex;
+  align-items: center;
 }
+  `,
+);
+
+export default StyledTodoList;

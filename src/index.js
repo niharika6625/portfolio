@@ -5,26 +5,26 @@ import { ThemeProvider } from '@mui/material/styles';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import App from './App';
 import QuizCategory from './components/quiz/QuizCategory.jsx';
 import QuizDashboard from './components/quiz/QuizDashboard.jsx';
 import QuizLevel from './components/quiz/QuizLevel.jsx';
+import Layout from './layouts/Layout.jsx';
 import ComponentDesign from './pages/ComponentDesign/index.jsx';
 import CssPractice from './pages/CssPractice/index.jsx';
 // import JsPractice from './pages/JsPractice/index.jsx';
 import FetchData from './pages/FetchData/index.jsx';
+import Home from './pages/Home/index.jsx';
 import InfoUpdate from './pages/InfoUpdate.jsx';
-import Layout from './pages/Layout.jsx';
-import Login from './pages/Login.jsx';
+import Login from './pages/Login/index.jsx';
 import History from './pages/NumberGame/History.jsx';
 import NumberGame from './pages/NumberGame/index.jsx';
 import { PrivateRoute } from './pages/PrivateRoute.jsx';
 import ProductsCart from './pages/ProductCart/index.jsx';
-import QuizHome from './pages/QuizHome.jsx';
-import Register from './pages/Register.jsx';
-import TodoLists from './pages/TodoLists.jsx';
+import QuizHome from './pages/QuizApp/index.jsx';
+import Register from './pages/Register/index.jsx';
+import TodoList from './pages/TodoList/index.jsx';
 import UsersDashboard from './pages/UsersDashboard.jsx';
-import WeatherApp from './pages/WeatherApp.jsx';
+import Weather from './pages/Weather/index.jsx';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store.js';
 import { theme } from './theme.js';
@@ -46,12 +46,19 @@ root.render(
         <BrowserRouter basename="portfolio">
           <ScrollToTop />
           <Routes>
-            <Route path="/" element={<App />} />
+            <Route
+              path="/"
+              element={
+                <Layout>
+                  <Home />
+                </Layout>
+              }
+            />
             <Route
               path="/weatherApp"
               element={
                 <Layout>
-                  <WeatherApp />
+                  <Weather />
                 </Layout>
               }
             />
@@ -60,7 +67,7 @@ root.render(
               element={
                 <Layout>
                   <PrivateRoute>
-                    <TodoLists />
+                    <TodoList />
                   </PrivateRoute>
                 </Layout>
               }

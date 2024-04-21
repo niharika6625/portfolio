@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Grid, MenuItem } from '@mui/material';
 import Button from '@mui/material/Button';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
@@ -9,7 +10,7 @@ export default function FilterLists(props) {
     optionSelected: 'all',
     value: '',
   });
-  function searchTask() {
+  const searchTask = () => {
     let tempArr2;
     if (searchValue.optionSelected == 'all') {
       tempArr2 = props.array;
@@ -41,41 +42,47 @@ export default function FilterLists(props) {
     } else {
       props.setTaskArray(tempArr);
     }
-  }
+  };
+
+  const handleChange = (e, field) => {
+    props.setErrorMessage(null);
+    props.setFilterErrorMsg(null);
+    setSearchValue((prevState) => ({
+      ...prevState,
+      [field]: e.target.value,
+    }));
+  };
+
   return (
     <div className="filterDivBgColor">
-      <div classname="filterDiv">
-        <TextField
-          type="search"
-          placeholder="Search task"
-          value={searchValue.value}
-          onChange={(e) => {
-            props.setErrorMessage(null);
-            props.setFilterErrorMsg(null);
-            setSearchValue((previousState) => ({
-              ...previousState,
-              value: e.target.value,
-            }));
-          }}
-        />
-        <Select
-          value={searchValue.optionSelected}
-          onChange={(e) => {
-            props.setErrorMessage(null);
-            props.setFilterErrorMsg(null);
-            setSearchValue((previousState) => ({
-              ...previousState,
-              optionSelected: e.target.value,
-            }));
-          }}
-        >
-          <option value={'all'}>All</option>
-          <option value={'completed'}>Completed</option>
-          <option value={'pending'}>Pending</option>
-        </Select>
-        <Button onClick={() => searchTask()} variant="contained">
-          Filter
-        </Button>
+      <div>
+        <Grid container spacing={2} className="filterDiv">
+          <Grid item xs={12} sm={4}>
+            <TextField
+              type="search"
+              placeholder="Search task"
+              value={searchValue.value}
+              onChange={(e) => handleChange(e, 'value')}
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <Select
+              value={searchValue.optionSelected}
+              onChange={(e) => handleChange(e, 'optionSelected')}
+              fullWidth
+            >
+              <MenuItem value={'all'}>All</MenuItem>
+              <MenuItem value={'completed'}>Completed</MenuItem>
+              <MenuItem value={'pending'}>Pending</MenuItem>
+            </Select>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <Button onClick={searchTask} variant="contained" fullWidth>
+              Filter
+            </Button>
+          </Grid>
+        </Grid>
       </div>
       <p className="todoError">{props.filterErrorMsg}</p>
     </div>

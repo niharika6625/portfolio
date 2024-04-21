@@ -1,160 +1,161 @@
-//TODO remove this file
-import { useState } from 'react';
-import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
-import Container from '@mui/material/Container';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-//import { makeStyles } from '@mui/styles'; // This is removed
+import React, { useState, useEffect } from 'react';
+// import '../../assets/css/todoLists.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import StyledTodoList from './StyledTodoList.js';
+import Addtask from '../../components/Addtask.jsx';
+import DialogBox from '../../components/DialogBox.jsx';
+import FilterLists from '../../components/FilterLists.jsx';
+import ProjectModal from '../../components/ProjectModal';
+import TaskLists from '../../components/TaskLists.jsx';
+import { PROJECT_DESCRIPTION } from '../../helpers/constants/projectDescription';
+import { addUsertodoListData } from '../../store/reducers/todolists/todoLists';
+const { todoList } = PROJECT_DESCRIPTION;
 
-// Remove the makeStyles section
+export default function TodoLists() {
+  const dispatch = useDispatch();
+  const userState = useSelector((state) => state.authentication.userInfo);
+  let userstodoData = useSelector((state) => state.todoLists.userstodoListData);
 
-const TodoList = () => {
-  const [inputVal, setInputVal] = useState('');
-  const [todos, setTodos] = useState([]);
-  const [isEdited, setIsEdited] = useState(false);
-  const [editedId, setEditedId] = useState(null);
-  // Remove the classes const
+  const [inputValue, setInputValue] = useState('');
+  const [array, setArray] = useState([]);
+  const [taskArray, setTaskArray] = useState([]);
+  const [modal, setModal] = useState(false);
+  const [idValue, setIdValue] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [filterErrorMsg, setFilterErrorMsg] = useState(null);
+  const [dialogBoxError, setDialogBoxError] = useState(null);
+  const [openDialog, setOpenDialog] = useState(false);
 
-  const onChange = (e) => {
-    setInputVal(e.target.value);
+  const handleClickOpen = () => {
+    setOpenDialog(true);
   };
 
-  const handleClick = () => {
-    if (!isEdited) {
-      setTodos([
-        ...todos,
-        {
-          val: inputVal,
-          isDone: false,
-          id: new Date().getTime(),
-        },
-      ]);
-    } else {
-      setTodos([
-        ...todos,
-        {
-          val: inputVal,
-          isDone: false,
-          id: editedId,
-        },
-      ]);
-    }
-    setInputVal('');
-    setIsEdited(false);
+  const handleClickClose = () => {
+    setOpenDialog(false);
   };
 
-  const onDelete = (id) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
-  };
+  useEffect(() => {
+    let usertodoObj = userstodoData.find((obj) => obj.id == userState.id);
+    usertodoObj ? setArray(usertodoObj.todolistData) : setArray([]);
+  }, []);
 
-  const handleDone = (id) => {
-    const updated = todos.map((todo) => {
-      if (todo.id === id) {
-        todo.isDone = !todo.isDone;
+  useEffect(() => {
+    setTaskArray(array);
+    let parsedUserTodoData = JSON.parse(JSON.stringify(userstodoData));
+    let found = false;
+    parsedUserTodoData.forEach((obj) => {
+      if (obj.id == userState.id) {
+        obj.todolistData = array;
+        found = true;
       }
-      return todo;
     });
-    setTodos(updated);
-  };
+    if (!found) {
+      parsedUserTodoData.push({
+        id: userState.id,
+        todolistData: array,
+      });
+    }
+    dispatch(addUsertodoListData(parsedUserTodoData));
+  }, [array]);
 
-  const handleEdit = (id) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
-    const editVal = todos.find((todo) => todo.id === id);
-    setEditedId(editVal.id);
-    setInputVal(editVal.val);
-    setTodos(newTodos);
-    setIsEdited(true);
-  };
+  useEffect(() => {
+    setFilterErrorMsg(null);
+    setErrorMessage(null);
+    setDialogBoxError(null);
+  }, [modal]);
 
+  function checkValue(value) {
+    let present = false;
+    if (value == '') {
+      setDialogBoxError('You have removed the existing task!');
+      setErrorMessage('You have not entered any task!');
+      present = true;
+    }
+    array.forEach((obj) => {
+      if (obj.value == value) {
+        if (idValue != null && idValue.id == obj.id) {
+          present = true;
+          cancelUpdate();
+          return;
+        } else {
+          setDialogBoxError('Sorry, This task already exist!');
+          setErrorMessage('Sorry, This task already exist!');
+          present = true;
+          setInputValue('');
+        }
+      }
+    });
+    return present;
+  }
+
+  function updateValue() {
+    if (!checkValue(idValue.value)) {
+      setErrorMessage(null);
+      let stringifiedArray = JSON.stringify(array);
+      let parsedArray = JSON.parse(stringifiedArray);
+      let newarr = parsedArray.map((obj) => {
+        if (obj.id == idValue.id) {
+          obj.value = idValue.value;
+        }
+        return obj;
+      });
+      setArray(newarr);
+      setModal(false);
+      setIdValue(null);
+    }
+    setErrorMessage(null);
+  }
+  function cancelUpdate() {
+    setModal(false);
+  }
   return (
-    <Container
-      component="main"
-      style={{
-        minHeight: '80vh',
-        textAlign: 'center',
-        marginTop: 100,
-      }}
-    >
-      <TextField
-        variant="outlined"
-        onChange={onChange}
-        label="type your task"
-        value={inputVal}
-        style={{
-          width: '70%',
-          marginBottom: 30,
-        }}
-      />
-      <Button
-        size="large"
-        variant={isEdited ? 'outlined' : 'contained'}
-        color="primary"
-        onClick={handleClick}
-        style={{
-          height: 55,
-          marginBottom: 30,
-        }}
-        disabled={inputVal ? false : true}
-      >
-        {isEdited ? 'Edit Task' : 'Add Task'}
-      </Button>
-      <List
-        style={{
-          width: '80%',
-          margin: 'auto',
-          display: 'flex',
-          justifyContent: 'space-around',
-          flexDirection: 'column',
-          border: '1px solid light-gray',
-        }}
-      >
-        {todos.map((todo) => (
-          <ListItem
-            key={todo.id}
-            divider
-            style={{
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            <Checkbox onClick={() => handleDone(todo.id)} checked={todo.isDone} />
-            <Typography
-              style={{
-                width: '70%',
-                color: todo.isDone ? 'green' : '',
-              }}
-            >
-              {todo.val}
-            </Typography>
-            <Button
-              onClick={() => handleEdit(todo.id)}
-              variant="contained"
-              style={{
-                marginLeft: 10,
-              }}
-            >
-              Edit
-            </Button>
-            <Button
-              onClick={() => onDelete(todo.id)}
-              color="secondary"
-              variant="contained"
-              style={{
-                marginLeft: 10,
-              }}
-            >
-              Delete
-            </Button>
-          </ListItem>
-        ))}
-      </List>
-    </Container>
+    <StyledTodoList>
+      <div className="page-wrapper">
+        <ProjectModal
+          open={openDialog}
+          onClose={handleClickClose}
+          project={todoList}
+          color={'#42446e'}
+          handleClickOpen={handleClickOpen}
+        />
+        <h1 className="heading">Todo Lists</h1>
+        <div className="page-content-header">
+          <Addtask
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+            checkValue={checkValue}
+            setArray={setArray}
+            errorMessage={errorMessage}
+            setErrorMessage={setErrorMessage}
+            setDialogBoxError={setDialogBoxError}
+            setFilterErrorMsg={setFilterErrorMsg}
+          />
+        </div>
+        <div className="todopage-content-wrap" id="listBlockDiv">
+          <FilterLists
+            array={array}
+            setTaskArray={setTaskArray}
+            setErrorMessage={setErrorMessage}
+            filterErrorMsg={filterErrorMsg}
+            setFilterErrorMsg={setFilterErrorMsg}
+          />
+          <TaskLists
+            taskArray={taskArray}
+            setIdValue={setIdValue}
+            setArray={setArray}
+            array={array}
+            setModal={setModal}
+          />
+          <DialogBox
+            modal={modal}
+            cancelUpdate={cancelUpdate}
+            updateValue={updateValue}
+            idValue={idValue}
+            setIdValue={setIdValue}
+            dialogBoxError={dialogBoxError}
+          />
+        </div>
+      </div>
+    </StyledTodoList>
   );
-};
-
-export default TodoList;
+}

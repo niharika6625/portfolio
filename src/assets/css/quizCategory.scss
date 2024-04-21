@@ -24,6 +24,10 @@
             border-top-left-radius: 15px;
         }
     }
+    .nav-buttons-wrap{
+        display:flex;
+        justify-content: center;
+    }
 
     .error {
         text-align: center;

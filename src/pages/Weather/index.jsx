@@ -1,119 +1,88 @@
-// import Box from "@mui/material/Box";
-// import InputAdornment from "@mui/material/InputAdornment";
-// import TextField from "@mui/material/TextField";
-// import Button from "@mui/material/Button";
-// import Card from "@mui/material/Card";
-// import CardContent from "@mui/material/CardContent";
-// import Typography from "@mui/material/Typography";
-// import CardMedia from "@mui/material/CardMedia";
-// import WeatherIcon from "../../assets/images/weather-icon.png";
-// import Sunset from "../../assets/images/weather-2.jpeg";
-// import Divider from "@mui/material/Divider";
-// import { useState } from "react";
-// import axios from "axios";
-// import StyledWeatherWrapper from './StyledWeather'
-// import { useDispatch, useSelector } from "react-redux";
-// import {updateWeatherdata, selectorWeather} from '../../store/reducers/weather'
-// const Weather = () => {
-//   const dispatch = useDispatch();
-//   const { weatherData } = useSelector(selectorWeather)
-//   const [searchPlace, setSearchPlace] = useState("");
+import React, { useState } from 'react';
+import StyledWeather from './StyledWeather.js';
+import ProjectModal from '../../components/ProjectModal';
+import { PROJECT_DESCRIPTION } from '../../helpers/constants/projectDescription';
+const { weather } = PROJECT_DESCRIPTION;
 
-//   const handleSearchInputChange = (value) => {
-//     setSearchPlace(value);
-//     console.log("searchPlace", searchPlace);
-//   };
+export default function WeatherApp() {
+  const [weatherData, setWeatherData] = useState('');
+  const [inputValue, setInputValue] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [openDialog, setOpenDialog] = useState(false);
 
-//   const getData = async () => {
-//     const apiKey = "bfde554bff123c44cc3cf7a20f450723";
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
 
-//     const result = await axios
-//       .get(
-//         `https://api.openweathermap.org/data/2.5/weather?q=${searchPlace}&appid=${apiKey}&units=metric`
-//       )
-//       .then((data) => {
-//         console.log("Success:", data);
+  const handleClickClose = () => {
+    setOpenDialog(false);
+  };
 
-//         return data;
-//       })
-//       .catch((error) => {
-//         console.error("Error:", error);
-//       });
-//       dispatch(updateWeatherdata(result.data))
-//     console.log("resut", result);
-//   };
+  async function getData() {
+    if (inputValue == '') {
+      setErrorMessage('Sorry, City Name is required!');
+      setWeatherData('');
+    } else {
+      let jsonData = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${inputValue},india&APPID=5b57435c854e3456c9623f874d8a07d5&units=metric`,
+      ).then((response) => {
+        return response.json();
+      });
+      if (jsonData.cod == '404') {
+        setErrorMessage(jsonData.message);
+        setWeatherData('');
+      } else {
+        setErrorMessage('');
+        setWeatherData(jsonData);
+      }
+    }
+    setInputValue('');
+  }
 
-//   return (
-//     <StyledWeatherWrapper>
-//       <div className="search-field">
-//         <div className="title">
-//         <Typography gutterBottom variant="h5" component="div">
-//           Welcome to the Weather App
-//         </Typography>
-//         </div>
-//         <Box m={4}>
-//           <TextField
-//             label="Enter a place"
-//             value={searchPlace}
-//             onChange={(event) => handleSearchInputChange(event.target.value)}
-//             InputProps={{
-//               endAdornment: (
-//                 <InputAdornment position="end">
-//                   <Button variant="contained" onClick={() => getData()}>
-//                     Search
-//                   </Button>
-//                 </InputAdornment>
-//               ),
-//             }}
-//           />
-//         </Box>
-//       </div>
-//       {weatherData && (
-//         <div className="display-result">
-//           <Card
-//             className="test"
-//             sx={{
-//               maxWidth: 345,
-//               backgroundImage: Sunset,
-//               opacity: 0.6,
-//             }}
-//           >
-//             <CardContent>
-//               <Typography gutterBottom variant="h5" component="div">
-//                 {weatherData?.name}
-//               </Typography>
-//               <Typography gutterBottom variant="subtitle2" component="div">
-//                 29/04/2023 Sat 14:50
-//               </Typography>
-//               <CardMedia
-//                 component="img"
-//                 height="140"
-//                 image={WeatherIcon}
-//                 alt="green iguana"
-//               />
-//               <Typography variant="h4" color="text.secondary">
-//                 17
-//               </Typography>
-//               <Typography variant="subtitle2" color="text.secondary">
-//                 6 22
-//               </Typography>
-//               <Typography variant="subtitle2" color="text.secondary">
-//                 Right now in -----, it is mostly cloudy
-//               </Typography>
-//               <Divider variant="middle" />
-//               <Typography gutterBottom variant="h5" component="div">
-//                 Weekly forecast
-//               </Typography>
-//             </CardContent>
-//           </Card>
-//         </div>
-//       )}
-//     </StyledWeatherWrapper>
-//   );
-// };
-// export default Weather;
-
-// //search button inside text field
-// //background image in card
-// //size of the card
-// //footer going up
+  return (
+    <StyledWeather>
+      <div className="pageOuterWrapper">
+        <ProjectModal
+          open={openDialog}
+          onClose={handleClickClose}
+          project={weather}
+          color={'#42446e'}
+          handleClickOpen={handleClickOpen}
+        />
+        <div className="pageWrapper">
+          <div className="pageContentWrap">
+            <div className="searchBlock">
+              <input
+                type="search"
+                name=""
+                id="searchBar"
+                value={inputValue}
+                placeholder="Enter City Name"
+                onChange={(e) => {
+                  setErrorMessage('');
+                  setInputValue(e.target.value);
+                }}
+              />
+              <button id="searchBtn" onClick={() => getData()}>
+                SEARCH
+              </button>
+            </div>
+            <p className="errorPara">{errorMessage}</p>
+            <div className="displayBlock">
+              <h3>{weatherData == '' ? '' : weatherData.name}</h3>
+              <img
+                src={
+                  weatherData == ''
+                    ? ''
+                    : `http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`
+                }
+              />
+              <h2>{weatherData == '' ? '' : `${weatherData.main.temp} °C`}</h2>
+              <h3>{weatherData == '' ? '' : weatherData.weather[0].main}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </StyledWeather>
+  );
+}
