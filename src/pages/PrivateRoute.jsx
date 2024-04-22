@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useParams, Navigate } from 'react-router-dom';
+import { URL } from '../helpers/constants';
+
+const { LOGIN } = URL;
 
 function PrivateRoute({ children }) {
   const params = useParams();
@@ -8,7 +11,7 @@ function PrivateRoute({ children }) {
   if (userInfo) {
     return <> {children}</>;
   }
-  return <Navigate to={`/login/${params.page}`} />;
+  return <Navigate to={`${LOGIN}/${params.page}`} />;
 }
 
 PrivateRoute.propTypes = {

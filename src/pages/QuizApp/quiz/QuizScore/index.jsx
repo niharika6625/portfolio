@@ -9,9 +9,9 @@ import TableRow from '@mui/material/TableRow';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { addUsersQuizScore } from '../../store/reducers/quiz/quiz';
-import CustomButton from '../CustomButton.jsx';
-import '../../assets/css/quizScore.scss';
+import StyledQuizScore from './StyledQuizScore.js';
+import CustomButton from '../../../../components/CustomButton.jsx';
+import { addUsersQuizScore } from '../../../../store/reducers/quiz/quiz.js';
 
 export default function QuizScore({ questionsList }) {
   const [score, setScore] = useState(0);
@@ -101,87 +101,89 @@ export default function QuizScore({ questionsList }) {
   };
 
   return (
-    <div className="quizScorePageWrapper">
-      <h3 className="quizScoreHeading">Your total Score is {score}</h3>
-      <TableContainer component={Paper}>
-        <Table
-          sx={{
-            minWidth: 650,
-          }}
-          aria-label="simple table"
-        >
-          <TableHead
+    <StyledQuizScore>
+      <div className="quizScorePageWrapper">
+        <h3 className="quizScoreHeading">Your total Score is {score}</h3>
+        <TableContainer component={Paper}>
+          <Table
             sx={{
-              background: '#e0e0f2',
-              fontSize: '2rem',
-              fontWeight: 'bold',
+              minWidth: 650,
             }}
+            aria-label="simple table"
           >
-            <TableRow>
-              <TableCell
-                sx={{
-                  fontSize: '0.8rem',
-                  fontWeight: 'bold',
-                }}
-              >
-                Ques No.
-              </TableCell>
-              <TableCell
-                sx={{
-                  fontSize: '0.8rem',
-                  fontWeight: 'bold',
-                }}
-              >
-                Question
-              </TableCell>
-              <TableCell
-                sx={{
-                  fontSize: '0.8rem',
-                  fontWeight: 'bold',
-                }}
-              >
-                Your Answer
-              </TableCell>
-              <TableCell
-                sx={{
-                  fontSize: '0.8rem',
-                  fontWeight: 'bold',
-                }}
-              >
-                Correct Answer
-              </TableCell>
-              <TableCell
-                sx={{
-                  fontSize: '0.8rem',
-                  fontWeight: 'bold',
-                }}
-              >
-                Score
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {scoreData.map((obj, index) => (
-              <TableRow
-                key={index + 1}
-                sx={{
-                  '&:last-child td, &:last-child th': {
-                    border: 0,
-                  },
-                }}
-              >
-                <TableCell>{obj.questionNo}</TableCell>
-                <TableCell>{obj.question}</TableCell>
-                <TableCell>{obj.yourAnswer}</TableCell>
-                <TableCell>{obj.correctAnswer}</TableCell>
-                <TableCell>{obj.score}</TableCell>
+            <TableHead
+              sx={{
+                background: '#e0e0f2',
+                fontSize: '2rem',
+                fontWeight: 'bold',
+              }}
+            >
+              <TableRow>
+                <TableCell
+                  sx={{
+                    fontSize: '0.8rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Ques No.
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: '0.8rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Question
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: '0.8rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Your Answer
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: '0.8rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Correct Answer
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontSize: '0.8rem',
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Score
+                </TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <CustomButton onClick={handleHomeNavigation} text="Back to Home" backgroundColor="yellow" />
-    </div>
+            </TableHead>
+            <TableBody>
+              {scoreData.map((obj, index) => (
+                <TableRow
+                  key={index + 1}
+                  sx={{
+                    '&:last-child td, &:last-child th': {
+                      border: 0,
+                    },
+                  }}
+                >
+                  <TableCell>{obj.questionNo}</TableCell>
+                  <TableCell>{obj.question}</TableCell>
+                  <TableCell>{obj.yourAnswer}</TableCell>
+                  <TableCell>{obj.correctAnswer}</TableCell>
+                  <TableCell>{obj.score}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <CustomButton onClick={handleHomeNavigation} text="Back to Home" backgroundColor="yellow" />
+      </div>
+    </StyledQuizScore>
   );
 }
 

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // import '../assets/css/quizHome.scss';
+import questionArray from './quiz/QuizQuestions/index.jsx';
+import QuizScore from './quiz/QuizScore/index.jsx';
 import StyledQuizApp from './StyledQuizApp.js';
 import CustomButton from '../../components/CustomButton.jsx';
-import questionArray from '../../components/quiz/QuizQuestions.jsx';
-import QuizScore from '../../components/quiz/QuizScore.jsx';
 
 export default function QuizHome() {
   const params = useParams();

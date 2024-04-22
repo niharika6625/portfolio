@@ -1,4 +1,8 @@
-.quizDashboardPageWrapper {
+import { styled } from '@mui/material/styles';
+
+const StyledQuizDashboard = styled('div')(
+  () => `
+  .quizDashboardPageWrapper {
     text-align: right;
     padding: 30px 0px;
     padding-top: 120px;
@@ -100,3 +104,7 @@
         margin: 12px 12px;
     }
 }
+  `,
+);
+
+export default StyledQuizDashboard;

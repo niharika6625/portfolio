@@ -9,6 +9,9 @@ export default function CustomButton({
   backgroundColor,
   textTransform,
   sx,
+  buttonProps = {
+    type: 'button',
+  },
 }) {
   let color, hoverColor;
 
@@ -37,6 +40,7 @@ export default function CustomButton({
         },
         ...sx,
       }}
+      {...buttonProps}
     >
       {text}
     </Button>
@@ -50,4 +54,5 @@ CustomButton.propTypes = {
   text: PropTypes.string.isRequired,
   backgroundColor: PropTypes.oneOf(['purple', 'yellow']).isRequired,
   sx: PropTypes.object,
+  buttonProps: PropTypes.object,
 };

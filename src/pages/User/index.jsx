@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../assets/css/usersDashboard.scss';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -11,8 +10,9 @@ import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import CustomButton from '../components/CustomButton.jsx';
-import { addUserData } from '../store/reducers/authentication/authentication';
+import StyledUser from './StyledUser.js';
+import CustomButton from '../../components/CustomButton.jsx';
+import { addUserData } from '../../store/reducers/authentication/authentication';
 
 export default function UsersDashboard() {
   const usersListsArray = useSelector((state) => state.authentication.usersList);
@@ -109,73 +109,75 @@ export default function UsersDashboard() {
   };
 
   return (
-    <div className="loginPageWrap dashboardWrap">
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Do you want to delete this user ?
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={() => deleteUser()} autoFocus>
-            Confirm
-          </Button>
-        </DialogActions>
-      </Dialog>
-      <table className="usersList">
-        <caption>
-          <CustomButton onClick={createUser} text="Add User" backgroundColor="yellow" />
-        </caption>
-        <thead>
-          <tr className="headRow">
-            <th>Username</th>
-            <th>Email</th>
-            <th>Status</th>
-            <th>Type</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {usersListsArray.map((obj, key) => {
-            return (
-              <tr key={key} className="bodyRow">
-                <td>{obj.userName}</td>
-                <td>{obj.email}</td>
-                <td>{obj.status}</td>
-                <td>{obj.type}</td>
-                <td>
-                  <button
-                    className="dashboardEditBtn"
-                    value={obj.id}
-                    onClick={(e) => editUserInfo(e.target.value)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="dashboardEditBtn"
-                    value={obj.id}
-                    onClick={(e) => {
-                      handleClickOpen();
-                      setDeleteId(e.target.value);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <div className="dashboardChart">
-        <Doughnut data={data} />
+    <StyledUser>
+      <div className="loginPageWrap dashboardWrap">
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Do you want to delete this user ?
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Cancel</Button>
+            <Button onClick={() => deleteUser()} autoFocus>
+              Confirm
+            </Button>
+          </DialogActions>
+        </Dialog>
+        <table className="usersList">
+          <caption>
+            <CustomButton onClick={createUser} text="Add User" backgroundColor="yellow" />
+          </caption>
+          <thead>
+            <tr className="headRow">
+              <th>Username</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Type</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {usersListsArray.map((obj, key) => {
+              return (
+                <tr key={key} className="bodyRow">
+                  <td>{obj.userName}</td>
+                  <td>{obj.email}</td>
+                  <td>{obj.status}</td>
+                  <td>{obj.type}</td>
+                  <td>
+                    <button
+                      className="dashboardEditBtn"
+                      value={obj.id}
+                      onClick={(e) => editUserInfo(e.target.value)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="dashboardEditBtn"
+                      value={obj.id}
+                      onClick={(e) => {
+                        handleClickOpen();
+                        setDeleteId(e.target.value);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        <div className="dashboardChart">
+          <Doughnut data={data} />
+        </div>
       </div>
-    </div>
+    </StyledUser>
   );
 }

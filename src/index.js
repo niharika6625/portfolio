@@ -5,29 +5,50 @@ import { ThemeProvider } from '@mui/material/styles';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import QuizCategory from './components/quiz/QuizCategory.jsx';
-import QuizDashboard from './components/quiz/QuizDashboard.jsx';
-import QuizLevel from './components/quiz/QuizLevel.jsx';
+import { URL } from './helpers/constants/constants.js';
 import Layout from './layouts/Layout.jsx';
 import ComponentDesign from './pages/ComponentDesign/index.jsx';
 import CssPractice from './pages/CssPractice/index.jsx';
 // import JsPractice from './pages/JsPractice/index.jsx';
 import FetchData from './pages/FetchData/index.jsx';
 import Home from './pages/Home/index.jsx';
-import InfoUpdate from './pages/InfoUpdate.jsx';
 import Login from './pages/Login/index.jsx';
 import History from './pages/NumberGame/History.jsx';
 import NumberGame from './pages/NumberGame/index.jsx';
 import { PrivateRoute } from './pages/PrivateRoute.jsx';
 import ProductsCart from './pages/ProductCart/index.jsx';
 import QuizHome from './pages/QuizApp/index.jsx';
+import QuizCategory from './pages/QuizApp/quiz/QuizCategory/index.jsx';
+import QuizDashboard from './pages/QuizApp/quiz/QuizDashboard/index.jsx';
+import QuizLevel from './pages/QuizApp/quiz/QuizLevel/index.jsx';
 import Register from './pages/Register/index.jsx';
 import TodoList from './pages/TodoList/index.jsx';
-import UsersDashboard from './pages/UsersDashboard.jsx';
+import UsersDashboard from './pages/User/index.jsx';
+import InfoUpdate from './pages/User/Update/index.jsx';
 import Weather from './pages/Weather/index.jsx';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store.js';
 import { theme } from './theme.js';
+
+const {
+  HOME,
+  WEATHER_APP,
+  TODO_LIST,
+  LOGIN,
+  REGISTER,
+  USER_DASHBOARD,
+  INFO_UPDATE,
+  QUIZ_DASHBOARD,
+  QUIZ_CATEGORY,
+  QUIZ_LEVEL,
+  QUIZ_HOME,
+  COMPONENT_DESIGN,
+  FETCH_DATA,
+  NUMBER_GAME,
+  NUMBER_GAME_HISTORY,
+  CSS_PRACTICE,
+  PRODUCTS_CART,
+} = URL;
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -47,7 +68,7 @@ root.render(
           <ScrollToTop />
           <Routes>
             <Route
-              path="/"
+              path={HOME}
               element={
                 <Layout>
                   <Home />
@@ -55,7 +76,7 @@ root.render(
               }
             />
             <Route
-              path="/weatherApp"
+              path={WEATHER_APP}
               element={
                 <Layout>
                   <Weather />
@@ -63,7 +84,7 @@ root.render(
               }
             />
             <Route
-              path="/todolists"
+              path={TODO_LIST}
               element={
                 <Layout>
                   <PrivateRoute>
@@ -73,7 +94,8 @@ root.render(
               }
             />
             <Route
-              path="/login/:page?"
+              //path="/login/:page?"
+              path={`${LOGIN}/:page?`}
               element={
                 <Layout>
                   <Login />
@@ -81,7 +103,8 @@ root.render(
               }
             />
             <Route
-              path="/register/:page?"
+              //path="/register/:page?"
+              path={`${REGISTER}/:page?`}
               element={
                 <Layout>
                   <Register />
@@ -89,7 +112,7 @@ root.render(
               }
             />
             <Route
-              path="/dashboard"
+              path={USER_DASHBOARD}
               element={
                 <Layout>
                   <PrivateRoute>
@@ -99,7 +122,8 @@ root.render(
               }
             />
             <Route
-              path="/infoUpdate/:id?"
+              //path="/infoUpdate/:id?"
+              path={`${INFO_UPDATE}/:id?`}
               element={
                 <Layout>
                   <PrivateRoute>
@@ -109,7 +133,7 @@ root.render(
               }
             />
             <Route
-              path="/quizDashboard"
+              path={QUIZ_DASHBOARD}
               element={
                 <Layout>
                   <PrivateRoute>
@@ -119,7 +143,7 @@ root.render(
               }
             />
             <Route
-              path="/quizCategory"
+              path={QUIZ_CATEGORY}
               element={
                 <Layout>
                   <PrivateRoute>
@@ -129,7 +153,8 @@ root.render(
               }
             />
             <Route
-              path="/quizlevel/:id?"
+              //path="/quizlevel/:id?"
+              path={`${QUIZ_LEVEL}/:id?`}
               element={
                 <Layout>
                   <PrivateRoute>
@@ -139,7 +164,8 @@ root.render(
               }
             />
             <Route
-              path="/quizHome/:catId?/:levelId?"
+              //path="/quizHome/:catId?/:levelId?"
+              path={`${QUIZ_HOME}/:catId?/:levelId?`}
               element={
                 <Layout>
                   <PrivateRoute>
@@ -149,7 +175,7 @@ root.render(
               }
             />
             <Route
-              path="/component-design"
+              path={COMPONENT_DESIGN}
               element={
                 <Layout>
                   <ComponentDesign />
@@ -157,7 +183,7 @@ root.render(
               }
             />
             <Route
-              path="/fetch-data"
+              path={FETCH_DATA}
               element={
                 <Layout>
                   <FetchData />
@@ -165,7 +191,7 @@ root.render(
               }
             />
             <Route
-              path="/number-game"
+              path={NUMBER_GAME}
               element={
                 <Layout>
                   <NumberGame />
@@ -173,7 +199,7 @@ root.render(
               }
             />
             <Route
-              path="/number-arrange-history"
+              path={NUMBER_GAME_HISTORY}
               element={
                 <Layout>
                   <History />
@@ -181,7 +207,7 @@ root.render(
               }
             />
             <Route
-              path="/css-practice"
+              path={CSS_PRACTICE}
               element={
                 <Layout>
                   <CssPractice />
@@ -197,7 +223,7 @@ root.render(
           }
         /> */}
             <Route
-              path="/productsCart"
+              path={PRODUCTS_CART}
               element={
                 <Layout>
                   <ProductsCart />

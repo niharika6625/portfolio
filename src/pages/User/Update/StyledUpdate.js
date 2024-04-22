@@ -1,4 +1,8 @@
-.css-nje62a-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+import { styled } from '@mui/material/styles';
+
+const StyledUpdate = styled('div')(
+  () => `
+  .css-nje62a-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     // border-color: #1976d2;
     border-width: 0px !important;
 }
@@ -41,3 +45,7 @@
         width: 15px;
       }
 }
+  `,
+);
+
+export default StyledUpdate;

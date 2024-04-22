@@ -1,4 +1,8 @@
-.quizPageWrapper {
+import { styled } from '@mui/material/styles';
+
+const StyledQuizCategory = styled('div')(
+  () => `
+  .quizPageWrapper {
 
     display: flex;
     flex-direction: column;
@@ -54,3 +58,7 @@
         color: white;
     }
 }
+  `,
+);
+
+export default StyledQuizCategory;

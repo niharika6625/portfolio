@@ -9,9 +9,12 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import StyledLogin from './StyledLogin';
 import CustomButton from '../../components/CustomButton.jsx';
 import ProjectModal from '../../components/ProjectModal';
+import { URL } from '../../helpers/constants/constants.js';
 import { PROJECT_DESCRIPTION } from '../../helpers/constants/projectDescription';
-const { login } = PROJECT_DESCRIPTION;
 import { updateUserInfo } from '../../store/reducers/authentication/authentication';
+
+const { login } = PROJECT_DESCRIPTION;
+const { TODO_LIST } = URL;
 
 export default function Login() {
   const [inputEmail, setInputEmail] = useState('');
@@ -79,7 +82,9 @@ export default function Login() {
             if (params.page == 'quiz') {
               navigate('/quizDashboard');
             } else {
-              navigate('/todolists');
+              navigate({
+                TODO_LIST,
+              });
             }
             break;
           }

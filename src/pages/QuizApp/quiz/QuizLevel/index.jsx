@@ -5,7 +5,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import CustomButton from '../CustomButton.jsx';
+import StyledQuizLevel from './StyledQuizLevel.js';
+import CustomButton from '../../../../components/CustomButton.jsx';
 
 export default function QuizLevel() {
   const userInfoData = useSelector((state) => state.authentication.userInfo);
@@ -89,51 +90,53 @@ export default function QuizLevel() {
   }
 
   return (
-    <div className="quizPageWrapper">
-      <div className="quizCategory">
-        <h3 className="quizCategoryHeading">Select Level</h3>
-        <nav aria-label="secondary mailbox folders">
-          <List>
-            {chartData.map((obj, key) => {
-              return (
-                <ListItem
-                  disablePadding
-                  key={key}
-                  onClick={() => handleCategory(obj)}
-                  className={obj.levelId == selectedLevel.levelId ? 'activeCategory' : ''}
-                >
-                  <ListItemButton>
-                    <ListItemText
-                      primary={obj.levelValue}
-                      secondary={
-                        <span
-                          style={{
-                            color: obj.levelId === selectedLevel.levelId ? 'white' : 'inherit',
-                          }}
-                        >
-                          Your Score {obj.levelScore}%
-                        </span>
-                      }
-                    />
-                  </ListItemButton>
-                </ListItem>
-              );
-            })}
-          </List>
-        </nav>
+    <StyledQuizLevel>
+      <div className="quizPageWrapper">
+        <div className="quizCategory">
+          <h3 className="quizCategoryHeading">Select Level</h3>
+          <nav aria-label="secondary mailbox folders">
+            <List>
+              {chartData.map((obj, key) => {
+                return (
+                  <ListItem
+                    disablePadding
+                    key={key}
+                    onClick={() => handleCategory(obj)}
+                    className={obj.levelId == selectedLevel.levelId ? 'activeCategory' : ''}
+                  >
+                    <ListItemButton>
+                      <ListItemText
+                        primary={obj.levelValue}
+                        secondary={
+                          <span
+                            style={{
+                              color: obj.levelId === selectedLevel.levelId ? 'white' : 'inherit',
+                            }}
+                          >
+                            Your Score {obj.levelScore}%
+                          </span>
+                        }
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                );
+              })}
+            </List>
+          </nav>
+        </div>
+        <p className="error">{levelError}</p>
+        <div className="nav-buttons-wrap">
+          <CustomButton
+            onClick={backPage}
+            text="Back"
+            backgroundColor="purple"
+            sx={{
+              marginRight: '10px',
+            }}
+          />
+          <CustomButton onClick={nextPage} text="Next" backgroundColor="purple" />
+        </div>
       </div>
-      <p className="error">{levelError}</p>
-      <div>
-        <CustomButton
-          onClick={backPage}
-          text="Back"
-          backgroundColor="purple"
-          sx={{
-            marginRight: '10px',
-          }}
-        />
-        <CustomButton onClick={nextPage} text="Next" backgroundColor="purple" />
-      </div>
-    </div>
+    </StyledQuizLevel>
   );
 }

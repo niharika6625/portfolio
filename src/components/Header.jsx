@@ -2,7 +2,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import navIcon from '../assets/images/whitelogo.png';
+import { URL } from '../helpers/constants/constants.js';
 import { updateUserInfo } from '../store/reducers/authentication/authentication';
+
+const { LOGIN } = URL;
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -11,7 +14,9 @@ export default function Header() {
 
   const logOutUser = () => {
     dispatch(updateUserInfo(null));
-    navigate('/login');
+    navigate({
+      LOGIN,
+    });
   };
 
   const handleScroll = (targetId) => {

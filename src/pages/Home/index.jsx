@@ -20,6 +20,9 @@ import CustomButton from '../../components/CustomButton.jsx';
 // import Footer from '../../components/Footer.jsx';
 // import Header from '../../components/Header.jsx';
 import ProjectsCard from '../../components/ProjectsCard.jsx';
+import { URL } from '../../helpers/constants/constants.js';
+
+const { WEATHER_APP, LOGIN } = URL;
 
 export default function App() {
   const insightRef = useRef(null);
@@ -197,7 +200,7 @@ export default function App() {
                     description={
                       'Interactive quiz app with diverse topics, user profiles, scoring, and performance tracking for engaging learning experiences.'
                     }
-                    previewLink={'/login/quiz'}
+                    previewLink={`${LOGIN}/quiz`}
                     codeLink={'https://github.com/niharika6625/portfolio/tree/master'}
                   />
                 </Card>
@@ -285,7 +288,7 @@ export default function App() {
                     description={
                       'City-based weather application that allows you to effortlessly find temperature and current conditions instantly for any location worldwide.'
                     }
-                    previewLink={'/weatherApp'}
+                    previewLink={WEATHER_APP}
                     codeLink={'https://github.com/niharika6625/portfolio/tree/master'}
                   />
                 </Card>
