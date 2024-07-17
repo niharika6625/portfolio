@@ -1,11 +1,14 @@
-import React, { Component } from "react";
+/* eslint-disable prettier/prettier */
+//WIP: this functionality has been disabled as of now.
+
+import React, { Component } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./slide.css";
-import image1 from "../../assets/images/1.jpg";
-import image2 from "../../assets/images/2.jpg";
-import image3 from "../../assets/images/3.jpg";
+import 'slick-carousel/slick/slick-theme.css';
+import './slide.css';
+import image1 from '../../assets/images/product_banner_1.jpg';
+import image2 from '../../assets/images/product_banner_2.jpg';
+import image3 from '../../assets/images/product_banner_3.jpg';
 
 export default class PauseOnHover extends Component {
     render() {

@@ -23,8 +23,8 @@ export default function Header() {
     const targetElement = document.getElementById(targetId);
     targetElement.scrollIntoView({
       behavior: 'smooth',
-      block: 'start', // Align the top of the element with the top of the viewport
-      inline: 'nearest', // Scroll to the nearest edge of the viewport
+      block: 'start',
+      inline: 'nearest',
       scrollPadding: {
         top: 100,
       },

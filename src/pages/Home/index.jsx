@@ -4,17 +4,17 @@ import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 // import '../../assets/css/app.scss';
 import StyledHome from './StyledHome.js';
-import github from '../../assets/images/app/techStack/akar-icons_github-fill.svg';
 import bootstrap from '../../assets/images/app/techStack/logos_bootstrap.svg';
-import git from '../../assets/images/app/techStack/logos_git-icon.svg';
+import css from '../../assets/images/app/techStack/logos_css.svg';
+import git from '../../assets/images/app/techStack/logos_git.svg';
+import github from '../../assets/images/app/techStack/logos_github.svg';
+import html from '../../assets/images/app/techStack/logos_html.svg';
+import js from '../../assets/images/app/techStack/logos_js.svg';
+import mui from '../../assets/images/app/techStack/logos_material-ui.svg';
 import react from '../../assets/images/app/techStack/logos_react.svg';
 import sass from '../../assets/images/app/techStack/logos_sass.svg';
-import mui from '../../assets/images/app/techStack/material-ui.svg';
-import css from '../../assets/images/app/techStack/vscode-icons_file-type-css.svg';
-import html from '../../assets/images/app/techStack/vscode-icons_file-type-html.svg';
-import js from '../../assets/images/app/techStack/vscode-icons_file-type-js-official.svg';
-import vsCode from '../../assets/images/app/techStack/vscode-icons_file-type-vscode.svg';
-import numberGame from '../../assets/images/bg2.jpeg';
+import vsCode from '../../assets/images/app/techStack/logos_vscode.svg';
+import numberGame from '../../assets/images/number_game_card.jpeg';
 import profileImg from '../../assets/images/profile.niharika.jpg';
 import CustomButton from '../../components/CustomButton.jsx';
 // import Footer from '../../components/Footer.jsx';
@@ -102,7 +102,7 @@ export default function App() {
               </Grid>
               <Grid item xs={6} sm={3} md={2} lg={2}>
                 <div className="icon-wrapper">
-                  <img src={bootstrap} alt="bootstrap-logo" />
+                  <img src={bootstrap} alt="bootstrap-logo"/>
                   <p className="cardTitle">Bootstrap</p>
                 </div>
               </Grid>

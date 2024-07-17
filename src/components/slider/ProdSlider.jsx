@@ -126,6 +126,4 @@ const ProdSlider = ({ data }) => {
     );
 }
 
-
-
-export default ProdSlider
+export default ProdSlider;
